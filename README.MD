@@ -10,3 +10,17 @@ Herramienta que permite a los usuarios crear y almacenar cuadernillos personaliz
 - Solución dinámica, intuitiva y remota para la firma y almacenamiento de talones.
 
 **PosData:** Aunque actualmente no se ha implementado el registro y el inicio de sesión, se considerará en futuras versiones del proyecto
+
+## **Plantillas de referencia de talonarios:**
+
+- Cheques (principal)
+
+  ![image-20230714150544553](./assets/img/README/image-20230714150544553.png)
+
+- Caja / Recibo de caja 
+
+  ![image-20230714151201866](./assets/img/README/image-20230714151201866.png)
+
+- Talonario de facturas
+
+    ![image-20230714151437987](./assets/img/README/image-20230714151437987.png)
