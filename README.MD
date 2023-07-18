@@ -25,3 +25,8 @@ Herramienta que proporciona al usuario una plantilla para crear y almacenar sus 
 - Talonario de facturas
 
     ![image-20230714151437987](./assets/img/README/image-20230714151437987.png)
+
+- DB:
+
+  ![image-20230714151437988](./assets/img/README/Screenshot%20from%202023-07-18%2006-29-56.png)
+
