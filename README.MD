@@ -1,32 +1,12 @@
-# Talonario Online
+# TALONARIO ONLINE
 
-Herramienta que proporciona al usuario una plantilla para crear y almacenar sus "cuadernillos" del tipo que requieran en la nube. Más específicamente serán denominados "libros" los cuales almacenarán el mismo tipo de "cuadernillo" que se requiera; además de ello, se implementará la opción de firma y edición totalmente virtual, dado el caso que no se pueda o no se tengan los recursos para llevar a cabo dicha firma, existirá una opción para poder imprimirlo donde necesites, la cual te generará un archivo PDF que podrás llevar contigo donde necesites. 
+Herramienta que permite a los usuarios crear y almacenar cuadernillos personalizados en la nube. Estos cuadernillos, llamados "libros", almacenan diferentes tipos de contenido según las necesidades. La plataforma también ofrece una opción de firma y edición virtual para aquellos casos en los que no se puedan llevar a cabo de manera física. Además, se brinda la opción de generar un archivo PDF imprimible para su conveniencia.
 
-**Nota:** Por motivos de seguridad se tendrá un registro y login (detalles que posiblemente se implementarán en futuras versiones del proyecto), sin embargo no se tendrá en cuenta por el momento.
+## Objetivo: 
 
-**OBJETIVO**:  Facilitar la tarea de firmar y almacenar talones (cheques) de forma dinámica, intuitiva y remota.
+- Simplifica el proceso de firmar y almacenar talones de forma eficiente y remota . 
+- Proporciona una herramienta en línea que permite a los usuarios crear y guardar cuadernillos virtuales, llamados "libros", con la capacidad de firmar y editar de manera virtual. 
+- Ofrece la opción de generar un archivo PDF imprimible para situaciones donde se requiera una copia física. 
+- Solución dinámica, intuitiva y remota para la firma y almacenamiento de talones.
 
-**Función**: 
-
-- Crear y editar inputs
-- Descargar archivos tipo PDF o EXCEL
-- 
-
-**Plantillas de referencia de talonarios:**
-
-- Cheques (principal)
-
-  ![image-20230714150544553](./assets/img/README/image-20230714150544553.png)
-
-- Caja / Recibo de caja 
-
-  ![image-20230714151201866](./assets/img/README/image-20230714151201866.png)
-
-- Talonario de facturas
-
-    ![image-20230714151437987](./assets/img/README/image-20230714151437987.png)
-
-- DB:
-
-  ![image-20230714151437988](./assets/img/README/Screenshot%20from%202023-07-18%2006-29-56.png)
-
+**PosData:** Aunque actualmente no se ha implementado el registro y el inicio de sesión, se considerará en futuras versiones del proyecto
