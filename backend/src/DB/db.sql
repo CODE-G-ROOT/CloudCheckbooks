@@ -3,6 +3,21 @@ CREATE DATABASE Talonarios;
 DROP DATABASE Talonarios;
 USE Talonarios;
 
+CREATE TABLE User_ (
+    usu_id INT NOT NULL PRIMARY KEY,
+    usu_surname VARCHAR(25) NOT NULL,
+    usu_email VARCHAR(64) NOT NULL,
+    usu_password VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE Books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    book_name VARCHAR(25) NOT NULL,
+    talon_cant INT,
+    responsable_id INT NOT NULL,
+    CONSTRAINT fk_book_user FOREIGN KEY (responsable_id) REFERENCES User_ (usu_id)
+);
+
 CREATE TABLE Location_ (
     location_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     location_adress VARCHAR(50) NOT NULL,
@@ -46,10 +61,12 @@ CREATE TABLE TALONS (
     talon_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     talon_date DATETIME NOT NULL,
     descripción VARCHAR(2000) NOT NULL,
+    book_id INT NOT NULL,
     person_id INT NOT NULL,
     categories_id INT NOT NULL,
     location_id INT NOT NULL,
     mp_id INT NOT NULL,
+    CONSTRAINT fk_talons_book FOREIGN KEY (book_id) REFERENCES Books (book_id),
     CONSTRAINT fk_talons_person FOREIGN KEY (person_id) REFERENCES Person (person_id),
     CONSTRAINT fk_talons_categories FOREIGN KEY (categories_id) REFERENCES Categories (categories_id),
     CONSTRAINT fk_talons_location FOREIGN KEY (location_id) REFERENCES Location_ (location_id),
