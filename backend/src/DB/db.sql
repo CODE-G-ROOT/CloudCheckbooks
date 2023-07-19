@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1689075950615@@localhost@3306@Talonarios
 CREATE DATABASE Talonarios;
 DROP DATABASE Talonarios;
 USE Talonarios;
@@ -62,7 +62,6 @@ CREATE TABLE CHECK_(
     mp_id INT NOT NULL,
     pay_id INT NOT NULL,
     CONSTRAINT fk_check_categories FOREIGN KEY (categories_id) REFERENCES Categories (categories_id),
-    CONSTRAINT fk_check_methods_pay FOREIGN KEY (mp_id) REFERENCES Method_Pay (mp_id),
     CONSTRAINT fk_check_pay_facture FOREIGN KEY (pay_id) REFERENCES Pay_facture (pay_id)
 );
 
@@ -88,7 +87,6 @@ CREATE TABLE CASH_RECEPCT (
     pay_id INT NOT NULL,
     CONSTRAINT fk_cash_person FOREIGN KEY (person_id) REFERENCES Person (person_id),
     CONSTRAINT fk_cash_categories FOREIGN KEY (categories_id) REFERENCES Categories (categories_id),
-    CONSTRAINT fk_cash_methods_pay FOREIGN KEY (mp_id) REFERENCES Method_Pay (mp_id),
     CONSTRAINT fk_cash_pay_facture FOREIGN KEY (pay_id) REFERENCES Pay_facture (pay_id)
 );
 
