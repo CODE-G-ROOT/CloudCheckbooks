@@ -1,0 +1,3 @@
+ipm init -y
+npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express
+tsc -w
