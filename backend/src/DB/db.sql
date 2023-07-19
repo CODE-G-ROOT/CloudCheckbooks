@@ -5,16 +5,19 @@ USE Talonarios;
 
 CREATE TABLE Location_ (
     location_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    location_adress VARCHAR(50),
-    location_city VARCHAR(76),
-    location_state VARCHAR(56),
-    location_country VARCHAR(47)
+    location_adress VARCHAR(50) NOT NULL,
+    location_city VARCHAR(76) NOT NULL,
+    location_state VARCHAR(56) NOT NULL,
+    location_country VARCHAR(47) NOT NULL
 );
 
 CREATE TABLE Person (
     person_id INT PRIMARY KEY NOT NULL,
-    person_name VARCHAR(45) NOT NULL,
-    person_phone INT(15),
+    person_first_name VARCHAR(45) NOT NULL,
+    person_second_name VARCHAR(45) NOT NULL,
+    person_firt_surname VARCHAR(45) NOT NULL,
+    person_second_surname VARCHAR(45) NOT NULL,
+    person_phone VARCHAR(15),
     person_email VARCHAR(64) NOT NULL
 );
 
@@ -77,8 +80,6 @@ CREATE TABLE BILL (
     CONSTRAINT fk_bill_pay_facture FOREIGN KEY (pay_id) REFERENCES Pay_facture (pay_id)
 );
 
---emisor_firm NOT NULL,
-
 CREATE TABLE CASH_RECEPCT (
     cash_id INT PRIMARY KEY NOT NULL,
     person_id INT NOT NULL,
@@ -93,3 +94,40 @@ CREATE TABLE CASH_RECEPCT (
 
 
     --firm  NOT NULL
+
+
+--INSERTS
+
+INSERT INTO `Location_` (location_id, location_adress, location_city, location_state, location_country) VALUES 
+(1, "calle 104E #10-09", "Bucaramanga", 'Santander', 'Colombia'),
+(2, 'calle 103E #12-18', "Barrancabermeja", "Santander", "Colombia");
+
+INSERT INTO `Person` (person_id, person_first_name, person_second_name, person_firt_surname, person_second_surname, person_phone, person_email) VALUES 
+(1005210392, 'Juan', 'David', 'Avila', 'Ravelo', 3182415511, 'juanavila8856@gmail.com'),
+(1098275511, 'Diana', 'Milena', 'Ravelo', 'Hernandez', 3176537249, 'diana83@gmail.com');
+
+--HAY UN ERROR, NO DEJA PONER MÁS DE 9 NÚMEROS
+
+INSERT INTO `Categories` (categories_id, categories_name) VALUES
+(1, "CHECK_"),
+(2, "BILL"),
+(3, "CASH_RECEPCT"),
+(4, "Pay_facture");
+
+INSERT INTO `Method_Pay` (mp_id, mb_name) VALUES
+(1, "Efectivo"),
+(2, "Debito"),
+(3, "Credito");
+
+INSERT INTO `Pay_facture` (pay_id, amount_num, amount_word, unitary_value, subtotal_for_item, total, mp_id) VALUES 
+(1, 150.000, "Ciento cincuenta mil", 12, 14, 150.000, 1);
+
+INSERT INTO `TALONS` (talon_id, talon_date, descripción, person_id, categories_id, location_id, mp_id) VALUES
+(1, '2023-07-19 15:30:00', "esto da igual", 1005210392, 1, 1, 1);
+
+INSERT INTO `CHECK_` (check_id, categories_id, mp_id, pay_id) VALUES
+(1, 1, 1, 1),
+(2,2,2,1);
+
+INSERT INTO `BILL` (bill_id, terms_conditions, N_I_T, buyer_id, seller_id, categories_id, pay_id) VALUES
+(1, "VALE MONDÁAAAAAAAAAAAAAAA", 4684123, 1, 2, 1, 1);
