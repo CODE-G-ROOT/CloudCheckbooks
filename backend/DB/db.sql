@@ -6,7 +6,7 @@ USE Talonarios;
 
 CREATE TABLE Usuario (
     usu_id INT NOT NULL PRIMARY KEY,
-    usu_surname VARCHAR(50) NOT NULL,
+    usu_nickname VARCHAR(50) NOT NULL,
     usu_email VARCHAR(64) UNIQUE,
     contraseña VARCHAR(50)
 );
@@ -104,7 +104,7 @@ CREATE TABLE Recibo_caja (
 
 --INSERTS
 
-INSERT INTO `Usuario` (usu_id, usu_surname, usu_email, contraseña) VALUES
+INSERT INTO `Usuario` (usu_id, usu_nickname, usu_email, contraseña) VALUES
 (1, 12345, 'usuario1@example.com', 'password1'),
 (2, 67890, 'usuario2@example.com', 'password2'),
 (3, 54321, 'usuario3@example.com', 'password3'),
