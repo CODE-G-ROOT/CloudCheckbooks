@@ -1,7 +1,7 @@
 import expres from "express";
 import 'reflect-metadata';
 import { plainToClass} from "class-transformer";
-import { get_pago } from '../controller/get_pago.js'
+import { get_pago } from '../sources/get_pago.js'
 
 const proxy_pago = expres();
 proxy_cheque.use((req,res, next)=>{

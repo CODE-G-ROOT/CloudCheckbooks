@@ -1,7 +1,7 @@
 import expres from "express";
 import 'reflect-metadata';
 import { plainToClass} from "class-transformer";
-import { get_ubicacion } from '../controller/get_ubicacion.js'
+import { get_ubicacion } from '../sources/get_ubicacion.js'
 
 const proxy_ubicacion = expres();
 proxy_cheque.use((req,res, next)=>{
