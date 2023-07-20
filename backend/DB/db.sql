@@ -6,7 +6,7 @@ USE Talonarios;
 
 CREATE TABLE Usuario (
     usu_id INT NOT NULL PRIMARY KEY,
-    usu_surname INT NOT NULL,
+    usu_surname VARCHAR(50) NOT NULL,
     usu_email VARCHAR(64) UNIQUE,
     contraseña VARCHAR(50)
 );
@@ -104,36 +104,74 @@ CREATE TABLE Recibo_caja (
 
 --INSERTS
 
-INSERT INTO `Location_` (location_id, location_adress, location_city, location_state, location_country) VALUES 
-(1, "calle 104E #10-09", "Bucaramanga", 'Santander', 'Colombia'),
-(2, 'calle 103E #12-18', "Barrancabermeja", "Santander", "Colombia");
+INSERT INTO `Usuario` (usu_id, usu_surname, usu_email, contraseña) VALUES
+(1, 12345, 'usuario1@example.com', 'password1'),
+(2, 67890, 'usuario2@example.com', 'password2'),
+(3, 54321, 'usuario3@example.com', 'password3'),
+(4, 98765, 'usuario4@example.com', 'password4'),
+(5, 24680, 'usuario5@example.com', 'password5');
 
-INSERT INTO `Person` (person_id, person_first_name, person_second_name, person_firt_surname, person_second_surname, person_phone, person_email) VALUES 
-(1005210392, 'Juan', 'David', 'Avila', 'Ravelo', 3182415511, 'juanavila8856@gmail.com'),
-(1098275511, 'Diana', 'Milena', 'Ravelo', 'Hernandez', 3176537249, 'diana83@gmail.com');
+INSERT INTO `Libros` (libro_name, talon_cant, responsable_id) VALUES
+('Libro1', 10, 1),
+('Libro2', 5, 2),
+('Libro3', 20, 3),
+('Libro4', 8, 4),
+('Libro5', 15, 5);
 
---HAY UN ERROR, NO DEJA PONER MÁS DE 9 NÚMEROS
+INSERT INTO `Ubicacion` (ubicacion_direccion, ubicacion_ciudad, ubicacion_estado, ubicacion_pais) VALUES
+('Calle 1, No. 123', 'Ciudad A', 'Estado X', 'País 1'),
+('Avenida 2, No. 456', 'Ciudad B', 'Estado Y', 'País 2'),
+('Carrera 3, No. 789', 'Ciudad C', 'Estado Z', 'País 3'),
+('Calle 4, No. 1011', 'Ciudad D', 'Estado W', 'País 4'),
+('Avenida 5, No. 1213', 'Ciudad E', 'Estado V', 'País 5');
 
-INSERT INTO `Categories` (categories_id, categories_name) VALUES
-(1, "CHECK_"),
-(2, "BILL"),
-(3, "CASH_RECEPCT"),
-(4, "Pay_facture");
+INSERT INTO `Persona` (persona_id, persona_nombre, person_phone, person_email) VALUES
+(10001, 'Persona1', '3181234567', 'persona1@example.com'),
+(10002, 'Persona2', '3179876543', 'persona2@example.com'),
+(10003, 'Persona3', '3105555555', 'persona3@example.com'),
+(10004, 'Persona4', '3151111111', 'persona4@example.com'),
+(10005, 'Persona5', '3142222222', 'persona5@example.com');
 
-INSERT INTO `Method_Pay` (mp_id, mb_name) VALUES
-(1, "Efectivo"),
-(2, "Debito"),
-(3, "Credito");
+INSERT INTO `Metodo_pago` (metodo_pago_id, mp_nombre) VALUES
+(1, 'Efectivo'),
+(2, 'Tarjeta de crédito'),
+(3, 'Transferencia bancaria'),
+(4, 'Cheque'),
+(5, 'PayPal');
 
-INSERT INTO `Pay_facture` (pay_id, amount_num, amount_word, unitary_value, subtotal_for_item, total, mp_id) VALUES 
-(1, 150.000, "Ciento cincuenta mil", 12, 14, 150.000, 1);
+INSERT INTO `Pago` (monto_num, monto_palabras, valor_unitario, subtotal_por_item, total, metodo_pago_id) VALUES
+(500, 'Quinientos pesos', 50, 250, 500, 1),
+(1000, 'Mil pesos', 100, 200, 1000, 2),
+(1500, 'Mil quinientos pesos', 200, 300, 1500, 3),
+(2000, 'Dos mil pesos', 250, 250, 2000, 4),
+(2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
 
-INSERT INTO `TALONS` (talon_id, talon_date, descripción, person_id, categories_id, location_id, mp_id) VALUES
-(1, '2023-07-19 15:30:00', "esto da igual", 1005210392, 1, 1, 1);
+INSERT INTO `TALONS` (talon_fecha, descripcion, libro_id, persona_id, responsable_id, talon_tipo_id, ubicacion_id, metodo_pago_id) VALUES
+('2023-07-19 08:30:00', 'Descripción 1', 1, 10001, 1, 1, 1, 1),
+('2023-07-20 10:00:00', 'Descripción 2', 2, 10002, 2, 2, 2, 2),
+('2023-07-21 12:30:00', 'Descripción 3', 3, 10003, 3, 3, 3, 3),
+('2023-07-22 14:00:00', 'Descripción 4', 4, 10004, 4, 4, 4, 4),
+('2023-07-23 16:30:00', 'Descripción 5', 5, 10005, 5, 5, 5, 5);
 
-INSERT INTO `CHECK_` (check_id, categories_id, mp_id, pay_id) VALUES
-(1, 1, 1, 1),
-(2,2,2,1);
+INSERT INTO `Cheque` (persona_id, pago_id) VALUES
+(10001, 1),
+(10002, 2),
+(10003, 3),
+(10004, 4),
+(10005, 5);
 
-INSERT INTO `BILL` (bill_id, terms_conditions, N_I_T, buyer_id, seller_id, categories_id, pay_id) VALUES
-(1, "VALE MONDÁAAAAAAAAAAAAAAA", 4684123, 1, 2, 1, 1);
+INSERT INTO `Factura` (terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id) VALUES
+('Términos y condiciones 1', 123456789, 10001, 10002, 1),
+('Términos y condiciones 2', 987654321, 10003, 10004, 2),
+('Términos y condiciones 3', 135792468, 10005, 10001, 3),
+('Términos y condiciones 4', 246813579, 10002, 10003, 4),
+('Términos y condiciones 5', 987654321, 10004, 10005, 5);
+
+INSERT INTO `Recibo_caja` (recibo_caja_id, persona_id, pago_id) VALUES
+(1, 10001, 1),
+(2, 10002, 2),
+(3, 10003, 3),
+(4, 10004, 4),
+(5, 10005, 5);
+
+SELECT * FROM `Cheque`;
