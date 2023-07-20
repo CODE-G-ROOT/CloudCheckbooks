@@ -27,7 +27,7 @@ __decorate([
     Expose({ name: 'usuario_id' }),
     Transform(({ value }) => {
         if (Math.floor(value) && value > 0)
-            return value
+            return Math.floor(value);
         else
             throw {
                 status: 400,
@@ -46,7 +46,7 @@ __decorate([
                 status: 400,
                 message: `El formato de usuario_id ingresado no es válido. Debe seguir la especificación "INT > 0".`
             };
-            return value;
+            return value.substring(0, 50);
     }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], get_usuario.prototype, "usu_nickname", void 0);
@@ -60,7 +60,7 @@ __decorate([
                 status: 400,
                 message: `El formato de usuario_id ingresado no es válido. Debe seguir la especificación "INT > 0".`
             };
-            return value;
+            return value.substring(0, 100);
     }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], get_usuario.prototype, "usu_email", void 0);
