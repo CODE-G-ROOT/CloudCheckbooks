@@ -56,9 +56,9 @@ export class get_libros{
     personEmail: String;
 
     constructor(personaID: Number,personaNombre: String,personPhone: String,personEmail: String){
-        this.personaID = personaID
-        this.personaNombre = personaNombre
-        this.personPhone = personPhone
-        this.personEmail = personEmail
+        this.personaID = personaID;
+        this.personaNombre = personaNombre;
+        this.personPhone = personPhone;
+        this.personEmail = personEmail;
     }
 }

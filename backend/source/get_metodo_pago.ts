@@ -29,8 +29,8 @@ export class get_pago{
     mpNombre: String;
 
     constructor(metodo_pagoID : Number, mpNombre: String){
-        this.metodo_pagoID = metodo_pagoID
-        this.mpNombre = mpNombre
+        this.metodo_pagoID = metodo_pagoID;
+        this.mpNombre = mpNombre;
     }
 
 }

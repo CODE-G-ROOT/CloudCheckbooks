@@ -11,7 +11,7 @@ export class get_cheque {
         }
         return value;
     }, 
-    {toClassOnly: true})    
+    {toClassOnly: true})
     chequeID: Number;
 
     @Expose ({name : 'persona_id'})
@@ -41,8 +41,8 @@ export class get_cheque {
     pagoID: Number;
 
     constructor(chequeID: Number, personaID: Number, pagoID: Number){
-        this.chequeID = chequeID,
-        this.personaID = personaID,
-        this.pagoID = pagoID
+        this.chequeID = chequeID;
+        this.personaID = personaID;
+        this.pagoID = pagoID;
     }
 }

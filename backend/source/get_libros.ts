@@ -55,9 +55,9 @@ export class get_libros{
     resposableID: Number;
     
     constructor(libroID: Number, libroName: String, talon_CANT: Number, resposableID: Number){
-        this.libroID = libroID,
-        this.libroName = libroName,
-        this.resposableID = resposableID,
-        this.talon_CANT = talon_CANT
+        this.libroID = libroID;
+        this.libroName = libroName;
+        this.resposableID = resposableID;
+        this.talon_CANT = talon_CANT;
     }
 }   

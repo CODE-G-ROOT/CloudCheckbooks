@@ -67,6 +67,19 @@ export class get_facturas {
     {toClassOnly: true})
     pagoID : Number;
 
+    @Expose({name : 'N_I_T'})
+    @Transform (({value})=>{
+        if(!Math.floor(value) && value > 0){
+            throw {
+                status: 400,
+                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+            }
+        }
+        return value;
+    },
+    {toClassOnly: true})
+    NIT : Number;
+
     constructor  (facturaID : Number ,terminosCondiciones : String, NIT: Number,  compradorID: Number, vendedorID : Number, pagoID : Number){
         this.facturaID = facturaID,
         this.terminosCondiciones = terminosCondiciones,

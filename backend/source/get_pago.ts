@@ -94,13 +94,13 @@ export class get_pago{
     metodo_p_ID : Number;
 
     constructor(pagoID : Number ,monto_NUM : Number ,montoPalabras: String ,val_UNI : Number ,subtotal_item : Number ,total_ : Number ,metodo_p_ID : Number){
-        this.pagoID = pagoID
-        this.monto_NUM = monto_NUM
-        this.montoPalabras = montoPalabras
-        this.val_UNI = val_UNI
-        this.subtotal_item = subtotal_item
-        this.total_ = total_
-        this.metodo_p_ID = metodo_p_ID
+        this.pagoID = pagoID;
+        this.monto_NUM = monto_NUM;
+        this.montoPalabras = montoPalabras;
+        this.val_UNI = val_UNI;
+        this.subtotal_item = subtotal_item;
+        this.total_ = total_;
+        this.metodo_p_ID = metodo_p_ID;
     }
 
 }

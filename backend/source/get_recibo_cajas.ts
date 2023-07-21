@@ -41,8 +41,8 @@ export class get_libros{
     pagoID: Number;
 
     constructor(recibo_cajaID: Number,libroID: Number,pagoID: Number){
-        this.recibo_cajaID = recibo_cajaID
-        this.libroID = libroID
-        this.pagoID = pagoID
+        this.recibo_cajaID = recibo_cajaID;
+        this.libroID = libroID;
+        this.pagoID = pagoID;
     }
 }
