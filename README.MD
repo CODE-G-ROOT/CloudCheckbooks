@@ -24,4 +24,4 @@ Herramienta que permite a los usuarios crear y almacenar cuadernillos personaliz
 
 ## **PROYECCIÓN DE LA BASE DE DATOS:**
 
-![image-20230714151437987](./assets/img/README/db.png)
+![image-20230714151437987](./assets/img/README/diagrama.png)
