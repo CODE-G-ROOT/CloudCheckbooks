@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1689010512005@@localhost@3306@Talonarios
 USE Talonarios;
 INSERT INTO `Usuario` (usu_id, usu_nickname, usu_email, contraseña) VALUES
 (1, 12345, 'usuario1@example.com', 'password1'),
@@ -69,3 +69,14 @@ INSERT INTO `Recibo_caja` (recibo_caja_id, persona_id, pago_id) VALUES
 (3, 10003, 3),
 (4, 10004, 4),
 (5, 10005, 5);
+
+--* REFERENCIA DE INNER JOIN
+/* SELECT *
+FROM Cheque
+INNER JOIN `Persona` ON Cheque.persona_id= Persona.persona_id; */
+
+/* SELECT * FROM `Usuario`
+INNER JOIN `TALONS` ON Usuario.usu_id = TALONS.responsable_id;
+
+SELECT * FROM `TALONS`
+INNER JOIN `Usuario` ON TALONS.responsable_id = Usuario.usu_id; */

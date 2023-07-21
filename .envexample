@@ -3,6 +3,14 @@ npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-meta
 tsc --init
 tsc -w
 
-MY_CONFIG={"hostname": ,"port": }
-MY_CONNECT={"host":"", "user":"", "database":"","password":"port"}
+DB_CONFIG={"host": "localhost", "port": 3306, "database": "Talonarios", "user": "campus", "password":"campus2023"}
+MY_CONFIG={"hostname": "127.23.12.50", "port": 5010}
 
+--* REFERENCIA DE INNER JOIN
+/* SELECT *
+FROM Cheque
+INNER JOIN `Persona` ON Cheque.persona_id= Persona.persona_id; */
+
+/* SELECT * FROM `TALONS`
+INNER JOIN `Libros` ON TALONS.libro_id = Libros.libro_id
+INNER JOIN `Persona` ON Persona.persona_id = TALONS.persona_id; */
