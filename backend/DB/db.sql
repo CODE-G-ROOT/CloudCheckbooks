@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1690092600382@@localhost@3306@Talonarios
 DROP DATABASE Talonarios;
 CREATE DATABASE Talonarios;
 USE Talonarios;
@@ -31,7 +31,9 @@ CREATE TABLE Persona (
     persona_id INT PRIMARY KEY NOT NULL,
     persona_nombre VARCHAR(50) NOT NULL,
     person_phone VARCHAR(15),
-    person_email VARCHAR(64) NOT NULL
+    person_email VARCHAR(64) NOT NULL,
+    ubicacion_id INT NOT NULL,
+    CONSTRAINT fk_persona_ubicacion FOREIGN KEY (ubicacion_id) REFERENCES Ubicacion (ubicacion_id)
 );
 
 CREATE TABLE Metodo_pago (
@@ -50,7 +52,7 @@ CREATE TABLE Pago(
     CONSTRAINT fk_pay_methodo_pago FOREIGN KEY (metodo_pago_id) REFERENCES Metodo_pago (metodo_pago_id)
 );
 
-CREATE TABLE TALONS (
+CREATE TABLE TALONARIO (
     talon_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     talon_fecha DATETIME NOT NULL,
     descripcion VARCHAR(2000) NOT NULL,
@@ -62,7 +64,6 @@ CREATE TABLE TALONS (
     metodo_pago_id INT NOT NULL,
     CONSTRAINT fk_talons_libro_id FOREIGN KEY (libro_id) REFERENCES Libros (libro_id),
     CONSTRAINT fk_talons_persona_id FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),
-    CONSTRAINT fk_talons_ubicacion_id FOREIGN KEY (ubicacion_id) REFERENCES Ubicacion (ubicacion_id),
     CONSTRAINT fk_talons_metodo_id FOREIGN KEY (metodo_pago_id) REFERENCES Metodo_pago (metodo_pago_id),
     CONSTRAINT fk_talons_usuario_id FOREIGN KEY (responsable_id) REFERENCES Usuario (usu_id)
 );

@@ -6,6 +6,24 @@ tsc -w
 DB_CONFIG={"host": "localhost", "port": 3306, "database": "Talonarios", "user": "campus", "password":"campus2023"}
 MY_CONFIG={"hostname": "127.23.12.50", "port": 5010}
 
+tecnologias utilizadas:
+sql
+typescript
+javascript
+phpmyadmin
+npm
+
+dependencias utilizanas:
+"class": "0.1.4",
+"class-transformer": "0.5.1",
+"dotenv": "16.3.1",
+"express": "4.18.2",
+"mysql2": "3.5.1",
+"nodemon": "3.0.1",
+"reflect-metadata": "0.1.13",
+"typescript": "^5.1.6",
+"validator": "13.9.0"
+
 --* REFERENCIA DE INNER JOIN
 /* SELECT *
 FROM Cheque
