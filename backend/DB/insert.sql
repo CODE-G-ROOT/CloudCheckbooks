@@ -7,12 +7,12 @@ INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña) VALUES
 (4, 'user4', 'user4@example.com', 'password4'),
 (5, 'user5', 'user5@example.com', 'password5');
 
-INSERT INTO Libros (libro_name, talon_cant, responsable_id) VALUES
-('Libro A', 50, 1),
-('Libro B', 30, 2),
-('Libro C', 20, 3),
-('Libro D', 40, 4),
-('Libro E', 25, 5);
+INSERT INTO Libros (libro_name, responsable_id) VALUES
+('Libro A', 1),
+('Libro B', 2),
+('Libro C', 3),
+('Libro D', 4),
+('Libro E', 5);
 
 INSERT INTO Ubicacion (ubicacion_direccion, ubicacion_ciudad, ubicacion_estado, ubicacion_pais) VALUES
 ('Calle 1, No. 123', 'Ciudad A', 'Estado X', 'País 1'),
@@ -21,7 +21,7 @@ INSERT INTO Ubicacion (ubicacion_direccion, ubicacion_ciudad, ubicacion_estado, 
 ('Calle 4, No. 1011', 'Ciudad D', 'Estado W', 'País 4'),
 ('Avenida 5, No. 1213', 'Ciudad E', 'Estado V', 'País 5');
 
-INSERT INTO Persona (persona_id, persona_nombre, person_phone, person_email, ubicacion_id) VALUES
+INSERT INTO Persona (persona_id, persona_nombre, persona_phone, persona_email, ubicacion_id) VALUES
 (10001, 'Persona 1', '3181234567', 'persona1@example.com', 1),
 (10002, 'Persona 2', '3179876543', 'persona2@example.com', 2),
 (10003, 'Persona 3', '3105555555', 'persona3@example.com', 3),
@@ -42,7 +42,7 @@ INSERT INTO Pago (monto_num, monto_palabras, valor_unitario, subtotal_por_item, 
 (2000, 'Dos mil pesos', 250, 250, 2000, 4),
 (2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
 
-INSERT INTO TALONS (talon_fecha, descripcion, libro_id, persona_id, responsable_id, talon_tipo_id, ubicacion_id, metodo_pago_id) VALUES
+INSERT INTO `TALONARIO` (talon_fecha, descripcion, libro_id, persona_id, responsable_id, talon_tipo_id, ubicacion_id, metodo_pago_id) VALUES
 ('2023-07-19 08:30:00', 'Descripción 1', 1, 10001, 1, 1, 1, 1),
 ('2023-07-20 10:00:00', 'Descripción 2', 2, 10002, 2, 2, 2, 2),
 ('2023-07-21 12:30:00', 'Descripción 3', 3, 10003, 3, 3, 3, 3),
@@ -70,41 +70,4 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (4, 10004, 4),
 (5, 10005, 5);
 
---* REFERENCIA DE INNER JOIN
-/* SELECT *
-FROM Cheque
-INNER JOIN `Persona` ON Cheque.persona_id= Persona.persona_id; */
-
-/* SELECT * FROM `Usuario`
-INNER JOIN `TALONS` ON Usuario.usu_id = TALONS.responsable_id;
-*/
-
-SELECT 
-    libro_id as id,
-    libro_name as nombre,
-    talon_cant as cantidad_libros,
-    usu_nickname as responsable
-    
-    FROM `Libros`
-    LEFT JOIN `Usuario`
-    ON Libros.libro_id = Usuario.usu_id;
-INNER JOIN `Usuario` ON TALONS.responsable_id = Usuario.usu_id;
-
-SELECT persona_id as id,
-    persona_nombre as nombre,
-    person_phone as teléfono,
-    person_email as email,
-    ubicacion_direccion as direccion
-FROM `Persona`
-LEFT JOIN `Ubicacion` ON Persona.ubicacion_id = Ubicacion.ubicacion_id;
-
-DELETE FROM Ubicacion;
-DELETE FROM TALONS;
-DELETE FROM Recibo_caja;
-DELETE FROM Persona;
-DELETE FROM Pago;
-DELETE FROM Metodo_pago;
-DELETE FROM Libros;
-DELETE FROM Factura;
-DELETE FROM Cheque;
-
+SELECT * FROM `Cheque`;

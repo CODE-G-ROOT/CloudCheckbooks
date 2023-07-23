@@ -4,19 +4,24 @@ import { Router, query } from "express";
 
 dotenv.config();
 
-const router_Citas = Router();
+const router_Cheque = Router();
 let con = undefined;
 
-router_Citas.use((req, res, next)=>{
+router_Cheque.use((req, res, next)=>{
     let myConfig = JSON.parse(process.env.DB_MYCONFIG);
     con = mysql.createPool(myConfig);
     next();
 })
 
-router_Citas.get("/", (req, res)=>{
+router_Cheque.get("/", (req, res)=>{
     con,query(
-        `SELECT * FROM JOIN `
-    )
+        `SELECT * FROM Cheque;`,
+        (err,data,fil)=>{
+            data = JSON.stringify(data);
+            res.send(JSON.parse(data));
+        }
+    );
 })
 
 
+export default router_Cheque;
