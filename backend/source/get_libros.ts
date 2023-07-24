@@ -8,7 +8,7 @@ export class get_libros{
         if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string sin simbolos. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato libroName solo permite letas A-z .`
             }
         }
         return value;
@@ -21,7 +21,7 @@ export class get_libros{
         if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato talon_CANT solo permite números.`
             }
         }
         return value;
@@ -34,7 +34,7 @@ export class get_libros{
         if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato resposableID solo permite números..`
             }
         }
         return value;

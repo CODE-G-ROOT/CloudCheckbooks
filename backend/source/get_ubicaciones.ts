@@ -5,10 +5,10 @@ export class get_ubicaciones {
     @Expose ({name : 'ubicacion_direccion'})
     @Transform (({value})=>{
         const regex = /^[A-Za-z0-9\s\-#.,]+$/;
-        if(regex.test(value)){
+        if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `Èl dato ingresado no es valido. El valor ${value} solo puede ser de tipo string y no puede contener los siguientes carácteres: "@, #, {}, [], ^". Si su consulta tiene alguno de estos carácteres, por favor corríjalos.`
+                message: `Èl dato ingresado ubicacionDIRECT no es valido. El valor solo permite datos tipo string.`
             }
         }
         return value
@@ -22,7 +22,7 @@ export class get_ubicaciones {
         if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string sin simbolos. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado ubicacionCity no es valido. El valor solo permite datos tipo string.`
             }
         }
         return value;
@@ -36,7 +36,7 @@ export class get_ubicaciones {
         if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string sin simbolos. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado ubicacionEstado no es valido. El valor solo permite datos tipo string.`
             }
         }
         return value;
@@ -47,10 +47,10 @@ export class get_ubicaciones {
     @Expose  ({name : 'ubicacion_pais'})
     @Transform (({value})=>{
         const regex = /^[A-Za-z\s]+$/;
-        if(!regex.test(value)){
+        if(!    regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string sin simbolos. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado ubicacionPais no es valido. El valor solo permite datos tipo string.`
             }
         }
         return value;

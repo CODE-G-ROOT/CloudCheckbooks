@@ -7,7 +7,7 @@ export class get_cheques {
         if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `Para el identificador de la persona, se solicita que solo sea de tipo numérico.`
             };
         }
         return value
@@ -20,7 +20,7 @@ export class get_cheques {
         if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `Para el identificador del pago, se solicita que solo sea de tipo numérico.`
             };
         }
         return value;

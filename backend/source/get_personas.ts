@@ -6,7 +6,7 @@ export class get_personas{
         if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato personaID solo permite números.`
             }
         }
         return value;
@@ -20,7 +20,7 @@ export class get_personas{
         if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string sin simbolos. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato personaNombre solo permite letras.`
             }
         }
         return value;
@@ -30,10 +30,10 @@ export class get_personas{
 
     @Expose  ({name : 'persona_phone'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato personPhone solo permite números.`
             }
         }
         return value;
@@ -44,10 +44,10 @@ export class get_personas{
     @Expose  ({name : 'persona_email'})
     @Transform (({value})=>{
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-        if(!regex.test(value)){
+        if(regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado no es valido. El valor person_email solo puede ser tipo string.`
             }
         }
         return value;
@@ -60,7 +60,7 @@ export class get_personas{
         if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado ubicacionID no es valido. El valor ${value} solo puede ser tipo numérico.`
             }
         }
         return value;

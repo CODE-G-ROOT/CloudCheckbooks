@@ -7,7 +7,7 @@ export class get_recibos_caja{
         if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado libroID no es valido. Solo se permite datos tipo number.`
             }
         }
         return value;
@@ -20,7 +20,7 @@ export class get_recibos_caja{
         if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado pagoID no es valido. Solo se permite datos tipo number.`
             }
         }
         return value;

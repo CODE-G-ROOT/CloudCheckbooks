@@ -4,10 +4,10 @@ export class get_facturas {
 
     @Expose ({name : 'terminos_condiciones'})
     @Transform (({value})=>{
-        if(!value){
+        if(value){
             throw {
                 status: 400,
-                message: `Èl dato ingresado no es valido. Falta llenar el campo.`
+                message: `Los terminos y condiciones solo pueden ser de tipo string.`
             }
         }
         return value
@@ -17,10 +17,10 @@ export class get_facturas {
 
     @Expose({name : 'comprador_id'})
     @Transform(({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `EL identificador del comprador, solo puede ser de tipo number.`
             }
         }
         return value;
@@ -30,10 +30,10 @@ export class get_facturas {
 
     @Expose({name : 'vendedor_id'})
     @Transform(({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El identificador del vendedorID solo puede ser de tipo numérico.`
             }
         }
         return value;
@@ -43,10 +43,10 @@ export class get_facturas {
 
     @Expose({name : 'pago_id'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El identificador del pagoID solo puede ser de tipo numérico.`
             }
         }
         return value;
@@ -56,10 +56,10 @@ export class get_facturas {
 
     @Expose({name : 'N_I_T'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El identificador del NIT solo puede ser de tipo numérico.`
             }
         }
         return value;

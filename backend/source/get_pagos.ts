@@ -4,10 +4,10 @@ export class get_pagos{
 
     @Expose ({name : 'monto_num'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato monto_NUM solo permite numeros.`
             }
         }
         return value;
@@ -21,7 +21,7 @@ export class get_pagos{
         if(!regex.test(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato montoPalabras solo permite letras.`
             }
         }
         return value;
@@ -31,10 +31,10 @@ export class get_pagos{
 
     @Expose({name : 'valor_unitario'})
     @Transform (({value})=>{
-        if(!Math.floor(value)){
+        if(Math.floor(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato val_UNI solo permite numeros.`
             }
         }
         return value
@@ -44,10 +44,10 @@ export class get_pagos{
 
     @Expose({name : 'subtotal_por_item'})
     @Transform (({value})=>{
-        if(!Math.floor(value)){
+        if(Math.floor(value)){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato subtotal_item solo perite números.`
             }
         }
         return value
@@ -57,10 +57,10 @@ export class get_pagos{
 
     @Expose({name : 'total'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato total_ solo perite números.`
             }
         }
         return value
@@ -70,10 +70,10 @@ export class get_pagos{
 
     @Expose({name : 'metodo_pago_id'})
     @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
+        if(Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato metodo_p_ID solo perite números.`
             }
         }
         return value
