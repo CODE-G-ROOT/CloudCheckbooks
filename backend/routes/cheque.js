@@ -8,6 +8,7 @@ dotenv.config();
 const router_Cheque = Router();
 let con = undefined;
 
+//* Configuración para la base de datos
 router_Cheque.use((req,res,next)=>{
     let myconfig = JSON.parse(process.env.DB_CONFIG);
     con = mysql.createPool(myconfig);
@@ -23,7 +24,7 @@ router_Cheque.get("/", (req,res)=>{
                 res.sendStatus(500);
                 console.log(data);
             } else {
-                res.send(JSON.stringify(data));
+                res.send(data);
             }
         }
     );
