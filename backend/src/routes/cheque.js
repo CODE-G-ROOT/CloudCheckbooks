@@ -16,7 +16,7 @@ router_cheque.use((req,res,next)=>{
     next();
 })
 
-router_cheque.get('/cheque', (req,res)=>{
+router_cheque.get('/', (req,res)=>{
     con.query(
         /*sql*/`SELECT * FROM Cheque`,
         (err,data,fill)=>{
