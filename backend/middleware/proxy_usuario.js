@@ -1,17 +1,17 @@
-import expres from "express";
-import 'reflect-metadata';
-import { plainToClass} from "class-transformer";
-import { get_usuario } from '../sources/get_usuario.js'
+import express from "express"; 
+import "reflect-metadata";
+import { plainToClass } from "class-transformer";
+import { get_usuarios } from '../controllers/get_usuarios.js';
+import { validate } from "class-validator";
 
-const proxy_usuario = expres();
-proxy_cheque.use((req,res, next)=>{
+const proxy_usuarios = express();
+proxy_usuarios.use(async (req,res,next)=>{
     try {
-        let data = plainToClass(get_usuario, req.query, {excludeExtraneousValues: true});
-        req.query = JSON.parse(JSON.stringify(data));
+        let data = plainToClass(get_usuarios, req.body, { excludeExtraneousValues: true});
+        await validate(data);
         next();
     } catch (err) {
         res.status(err.status).send(err);
     }
-});
-
-export default proxy_usuario;
+})
+export default proxy_usuarios;

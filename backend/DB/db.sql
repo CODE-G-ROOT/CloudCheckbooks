@@ -93,7 +93,7 @@ CREATE TABLE Factura (
 );
 
 CREATE TABLE Recibo_caja (
-    recibo_caja_id INT PRIMARY KEY NOT NULL,
+    recibo_caja_id INT PRIMARY AUTO_INCREMENT KEY NOT NULL,
     persona_id INT NOT NULL,
     pago_id INT NOT NULL,
     CONSTRAINT fk_cash_persona FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),

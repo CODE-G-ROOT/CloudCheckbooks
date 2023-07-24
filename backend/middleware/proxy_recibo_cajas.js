@@ -1,17 +1,17 @@
-import expres from "express";
-import 'reflect-metadata';
-import { plainToClass} from "class-transformer";
-import { get_recibo_caja } from '../controller/get_recibo_caja.js'
+import express from "express"; 
+import "reflect-metadata";
+import { plainToClass } from "class-transformer";
+import { get_recibos_caja } from '../controllers/get_recibos_caja.js';
+import { validate } from "class-validator";
 
-const proxy_recibo_caja = expres();
-proxy_cheque.use((req,res, next)=>{
+const proxy_recibos_caja = express();
+proxy_recibos_caja.use(async (req,res,next)=>{
     try {
-        let data = plainToClass(get_recibo_caja, req.query, {excludeExtraneousValues: true});
-        req.query = JSON.parse(JSON.stringify(data));
+        let data = plainToClass(get_recibos_caja, req.body, { excludeExtraneousValues: true});
+        await validate(data);
         next();
     } catch (err) {
         res.status(err.status).send(err);
     }
-});
-
-export default proxy_recibo_caja;
+})
+export default proxy_recibos_caja;

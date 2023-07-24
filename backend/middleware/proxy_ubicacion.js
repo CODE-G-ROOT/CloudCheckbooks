@@ -1,17 +1,17 @@
-import expres from "express";
-import 'reflect-metadata';
-import { plainToClass} from "class-transformer";
-import { get_ubicacion } from '../sources/get_ubicacion.js'
+import express from "express"; 
+import "reflect-metadata";
+import { plainToClass } from "class-transformer";
+import { get_ubicaciones } from '../controllers/get_ubicaciones.js';
+import { validate } from "class-validator";
 
-const proxy_ubicacion = expres();
-proxy_cheque.use((req,res, next)=>{
+const proxy_ubicaciones = express();
+proxy_ubicaciones.use(async (req,res,next)=>{
     try {
-        let data = plainToClass(get_ubicacion, req.query, {excludeExtraneousValues: true});
-        req.query = JSON.parse(JSON.stringify(data));
+        let data = plainToClass(get_ubicaciones, req.body, { excludeExtraneousValues: true});
+        await validate(data);
         next();
     } catch (err) {
         res.status(err.status).send(err);
     }
-});
-
-export default proxy_ubicacion;
+})
+export default proxy_ubicaciones;

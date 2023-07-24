@@ -1,17 +1,17 @@
-import expres from "express";
-import 'reflect-metadata';
-import { plainToClass} from "class-transformer";
-import { get_factura } from '../controller/get_factura.js'
+import express from "express"; 
+import "reflect-metadata";
+import { plainToClass } from "class-transformer";
+import { get_facturas } from '../controllers/get_facturas.js';
+import { validate } from "class-validator";
 
-const proxy_factura = expres();
-proxy_cheque.use((req,res, next)=>{
+const proxy_facturas = express();
+proxy_facturas.use(async (req,res,next)=>{
     try {
-        let data = plainToClass(get_factura, req.query, {excludeExtraneousValues: true});
-        req.query = JSON.parse(JSON.stringify(data));
+        let data = plainToClass(get_facturas, req.body, { excludeExtraneousValues: true});
+        await validate(data);
         next();
     } catch (err) {
         res.status(err.status).send(err);
     }
-});
-
-export default proxy_factura;
+})
+export default proxy_facturas;

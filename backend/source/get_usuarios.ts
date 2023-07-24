@@ -1,6 +1,6 @@
 import { Expose, Type, Transform } from "class-transformer";
 
-export class get_usuario {
+export class get_usuarios {
     @Expose({ name: 'usu_id' })
     @Transform(({ value }) => {
         if (!Math.floor(value)) {
@@ -14,7 +14,7 @@ export class get_usuario {
         { toClassOnly: true })
     usu_id: Number;
 
-    @Expose({ name: 'usu_surname' })
+    @Expose({ name: 'usu_nickname' })
     @Transform(({ value }) => {
         const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s'-]{1,50}$/;
         if (!regex.test(value)) {
@@ -55,6 +55,19 @@ export class get_usuario {
     },
     { toClassOnly: true })
     password: String;
+
+    @Expose({ name: 'libros_cantidad' })
+    @Transform(({ value }) => {
+        if (Math.floor(value)) {
+            throw {
+                status: 400,
+                message: `El formato de fecha ingresado no es válido. No se permiten letras, ni simbolos".`
+            };
+        }
+        return value;
+    },
+        { toClassOnly: true })
+    libros_CANT: Number;
 
     constructor(usu_id: Number, nickname: string, usuario_email: String,password: String) {
         this.usu_id = usu_id;

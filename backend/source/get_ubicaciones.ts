@@ -1,18 +1,6 @@
 import { Expose, Transform} from 'class-transformer';
 
-export class get_ubicacion {
-    @Expose ({name : 'ubicacion_id'})
-    @Transform(({value}) => {
-        if (!Math.floor(value) && value > 0){
-            throw {
-                status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
-            }
-        }
-        return value;
-    }, 
-    {toClassOnly: true})
-    ubicacionID: Number;
+export class get_ubicaciones {
 
     @Expose ({name : 'ubicacion_direccion'})
     @Transform (({value})=>{
@@ -70,8 +58,7 @@ export class get_ubicacion {
     {toClassOnly: true})
     ubicacionPais: String;
 
-    constructor(ubicacionID: Number,ubicacionDIRECT : String,ubicacionCity: String,ubicacionPais: String, ubicacionEstado: String){
-        this.ubicacionID = ubicacionID;
+    constructor(ubicacionDIRECT : String,ubicacionCity: String,ubicacionPais: String, ubicacionEstado: String){
         this.ubicacionDIRECT  = ubicacionDIRECT ;
         this.ubicacionCity = ubicacionCity;
         this.ubicacionPais = ubicacionPais;

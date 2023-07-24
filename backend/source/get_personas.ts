@@ -1,6 +1,6 @@
 import { Expose, Transform } from "class-transformer";
 
-export class get_libros{
+export class get_personas{
     @Expose  ({name : 'persona_id'})
     @Transform (({value})=>{
         if(Math.floor(value) && value > 0){
@@ -55,10 +55,26 @@ export class get_libros{
     {toClassOnly: true})
     personEmail: String;
 
-    constructor(personaID: Number,personaNombre: String,personPhone: Number,personEmail: String){
+    @Expose  ({name : 'ubicacion_id'})
+    @Transform (({value})=>{
+        if(Math.floor(value) && value > 0){
+            throw {
+                status: 400,
+                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
+            }
+        }
+        return value;
+    },
+    {toClassOnly: true})
+    ubicacionID: Number;
+
+
+
+    constructor(personaID: Number,personaNombre: String,personPhone: Number,personEmail: String, ubicacionID: Number){
         this.personaID = personaID;
         this.personaNombre = personaNombre;
         this.personPhone = personPhone;
         this.personEmail = personEmail;
+        this.ubicacionID = ubicacionID;
     }
 }

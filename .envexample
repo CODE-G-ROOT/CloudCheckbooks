@@ -3,8 +3,9 @@ npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-meta
 tsc --init
 tsc -w
 
-DB_CONFIG={"host": 127.23.12.50, "port": 5500, "database": "Talonarios", "username": "developer", "password":"minionculion856@"}
-MY_CONFIG={"hostname": "127.23.12.50", "port": 5010}
+SERVER_CONFIG={"hostname": "localhost", "port": 4001}
+DB_CONFIG={"host":"localhost","database":"Talonarios","user":"developer","password":"minionculion856@", "port": 3306}
+
 
 tecnologias utilizadas:
 sql

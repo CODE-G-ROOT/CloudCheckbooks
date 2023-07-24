@@ -1,18 +1,6 @@
 import { Expose, Transform } from "class-transformer";
 
-export class get_pago{
-    @Expose ({name : 'pago_id'})
-    @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
-            throw {
-                status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
-            }
-        }
-        return value;
-    },
-    {toClassOnly: true})
-    pagoID : Number;
+export class get_pagos{
 
     @Expose ({name : 'monto_num'})
     @Transform (({value})=>{
@@ -93,8 +81,7 @@ export class get_pago{
     {toClassOnly: true})
     metodo_p_ID : Number;
 
-    constructor(pagoID : Number ,monto_NUM : Number ,montoPalabras: String ,val_UNI : Number ,subtotal_item : Number ,total_ : Number ,metodo_p_ID : Number){
-        this.pagoID = pagoID;
+    constructor(monto_NUM : Number ,montoPalabras: String ,val_UNI : Number ,subtotal_item : Number ,total_ : Number ,metodo_p_ID : Number){
         this.monto_NUM = monto_NUM;
         this.montoPalabras = montoPalabras;
         this.val_UNI = val_UNI;

@@ -1,18 +1,6 @@
 import {Expose, Transform} from 'class-transformer';
 
 export class get_facturas {
-    @Expose ({name : 'factura_id'})
-    @Transform (({value})=>{
-        if(!Math.floor(value) && value > 0){
-            throw {
-                status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
-            }
-        }
-        return value;
-    },
-    {toClassOnly: true})
-    facturaID : Number;
 
     @Expose ({name : 'terminos_condiciones'})
     @Transform (({value})=>{
@@ -79,8 +67,7 @@ export class get_facturas {
     {toClassOnly: true})
     NIT : Number;
 
-    constructor  (facturaID : Number ,terminosCondiciones : String, NIT: Number,  compradorID: Number, vendedorID : Number, pagoID : Number){
-        this.facturaID = facturaID,
+    constructor  (terminosCondiciones : String, NIT: Number,  compradorID: Number, vendedorID : Number, pagoID : Number){
         this.terminosCondiciones = terminosCondiciones,
         this.NIT = NIT,
         this.compradorID = compradorID,

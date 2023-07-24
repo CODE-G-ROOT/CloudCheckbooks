@@ -1,7 +1,8 @@
 import { Expose, Transform } from "class-transformer";
 
-export class get_pago{
-    @Expose ({name : 'method_pago_id'})
+export class get_recibos_caja{
+
+    @Expose  ({name : 'persona_id'})
     @Transform (({value})=>{
         if(!Math.floor(value) && value > 0){
             throw {
@@ -12,25 +13,23 @@ export class get_pago{
         return value;
     },
     {toClassOnly: true})
-    metodo_pagoID : Number;
+    libroID: Number;
 
-    @Expose  ({name : 'mp_nombre'})
+    @Expose  ({name : 'pago_id'})
     @Transform (({value})=>{
-        const regex = /^[A-Za-z\s]+$/;
-        if(!regex.test(value)){
+        if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
-                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo string. El dato que estás ingresando es de tipo ${typeof(value)}.`
+                message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
             }
         }
         return value;
     },
     {toClassOnly: true})
-    mpNombre: String;
+    pagoID: Number;
 
-    constructor(metodo_pagoID : Number, mpNombre: String){
-        this.metodo_pagoID = metodo_pagoID;
-        this.mpNombre = mpNombre;
+    constructor(libroID: Number,pagoID: Number){
+        this.libroID = libroID;
+        this.pagoID = pagoID;
     }
-
 }
