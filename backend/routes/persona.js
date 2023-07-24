@@ -1,29 +1,47 @@
+import {Router} from 'express';
+import proxy_persona from '../middleware/proxy_persona.js';
+import mysql from 'mysql2';
 import dotenv from "dotenv";
-import mysql, { createPool } from "mysql2";
-import { Router, query } from "express";
 
 dotenv.config();
 
 const router_Persona = Router();
 let con = undefined;
 
-router_Persona.use((req, res, next)=>{
-    let myConfig = JSON.parse(process.env.DB_MYCONFIG);
-    con = mysql.createPool(myConfig);
+//* Configuración para la base de datos
+router_Persona.use((req,res,next)=>{
+    let myconfig = JSON.parse(process.env.DB_CONFIG);
+    con = mysql.createPool(myconfig);
     next();
 })
 
-router_Persona.get("/", (req, res)=>{
-    con,query(
+router_Persona.get("/", proxy_persona ,(req,res)=>{
+    con.query(
         `SELECT * FROM Persona;`,
-        (err,data,fil)=>{
-            data = JSON.stringify(data);
-            res.send(JSON.parse(data));
+        (err,data,fill)=>{
+            if(err){
+                console.error('Error al obtener los datos: ', err.message);
+                res.sendStatus(500);
+                console.log(data);
+            } else {
+                res.send(data);
+            }
         }
     );
 })
 
 
+router_Persona.post("/", proxy_persona, (req, res)=>{
+    con.query(
+        `INSERT INTO Persona SET ?`, 
+        req.body,(err, data) => {
+        if (err) {
+            console.error('Error al crear una Persona:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
+
 export default router_Persona;
-
-

@@ -1,5 +1,5 @@
 import {Router} from 'express';
-// import proxy_cheque from '../middleware/proxy_cheque.js';
+import proxy_cheque from '../middleware/proxy_cheque.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
 
@@ -15,7 +15,7 @@ router_Cheque.use((req,res,next)=>{
     next();
 })
 
-router_Cheque.get("/", (req,res)=>{
+router_Cheque.get("/", proxy_cheque ,(req,res)=>{
     con.query(
         `SELECT * FROM Cheque;`,
         (err,data,fill)=>{
@@ -29,5 +29,19 @@ router_Cheque.get("/", (req,res)=>{
         }
     );
 })
+
+
+router_Cheque.post("/", proxy_cheque, (req, res)=>{
+    con.query(
+        `INSERT INTO Cheque SET ?`, 
+        req.body,(err, data) => {
+        if (err) {
+            console.error('Error al crear un cheque:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
 
 export default router_Cheque;
