@@ -28,9 +28,9 @@ export class get_libros{
     {toClassOnly: true})
     personaNombre: String;
 
-    @Expose  ({name : 'person_phone'})
+    @Expose  ({name : 'persona_phone'})
     @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
+        if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
                 message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
@@ -39,9 +39,9 @@ export class get_libros{
         return value;
     },
     {toClassOnly: true})
-    personPhone: String;
+    personPhone: Number;
 
-    @Expose  ({name : 'person_email'})
+    @Expose  ({name : 'persona_email'})
     @Transform (({value})=>{
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
         if(!regex.test(value)){
@@ -55,7 +55,7 @@ export class get_libros{
     {toClassOnly: true})
     personEmail: String;
 
-    constructor(personaID: Number,personaNombre: String,personPhone: String,personEmail: String){
+    constructor(personaID: Number,personaNombre: String,personPhone: Number,personEmail: String){
         this.personaID = personaID;
         this.personaNombre = personaNombre;
         this.personPhone = personPhone;

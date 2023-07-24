@@ -15,6 +15,7 @@ CREATE TABLE Libros (
     libro_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     libro_name VARCHAR(25) NOT NULL,
     responsable_id INT NOT NULL,
+    talon_cant INT,
     CONSTRAINT fk_libros_responsable_id FOREIGN KEY (responsable_id) REFERENCES Usuario (usu_id)
 );
 

@@ -17,7 +17,7 @@ export class get_libros{
     // ! ESTA VALIDACIÓN DEBE DESER TIPO DATE O FECHA, QUEDA PENDIENTE
     @Expose  ({name : 'talon_fecha'})
     @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
+        if(!value){
             throw {
                 status: 400,
                 message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`

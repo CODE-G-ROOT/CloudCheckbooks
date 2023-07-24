@@ -3,7 +3,7 @@ import { Expose, Transform } from "class-transformer";
 export class get_libros{
     @Expose  ({name : 'recibo_caja_id'})
     @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
+        if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
                 message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
@@ -16,7 +16,7 @@ export class get_libros{
 
     @Expose  ({name : 'persona_id'})
     @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
+        if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
                 message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`
@@ -29,7 +29,7 @@ export class get_libros{
 
     @Expose  ({name : 'pago_id'})
     @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
+        if(!Math.floor(value) && value > 0){
             throw {
                 status: 400,
                 message: `El dato ingresado no es valido. El valor ${value} solo puede ser tipo numérico y el que estás ingresando es de tipo ${typeof(value)}.`

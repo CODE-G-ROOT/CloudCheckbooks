@@ -16,11 +16,10 @@ export class get_facturas {
 
     @Expose ({name : 'terminos_condiciones'})
     @Transform (({value})=>{
-        const regex =  /^[A-Za-z0-9!$%&*()_+:;<>,.?~\\/\|\-]+$/
-        if(regex.test(value)){
+        if(!value){
             throw {
                 status: 400,
-                message: `Èl dato ingresado no es valido. El valor ${value} solo puede ser de tipo string y no puede contener los siguientes carácteres: "@, #, {}, [], ^". Si su consulta tiene alguno de estos carácteres, por favor corríjalos.`
+                message: `Èl dato ingresado no es valido. Falta llenar el campo.`
             }
         }
         return value
