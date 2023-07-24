@@ -4,7 +4,9 @@ tsc --init
 tsc -w
 
 SERVER_CONFIG={"hostname": "localhost", "port": 4001}
-DB_CONFIG={"host":"localhost","database":"Talonarios","user":"developer","password":"minionculion856@", "port": 3306}
+DB_CONFIG={"host":"localhost","database":"Talonarios","user":"","password":"", "port": 3306}
+JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
+
 
 
 tecnologias utilizadas:
