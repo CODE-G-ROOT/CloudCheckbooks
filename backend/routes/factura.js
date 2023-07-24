@@ -31,7 +31,7 @@ router_Factura.get("/", proxy_facturas ,(req,res)=>{
 })
 
 
-router_Factura.post("/", proxy_factura, (req, res)=>{
+router_Factura.post("/", proxy_facturas, (req, res)=>{
     con.query(
         `INSERT INTO Factura SET ?`, 
         req.body,(err, data) => {
