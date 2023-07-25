@@ -8,6 +8,7 @@ DB_CONFIG={"host":"localhost","database":"Talonarios","user":"","password":"", "
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 
 
+Obtencion de la información relevante de la tabla
 
 tecnologias utilizadas:
 sql
