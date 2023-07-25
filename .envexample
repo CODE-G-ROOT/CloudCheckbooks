@@ -8,7 +8,11 @@ DB_CONFIG={"host":"localhost","database":"Talonarios","user":"","password":"", "
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 
 
-Obtencion de la información relevante de la tabla
+Obtencion de toda la información relevante repecto a la  tabla
+
+
+la tabla talonario no lleva ubicacion ni persona
+
 
 tecnologias utilizadas:
 sql
