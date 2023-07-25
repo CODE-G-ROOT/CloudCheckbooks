@@ -1,10 +1,13 @@
-ipm init -y
+Comandos para correr dependencias :
 npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express jose
-tsc --init
-tsc -w
 
+Estos comandos crean un archivo tsconfig.json => tsc --init
+Este comando instancia las validaciones => tsc -w
+
+CONFIGURACIÓN DE .env
 SERVER_CONFIG={"hostname": "localhost", "port": 4001}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"","password":"", "port": 3306}
+
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 
 
