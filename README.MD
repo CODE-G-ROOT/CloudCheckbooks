@@ -59,7 +59,7 @@ Definición de la construcción de la base de datos según la importancia de las
 
 <hr>
 
-# **Manual de uso** :orange_book: (en construcción)
+# **Manual de uso** :orange_book: ( en construcción :construction: )
 
 ### :rotating_light: **ADVERTENCIA: ** Para usar la API, primero debes tener un tokes de verificacion! :closed_lock_with_key:
 
@@ -81,7 +81,16 @@ Pasos a tener en cuenta para generar el token:
 
    1. Copiar el token
    2. Hacer una petición **Method = POST**
-   3. 
+
+
+
+## ROUTES  :mag:
+
+
+
+
+
+
 
 <hr>
 
