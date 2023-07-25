@@ -17,7 +17,15 @@ router_Persona.use((req,res,next)=>{
 
 router_Persona.get("/", proxy_persona ,(req,res)=>{
     con.query(
-        `SELECT * FROM Persona;`,
+        `SELECT 
+            persona_id as id,
+            persona_nombre as name,
+            persona_phone as phone,
+            persona_email as email,
+            ubicacion_direccion as direction
+        FROM Persona
+        LEFT JOIN Ubicacion ON
+        Ubicacion.ubicacion_id = Persona.ubicacion_id;`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);

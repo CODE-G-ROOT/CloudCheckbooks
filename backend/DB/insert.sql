@@ -1,4 +1,4 @@
--- Active: 1690092600382@@localhost@3306@Talonarios
+-- Active: 1689192748746@@localhost@3306@Talonarios
 USE Talonarios;
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña) VALUES
 (1, 'user1', 'user1@example.com', 'password1'),
@@ -70,4 +70,5 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (4, 10004, 4),
 (5, 10005, 5);
 
-SELECT * FROM `Cheque`;
+SELECT * FROM `Persona`;
+
