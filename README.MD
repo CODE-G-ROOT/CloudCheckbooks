@@ -40,7 +40,7 @@ Este es un archivo README.md para proporcionar información adicional sobre la i
 
 ##  Proyección básica de la base de datos :memo:
 
-![image-20230714151437987](https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios/raw/main/assets/img/README/diagrama.png)
+![image-20230714151437987](./assets/img/README/diagrama.png)
 
 Definición de la construcción de la base de datos según la importancia de las tablas y las relaciones que tenían entre sí.
 
