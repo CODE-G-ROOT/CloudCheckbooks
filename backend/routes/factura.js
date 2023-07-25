@@ -17,7 +17,21 @@ router_Factura.use((req,res,next)=>{
 
 router_Factura.get("/", proxy_facturas ,(req,res)=>{
     con.query(
-        `SELECT * FROM Factura;`,
+        `SELECT 
+        factura_id AS "N_Factura",
+        terminos_condiciones AS "terminos_condiciones",
+        N_I_T AS "NIT",
+        comprador.persona_nombre AS Comprador,
+        vendedor.persona_nombre AS Vendedor,
+        Pago.pago_id AS "N_Pago",
+        monto_num AS monto,
+        valor_unitario AS unidad,
+        subtotal_por_item AS "subtotal_por_item",
+        total AS total
+    FROM Factura
+    INNER JOIN Pago ON Pago.pago_id = Factura.pago_id
+    INNER JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
+    INNER JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id;`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);
