@@ -1,4 +1,4 @@
--- Active: 1690092600382@@localhost@3306@Talonarios
+-- Active: 1689192748746@@localhost@3306@Talonarios
 DROP DATABASE Talonarios;
 CREATE DATABASE Talonarios;
 USE Talonarios;
@@ -93,7 +93,7 @@ CREATE TABLE Factura (
 );
 
 CREATE TABLE Recibo_caja (
-    recibo_caja_id INT PRIMARY AUTO_INCREMENT KEY NOT NULL,
+    recibo_caja_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     persona_id INT NOT NULL,
     pago_id INT NOT NULL,
     CONSTRAINT fk_cash_persona FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),
