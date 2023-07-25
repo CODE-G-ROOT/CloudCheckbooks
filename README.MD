@@ -1,58 +1,148 @@
-# **TALONARIO ONLINE**
+# **Bienvenidos a CloudCheckbooks!** :money_with_wings: :cloud:
 
-Herramienta que permite a los usuarios crear y almacenar cuadernillos personalizados en la nube. Estos cuadernillos, llamados "libros", almacenan diferentes tipos de contenido según las necesidades. La plataforma también ofrece una opción de firma y edición virtual para aquellos casos en los que no se puedan llevar a cabo de manera física. Además, se brinda la opción de generar un archivo PDF imprimible para su conveniencia.
+¡La solución definitiva para simplificar la administración de documentos y papeleo contable! :page_with_curl:
 
-## **Objetivo**: 
+Con CloudCheckbooks, podrás decir adiós a los talonarios físicos y llevar todo tu papeleo al mundo virtual de forma rápida y segura. :tada:
 
-- Simplifica el proceso de firmar y almacenar talones de forma eficiente y remota . 
-- Proporciona una herramienta en línea que permite a los usuarios crear y guardar cuadernillos virtuales, llamados "libros", con la capacidad de firmar y editar de manera virtual. 
-- Ofrece la opción de generar un archivo PDF imprimible para situaciones donde se requiera una copia física. 
-- Solución dinámica, intuitiva y remota para la firma y almacenamiento de talones.
+## ¿Qué es CloudCheckbooks? :bulb:
 
-**PosData:** Aunque actualmente no se ha implementado el registro y el inicio de sesión, se considerará en futuras versiones del proyecto
+CloudCheckbooks es una plataforma que te permite crear y almacenar tus "cuadernillos" o "libros" contables en la nube, sin necesidad de lidiar con documentos impresos. Olvídate de las firmas en papel, ahora podrás firmar y editar de manera virtual, ahorrando tiempo y recursos. :computer: :pencil2:
 
-### **Referencia de talonarios:**
+## Objetivos :dart:
 
-- Cheques (principal)
+- Facilitar la gestión y almacenamiento de documentos contables de manera virtual.
+- Eliminar el uso de papeleo y firmas en papel, ofreciendo opciones de firma y edición totalmente digitales.
+- Ofrecer acceso remoto a los documentos desde cualquier lugar y en cualquier momento.
+- Agilizar la emisión de facturas, recibos, órdenes de compra y cheques sin la necesidad de impresiones **(por ser la primera versión de este programa, solo estarán disponibles las opciones de facturas, recibos y cheques).**
+- Generar archivos imprimibles para aquellos casos que lo requieran, manteniendo la flexibilidad y comodidad para el usuario. :printer:
 
-- Caja / Recibo de caja 
+## Ventajas de CloudCheckbooks :white_check_mark:
 
-- Talonario de facturas
-
-
-
-
-## **PROYECCIÓN DE LA BASE DE DATOS:**
-
-![image-20230714151437987](./assets/img/README/diagrama.png)
+- Acceso remoto a tus documentos desde cualquier lugar :globe_with_meridians:
+- Firma y edición virtual, sin necesidad de papel :pencil: :computer_mouse:
+- Gestiona tu contabilidad de forma rápida y eficiente :chart_with_upwards_trend:
+- Emitir facturas, recibos, órdenes de compra y cheques sin papeleo :memo: :receipt: :heavy_check_mark:
 
 
 
-### Tecnologías implementadas:
+<hr>
 
-<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/></a><a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/></a>  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a</a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a><a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a>
+## Cómo empezar :rocket:
 
-### Instalación
-
-1. Clonar el repositorio: https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios.git
-
-2. Acceder al directorio del proyecto:
+1. Clona este repositorio en tu computadora :computer:
 
    ```bash
-   cd ./Proyect_Talonarios
+   https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios.git
    ```
 
-3. Acceder a la carpeta backend: 
+2. Instala las dependencias necesarias :package:
+
+   Para ello, entrar en la carpeta raiz del proyecto e ingresar el siguiente comando:
 
    ```bash
-   cd ./backend
+   cd /backend
+   npm update
    ```
 
-4. Actualizar todas las dependencias con el siguiente comando:
-   ```bash	
-   npm run update
-   ```
+   Esto actualizará las dependencias ya instaladas previamente en el respositorio.
 
    
 
-## 
+3. ¡Listo! Comienza a disfrutar de la comodidad y eficiencia de CloudCheckbooks :tada:
+
+¡Únete a CloudCheckbooks y descubre una nueva forma de gestionar tu contabilidad! :raised_hands: :moneybag: :cloud:
+
+# Mas info :information_source:
+
+Este es un archivo README.md para proporcionar información adicional sobre la implementación del proyecto "CloudCheckbooks" :cloud:. Aquí encontrarás detalles sobre las tecnologías utilizadas :computer:, las dependencias requeridas y otros temas relacionados al desarrollo del proyecto.
+
+## Tecnologías utilizadas 🛠️
+
+- **Node.js**: Para el desarrollo del backend y la creación de API REST.
+- **Express.js**: Framework de Node.js para la creación de servidores web.
+- **MySQL**: Base de datos relacional para almacenar los documentos contables de forma estructurada.
+
+
+
+## Proyección de la base de datos:
+
+![image-20230714151437987](https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios/raw/main/assets/img/README/diagrama.png)
+
+
+
+## Instalación :wrench:
+
+1. Clona este repositorio en tu computadora.
+
+```bash
+git clone https://github.com/tu-usuario/cloud-checkbooks.git
+```
+
+2. Instala las dependencias necesarias para el frontend y el backend.
+
+```bash
+npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express jose
+```
+
+3. Configura las variables de entorno.
+
+Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
+
+```json
+SERVER_CONFIG={"hostname": "localhost", "port": 4001}
+DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
+JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
+```
+
+## Uso :rocket:
+
+1. Inicia el servidor backend. (aún no implementado)
+
+```bash
+npm start
+```
+
+2. Inicia la aplicación frontend. (aún no implementado)
+
+```bash
+npm start
+```
+
+3. Accede a la aplicación en tu navegador web.
+
+La aplicación estará disponible en `http://localhost:3000`.
+
+## Contribuciones :memo:
+
+¡Agradecemos tus contribuciones al proyecto! Si deseas colaborar, sigue los siguientes pasos:
+
+1. Crea un nuevo "branch" para tus cambios.
+
+```bash
+git checkout -b mi-nueva-funcionalidad
+```
+
+2. Realiza tus modificaciones y mejoras.
+
+3. Haz un "commit" de tus cambios.
+
+```bash
+git commit -m "Agrego nueva funcionalidad"
+```
+
+4. Envía tus cambios al repositorio remoto.
+
+```bash
+git push origin mi-nueva-funcionalidad
+```
+
+5. Abre un "Pull Request" en GitHub para que revisemos tus cambios.
+
+## Licencia :page_facing_up:
+
+Este proyecto se encuentra bajo la Licencia MIT. Siéntete libre de utilizar, modificar y distribuir el código según tus necesidades.
+
+¡Gracias por contribuir al proyecto "CloudCheckbooks"! :raised_hands: :moneybag: 
+
+
+

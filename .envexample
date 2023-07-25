@@ -1,5 +1,5 @@
 ipm init -y
-npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express
+npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express jose
 tsc --init
 tsc -w
 
