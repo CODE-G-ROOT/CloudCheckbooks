@@ -26,33 +26,7 @@ CloudCheckbooks es una plataforma que te permite crear y almacenar tus "cuaderni
 
 
 <hr>
-
-## Cómo empezar :rocket:
-
-1. Clona este repositorio en tu computadora :computer:
-
-   ```bash
-   https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios.git
-   ```
-
-2. Instala las dependencias necesarias :package:
-
-   Para ello, entrar en la carpeta raiz del proyecto e ingresar el siguiente comando:
-
-   ```bash
-   cd /backend
-   npm update
-   ```
-
-   Esto actualizará las dependencias ya instaladas previamente en el respositorio.
-
-   
-
-3. ¡Listo! Comienza a disfrutar de la comodidad y eficiencia de CloudCheckbooks :tada:
-
-¡Únete a CloudCheckbooks y descubre una nueva forma de gestionar tu contabilidad! :raised_hands: :moneybag: :cloud:
-
-# Mas info :information_source:
+# **Mas info :information_source:**
 
 Este es un archivo README.md para proporcionar información adicional sobre la implementación del proyecto "CloudCheckbooks" :cloud:. Aquí encontrarás detalles sobre las tecnologías utilizadas :computer:, las dependencias requeridas y otros temas relacionados al desarrollo del proyecto.
 
@@ -64,18 +38,61 @@ Este es un archivo README.md para proporcionar información adicional sobre la i
 
 
 
-## Proyección de la base de datos:
+##  Proyección básica de la base de datos :memo:
 
 ![image-20230714151437987](https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios/raw/main/assets/img/README/diagrama.png)
 
+Definición de la construcción de la base de datos según la importancia de las tablas y las relaciones que tenían entre sí.
+
+|    TABLA    | DEFINICION                                                   |
+| :---------: | :----------------------------------------------------------- |
+|   Usuario   | Un usuario puede tener muchos libros                         |
+|   Libros    | Un libro, puede tener muchos talones                         |
+|  Talonario  | Puede tener solo uno de los 3 tipos de talón registrado      |
+|   Persona   | Una persona puede representar varios talones                 |
+|  Ubicacion  | Varias peronsas pueden estar ubicadas en el mismo lugar      |
+| talon_tipo  | Factura, cheque o recibo de caja, cada uno puede pertenecer a muchos talones |
+| Metodo_pago | Define la forma de pago y según su validación                |
+|    Pago     | Se Define según la forma de pago                             |
 
 
-## Instalación :wrench:
+
+<hr>
+
+# **Manual de uso** :orange_book: (en construcción)
+
+### :rotating_light: **ADVERTENCIA: ** Para usar la API, primero debes tener un tokes de verificacion! :closed_lock_with_key:
+
+Pasos a tener en cuenta para generar el token: 
+
+1. Hacer una peticion a la url dada por el servidor, el método debe ser get
+
+   - **Method = GET**
+
+2.  Registro: 
+
+   - En los parámetros de la url, agregar el **/:id** y **/:nombre** como el siguiente ejemplo:
+
+     ```bash
+     https://127.121.12.16:5500/token/14/juanavila
+     ```
+
+3. Una vez hecho esto, necesitarás:
+
+   1. Copiar el token
+   2. Hacer una petición **Method = POST**
+   3. 
+
+<hr>
+
+
+
+## **Instalación :wrench:**
 
 1. Clona este repositorio en tu computadora.
 
 ```bash
-git clone https://github.com/tu-usuario/cloud-checkbooks.git
+git clone https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios.git
 ```
 
 2. Instala las dependencias necesarias para el frontend y el backend.
@@ -112,7 +129,7 @@ npm start
 
 La aplicación estará disponible en `http://localhost:3000`.
 
-## Contribuciones :memo:
+## Contribuciones :memo: 
 
 ¡Agradecemos tus contribuciones al proyecto! Si deseas colaborar, sigue los siguientes pasos:
 
@@ -143,6 +160,3 @@ git push origin mi-nueva-funcionalidad
 Este proyecto se encuentra bajo la Licencia MIT. Siéntete libre de utilizar, modificar y distribuir el código según tus necesidades.
 
 ¡Gracias por contribuir al proyecto "CloudCheckbooks"! :raised_hands: :moneybag: 
-
-
-
