@@ -17,7 +17,16 @@ router_Pago.use((req,res,next)=>{
 
 router_Pago.get("/", proxy_metodo_pago ,(req,res)=>{
     con.query(
-        `SELECT * FROM Pago;`,
+        `SELECT 
+        Pago.pago_id as id,
+        Pago.monto_num as monto,
+        Pago.monto_palabras as monto_palabras,
+        Pago.valor_unitario as unidad,
+        Pago.subtotal_por_item as subtotal_por_item,
+        Pago.total as total,
+        Metodo_pago.mp_nombre as metodo_pago
+        FROM Pago
+        INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = Pago.metodo_pago_id;`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);
