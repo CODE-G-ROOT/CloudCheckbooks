@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1689075950615@@localhost@3306@Talonarios
 USE Talonarios;
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña) VALUES
 (1, 'user1', 'user1@example.com', 'password1'),
@@ -42,12 +42,12 @@ INSERT INTO Pago (monto_num, monto_palabras, valor_unitario, subtotal_por_item, 
 (2000, 'Dos mil pesos', 250, 250, 2000, 4),
 (2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
 
-INSERT INTO `TALONARIO` (talon_fecha, descripcion, libro_id, responsable_id, talon_tipo_id, metodo_pago_id) VALUES
-('2023-07-19 08:30:00', 'Descripción 1', 1, 1, 1, 1),
-('2023-07-20 10:00:00', 'Descripción 2', 2, 2, 2, 2),
-('2023-07-21 12:30:00', 'Descripción 3', 3, 3, 3, 3),
-('2023-07-22 14:00:00', 'Descripción 4', 4, 4, 4, 4),
-('2023-07-23 16:30:00', 'Descripción 5', 5, 5, 5, 5);
+INSERT INTO `TALONARIO` (talon_fecha, descripcion, libro_id, talon_tipo_id, metodo_pago_id) VALUES
+('2023-07-19 08:30:00', 'Descripción 1', 1, 1, 1),
+('2023-07-20 10:00:00', 'Descripción 2', 2, 2, 2),
+('2023-07-21 12:30:00', 'Descripción 3', 3, 3, 3),
+('2023-07-22 14:00:00', 'Descripción 4', 4, 4, 4),
+('2023-07-23 16:30:00', 'Descripción 5', 5, 5, 5);
 
 INSERT INTO Cheque (persona_id, pago_id) VALUES
 (10001, 1),
@@ -71,4 +71,3 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (5, 10005, 5);
 
 SELECT * FROM `Usuario`;
-
