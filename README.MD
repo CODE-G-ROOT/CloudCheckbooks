@@ -101,7 +101,7 @@ Pasos a tener en cuenta para generar el token:
 1. Clona este repositorio en tu computadora.
 
 ```bash
-git clone https://github.com/JuanDavidAvilaRaveloCampus/Proyect_Talonarios.git
+git clone https://github.com/JuanDavidAvilaRaveloCampus/CloudCheckbooks.git
 ```
 
 2. Instala las dependencias necesarias para el frontend y el backend.
