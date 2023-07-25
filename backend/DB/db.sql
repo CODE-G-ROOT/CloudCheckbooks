@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1689075950615@@localhost@3306@Talonarios
 DROP DATABASE Talonarios;
 CREATE DATABASE Talonarios;
 USE Talonarios;
@@ -57,12 +57,10 @@ CREATE TABLE TALONARIO (
     talon_fecha DATETIME NOT NULL,
     descripcion VARCHAR(2000) NOT NULL,
     libro_id INT NOT NULL,
-    responsable_id INT NOT NULL,
     talon_tipo_id INT NOT NULL,
     metodo_pago_id INT NOT NULL,
     CONSTRAINT fk_talon_libro_id FOREIGN KEY (libro_id) REFERENCES Libros (libro_id),
-    CONSTRAINT fk_talon_metodo_id FOREIGN KEY (metodo_pago_id) REFERENCES Metodo_pago (metodo_pago_id),
-    CONSTRAINT fk_talon_usuario_id FOREIGN KEY (responsable_id) REFERENCES Usuario (usu_id)
+    CONSTRAINT fk_talon_metodo_id FOREIGN KEY (metodo_pago_id) REFERENCES Metodo_pago (metodo_pago_id)
 );
 
 ALTER TABLE TALONARIO ADD INDEX idx_talon_tipo_id (talon_tipo_id);
