@@ -17,7 +17,14 @@ router_Libros.use((req,res,next)=>{
 
 router_Libros.get("/", proxy_libros ,(req,res)=>{
     con.query(
-        `SELECT * FROM Libros;`,
+        `SELECT 
+        libro_id as id,
+        libro_name as name,
+        usu_nickname as usu_name
+        FROM Libros
+        INNER JOIN Usuario
+        ON Usuario.usu_id = Libros.responsable_id;
+        `,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);
