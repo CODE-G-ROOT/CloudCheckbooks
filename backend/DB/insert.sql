@@ -42,12 +42,12 @@ INSERT INTO Pago (monto_num, monto_palabras, valor_unitario, subtotal_por_item, 
 (2000, 'Dos mil pesos', 250, 250, 2000, 4),
 (2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
 
-INSERT INTO `TALONARIO` (talon_fecha, descripcion, libro_id, persona_id, responsable_id, talon_tipo_id, ubicacion_id, metodo_pago_id) VALUES
-('2023-07-19 08:30:00', 'Descripción 1', 1, 10001, 1, 1, 1, 1),
-('2023-07-20 10:00:00', 'Descripción 2', 2, 10002, 2, 2, 2, 2),
-('2023-07-21 12:30:00', 'Descripción 3', 3, 10003, 3, 3, 3, 3),
-('2023-07-22 14:00:00', 'Descripción 4', 4, 10004, 4, 4, 4, 4),
-('2023-07-23 16:30:00', 'Descripción 5', 5, 10005, 5, 5, 5, 5);
+INSERT INTO `TALONARIO` (talon_fecha, descripcion, libro_id, responsable_id, talon_tipo_id, metodo_pago_id) VALUES
+('2023-07-19 08:30:00', 'Descripción 1', 1, 1, 1, 1),
+('2023-07-20 10:00:00', 'Descripción 2', 2, 2, 2, 2),
+('2023-07-21 12:30:00', 'Descripción 3', 3, 3, 3, 3),
+('2023-07-22 14:00:00', 'Descripción 4', 4, 4, 4, 4),
+('2023-07-23 16:30:00', 'Descripción 5', 5, 5, 5, 5);
 
 INSERT INTO Cheque (persona_id, pago_id) VALUES
 (10001, 1),
@@ -70,5 +70,5 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (4, 10004, 4),
 (5, 10005, 5);
 
-SELECT * FROM `Persona`;
+SELECT * FROM `Usuario`;
 
