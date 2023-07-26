@@ -25,8 +25,8 @@ router_Talones.get("/", proxy_talones ,(req,res)=>{
         Libros.libro_name as Perteneciente,
         Factura.terminos_condiciones as Terminos,
         Factura.N_I_T as NIT,
-        Usuario.usu_nickname as Responsable,
         Usuario.usu_id as Id_responsable,
+        Usuario.usu_nickname as Responsable,
         comprador.persona_id as comprador_id,
         comprador.persona_nombre as Comprador,
         comprador.persona_phone as comprador_phone,
@@ -42,17 +42,17 @@ router_Talones.get("/", proxy_talones ,(req,res)=>{
         Pago.subtotal_por_item as sub_item,
         Metodo_pago.mp_nombre as Metodo_pago,
         Pago.total
-    FROM TALONARIO
-    left JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
-    left JOIN Factura ON Factura.factura_id = TALONARIO.talon_tipo_id
-    left JOIN Usuario ON Usuario.usu_id = TALONARIO.responsable_id
-    left JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
-    left JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id
-    left JOIN Ubicacion AS comprador_ubicacion ON comprador_ubicacion.ubicacion_id = comprador.ubicacion_id
-    left JOIN Ubicacion AS vendedor_ubicacion ON vendedor_ubicacion.ubicacion_id = vendedor.ubicacion_id
-    left JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = TALONARIO.metodo_pago_id
-    left JOIN Pago ON Pago.pago_id = Factura.pago_id
-    WHERE TALONARIO.talon_tipo_id = Factura.factura_id;
+        FROM TALONARIO
+        INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
+        INNER JOIN Usuario ON Usuario.usu_id = Libros.libro_id
+        INNER JOIN Factura ON Factura.factura_id = TALONARIO.talon_tipo_id
+        INNER JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
+        INNER JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id
+        INNER JOIN Ubicacion AS comprador_ubicacion ON comprador_ubicacion.ubicacion_id = comprador.ubicacion_id
+        INNER JOIN Ubicacion AS vendedor_ubicacion ON vendedor_ubicacion.ubicacion_id = vendedor.ubicacion_id
+        INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = TALONARIO.metodo_pago_id
+        INNER JOIN Pago ON Pago.pago_id = Factura.pago_id
+        WHERE TALONARIO.talon_tipo_id = Factura.factura_id;
     `,
         (err,data,fill)=>{
             if(err){

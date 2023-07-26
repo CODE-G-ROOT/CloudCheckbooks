@@ -10,6 +10,7 @@ DB_CONFIG={"host":"localhost","database":"Talonarios","user":"","password":"", "
 
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 
+CREAR EL ARCHIVO .ENV DENTRO DE "cd ./backend"
 
 Obtencion de toda la información relevante repecto a la  tabla
 
