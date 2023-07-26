@@ -15,7 +15,7 @@ router_Talones.use((req,res,next)=>{
     next();
 })
 
-router_Talones.get("/", proxy_talones ,(req,res)=>{
+router_Talones.get("/talon:factura", proxy_talones ,(req,res)=>{
     con.query(
         `SELECT 
         TALONARIO.talon_id as id_talon,
@@ -64,6 +64,12 @@ router_Talones.get("/", proxy_talones ,(req,res)=>{
             }
         }
     );
+})
+
+router_Talones.get("/talon:cheque",proxy_talones, (req,res)=>{
+    con.query(`
+    
+    `)
 })
 
 
