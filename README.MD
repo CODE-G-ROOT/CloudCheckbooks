@@ -26,7 +26,7 @@ CloudCheckbooks es una plataforma que te permite crear y almacenar tus "cuaderni
 
 
 <hr>
-# Mas info :information_source: 
+## Mas info :information_source: 
 
 Este es un archivo README.md para proporcionar información adicional sobre la implementación del proyecto "CloudCheckbooks" :cloud:. Aquí encontrarás detalles sobre las tecnologías utilizadas :computer:, las dependencias requeridas y otros temas relacionados al desarrollo del proyecto.
 
