@@ -21,7 +21,7 @@ CloudCheckbooks es una plataforma que te permite crear y almacenar tus "cuaderni
 - Gestiona tu contabilidad de forma rápida y eficiente 📈
 - Emitir facturas, recibos, órdenes de compra y cheques sin papeleo 📝🧾✅
 
-## Mas info ℹ️
+# Mas info ℹ️
 
 Este es un archivo README.md para proporcionar información adicional sobre la implementación del proyecto "CloudCheckbooks" en la nube ☁️. Aquí encontrarás detalles sobre las tecnologías utilizadas en el desarrollo del proyecto, las dependencias requeridas y otros temas relacionados con la contabilidad en línea. 📝💻
 
