@@ -26,7 +26,8 @@ CloudCheckbooks es una plataforma que te permite crear y almacenar tus "cuaderni
 
 
 <hr>
-# **Mas info :information_source:**
+
+# Mas info :information_source: 
 
 Este es un archivo README.md para proporcionar información adicional sobre la implementación del proyecto "CloudCheckbooks" :cloud:. Aquí encontrarás detalles sobre las tecnologías utilizadas :computer:, las dependencias requeridas y otros temas relacionados al desarrollo del proyecto.
 
@@ -59,6 +60,7 @@ Definición de la construcción de la base de datos según la importancia de las
 
 <hr>
 
+
 # **Manual de uso** :orange_book: ( en construcción :construction: )
 
 ### :rotating_light: **ADVERTENCIA: ** Para usar la API, primero debes tener un tokes de verificacion! :closed_lock_with_key:
@@ -69,7 +71,7 @@ Pasos a tener en cuenta para generar el token:
 
    - **Method = GET**
 
-2.  Registro: 
+2. Registro: 
 
    - En los parámetros de la url, agregar el **/:id** y **/:nombre** como el siguiente ejemplo:
 
@@ -93,6 +95,7 @@ Pasos a tener en cuenta para generar el token:
 
 
 <hr>
+
 
 
 
