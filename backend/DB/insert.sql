@@ -101,9 +101,4 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (4, 10004, 4),
 (5, 10005, 5);
 
-SELECT 
-    id_banco,
-    banco_name,
 
-    INNER JOIN `Persona` ON Persona.persona_nombre
-FROM `Banco`;

@@ -18,19 +18,20 @@ router_Cheque.use((req,res,next)=>{
 router_Cheque.get("/", proxy_cheque ,(req,res)=>{
     con.query(
         `SELECT 
-        cheque_id as "Numero de cheque",
+        cheque_id as "Numero_cheque",
         persona_nombre as name,
         ubicacion_direccion as direccion,
-        Pago.pago_id as "Referencia de pago",
+        Pago.pago_id as "Referencia_pago",
         monto_num AS monto,
-        monto_palabras AS monto_letra
-        FROM Cheque
-        INNER JOIN Persona
-        ON Persona.persona_id = Cheque.persona_id
-        INNER JOIN Ubicacion
-        ON Ubicacion.ubicacion_id = Persona.ubicacion_id
-        INNER JOIN Pago
-        ON Pago.pago_id = Cheque.pago_id;`,
+        monto_palabras AS monto_letra,
+        banco_emisor.banco_name as banco_emisor,
+        banco_receptor.banco_name as banco_receptor
+    FROM Cheque
+    INNER JOIN Persona ON Persona.persona_id = Cheque.persona_id
+    INNER JOIN Ubicacion ON Ubicacion.ubicacion_id = Persona.ubicacion_id
+    INNER JOIN Pago ON Pago.pago_id = Cheque.pago_id
+    INNER JOIN Banco AS banco_emisor ON banco_emisor.id_banco = Cheque.banco_emisor_id
+    INNER JOIN Banco AS banco_receptor ON banco_receptor.id_banco = Cheque.banco_receptor_id;`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);
