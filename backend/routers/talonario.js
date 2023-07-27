@@ -16,7 +16,7 @@ router_Talones.use((req, res, next) => {
     next();
 })
 
-router_Talones.get("/talonario/factura", validateToken ,proxy_talones, (req, res) => {
+router_Talones.get("/talonario/factura", validateToken, proxy_talones, (req, res) => {
     con.query(
         `SELECT 
         TALONARIO.talon_id as id_talon,
@@ -141,18 +141,55 @@ router_Talones.get("/talonario/recibo", proxy_talones, (req, res) => {
 });
 
 
-
-router_Talones.post("/cheque", proxy_talones, (req, res) => {
-    con.query(
-        `INSERT INTO TALONARIO SET ?`,
-        req.body, (err, data) => {
-            if (err) {
-                console.error('Error al crear una Talones:', err.message);
-                res.sendStatus(500);
-            } else {
-                res.send(data);
-            }
-        })
+router_Talones.post("/talonario/cheque", proxy_talones, (req, res) => {
+    const { talon_id, cheque_id, pago_id, usuario_referente, date, libro, descripcion, beneficiario, banco_emisor, banco_receptor } = req.body;
+    con.query(`
+        INSERT INTO TALONARIO (
+            talon_id, 
+            cheque_id, p
+            ago_id, 
+            usuario_referente, 
+            date, 
+            libro, 
+            descripcion, 
+            beneficiario, 
+            banco_emisor, 
+            banco_receptor)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `, [talon_id, cheque_id, pago_id, usuario_referente, date, libro, descripcion, beneficiario, banco_emisor, banco_receptor], (err, result) => {
+        if (err) {
+            console.error('Error al insertar el cheque: ', err.message);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(200);
+        }
+    });
 });
+
+router_Talones.post("/talonario/factura", proxy_talones, (req, res) => {
+    const { talon_id, cheque_id, pago_id, usuario_referente, date, libro, descripcion, beneficiario, banco_emisor, banco_receptor } = req.body;
+    con.query(`
+        INSERT INTO TALONARIO (
+            talon_id, 
+            cheque_id, p
+            ago_id, 
+            usuario_referente, 
+            date, 
+            libro, 
+            descripcion, 
+            beneficiario, 
+            banco_emisor, 
+            banco_receptor)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `, [talon_id, cheque_id, pago_id, usuario_referente, date, libro, descripcion, beneficiario, banco_emisor, banco_receptor], (err, result) => {
+        if (err) {
+            console.error('Error al insertar el cheque: ', err.message);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(200);
+        }
+    });
+});
+
 
 export default router_Talones;
