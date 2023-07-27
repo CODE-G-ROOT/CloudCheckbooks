@@ -96,7 +96,7 @@ git clone https://github.com/JuanDavidAvilaRaveloCampus/CloudCheckbooks.git
 Para ello, primero debemos ubicarnos en la carpeta "backend" con el comando:
 
 ```bash
-cd /backend
+cd ./backend
 ```
 
 Ahora, instalamos las dependencias:
@@ -109,11 +109,23 @@ npm update
 
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
+```bash
+touch .env				
 ```
+
+Dentro de ese archivo ingresar el siguiente script.
+
+```json
 jsonCopy codeSERVER_CONFIG={"hostname": "localhost", "port": 4001}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
+
+Ingresar tu usuario de la base de datos en "AQUÍ_VA_TU_USUARIO" y tu constraseña en "AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"
+
+
+
+Ahora puedes correr el servidor.
 
 1. Inicia el servidor backend y la validación de TypeScript para correr el backend.
 
@@ -129,9 +141,9 @@ Crea una nueva terminal y ejecuta este otro comando:
 npm run tsc
 ```
 
-1. Accede a la aplicación en tu navegador web.
+1. Accede a la ruta impresa en la terminal.
 
-La aplicación estará disponible en `http://localhost:3000/home`.
+La aplicación estará disponible en `http://localhost:3000.
 
 ## Contribuciones y Licencia 📝📄
 
@@ -146,15 +158,13 @@ git checkout -b mi-nueva-funcionalidad
 1. Realiza tus modificaciones y mejoras.
 2. Haz un "commit" de tus cambios.
 
-```
-bashCopy code
+```bash
 git commit -m "Agrego nueva funcionalidad"
 ```
 
 1. Envía tus cambios al repositorio remoto.
 
-```
-bashCopy code
+```bash
 git push origin mi-nueva-funcionalidad
 ```
 

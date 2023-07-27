@@ -40,7 +40,7 @@ const serverConfig = JSON.parse(process.env.SERVER_CONFIG);
 
 
 app.listen(serverConfig.port, serverConfig.hostname, ()=>{     
-    console.log(`http://${serverConfig.hostname}:${serverConfig.port}/home`
+    console.log(`http://${serverConfig.hostname}:${serverConfig.port}`
 )});
 
 export default serverConfig;;
