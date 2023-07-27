@@ -21,13 +21,7 @@ let data = {
     pago : "http://localhost:3000/home/pago",
     persona : "http://localhost:3000/home/persona",
     recibo_caja : "http://localhost:3000/home/recibo_caja",
-<<<<<<< HEAD
     talonario : "http://localhost:3000/home/talonario",
-=======
-    factura : "http://localhost:3000/home/talonario",
-    recibo : "http://localhost:3000/home/talonario",
-    cheque : "http://localhost:3000/home/cheque",
->>>>>>> golden
     ubicacion : "http://localhost:3000/home/ubicacion",
     usuario : "http://localhost:3000/home/usuario",
     fecha : "http://localhost:3000/home/fecha",
