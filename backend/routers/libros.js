@@ -2,6 +2,8 @@ import {Router} from 'express';
 import proxy_libros from '../middleware/proxy_libros.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
+
 
 dotenv.config();
 
@@ -15,7 +17,7 @@ router_Libros.use((req,res,next)=>{
     next();
 })
 
-router_Libros.get("/", proxy_libros ,(req,res)=>{
+router_Libros.get("/",validateToken,  proxy_libros ,(req,res)=>{
     con.query(
         `SELECT 
         libro_id as id,

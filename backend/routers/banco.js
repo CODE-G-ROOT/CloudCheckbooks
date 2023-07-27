@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_banco from '../middleware/proxy_banco.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Bancos.use((req,res,next)=>{
     next();
 })
 
-router_Bancos.get("/", proxy_banco ,(req,res)=>{
+router_Bancos.get("/",validateToken, proxy_banco ,(req,res)=>{
     con.query(
         `SELECT * FROM Banco
         `,

@@ -61,26 +61,9 @@ Definición de la construcción de la base de datos según la importancia de las
 | Metodo_pago | Define la forma de pago y según su validación                |
 | Pago        | Se define según la forma de pago                             |
 
-## Manual de uso 📖🚀 
+# Manual de uso 📖🚀 
 
-### ⚠️ **ADVERTENCIA:** Para usar la API, primero debes obtener un token de verificación. 🔒🔑 ( en construcción 🔧👷‍♀️ )
-
-Pasos a tener en cuenta para generar el token:
-
-1. Hacer una petición a la URL proporcionada por el servidor, el método debe ser GET.
-
-2. Registro: En los parámetros de la URL, agregar el `/:id` y `/:nombre` como en el siguiente ejemplo:
-
-   ```bash
-   https://127.121.12.16:5500/token/14/juanavila
-   ```
-
-3. Una vez hecho esto, necesitarás:
-
-   - Copiar el token
-   - Hacer una petición con método POST
-
-## Instalación y uso 🛠️🚀
+## Instalación 🛠️🚀
 
 1. Clona este repositorio en tu computadora.
 
@@ -115,18 +98,18 @@ Luego procedemos a dar de baja el servicio con CTRL + C.
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
 ```bash
-touch .env				
+touch .env           
 ```
 
 Dentro de ese archivo ingresar el siguiente script.
 
 ```json
-SERVER_CONFIG={"hostname": "localhost", "port": 3000}
+SERVER_CONFIG={"hostname": "localhost", "port": 4001}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
 
-Ingresar tu usuario de la base de datos en "AQUÍ_VA_TU_USUARIO" y tu constraseña en "AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"
+Ingresar tu usuario de la base de datos en **"AQUÍ_VA_TU_USUARIO"** y tu constraseña en **"AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"**
 
 Ahora puedes correr el servidor.
 
@@ -151,11 +134,61 @@ La aplicación estará disponible en `http://localhost:3000`.
 Puedes acceder al directorio desde `http://localhost:3000/home`
 
 
+
+### ⚠️ **ADVERTENCIA:** Para usar la API, primero debes obtener un token de verificación. 🔒🔑
+
+
+
+### Herramientas para acceder a la API:
+
+Por motivos prácticos utilizaremos las siguientes herramientas
+
+- Visual Estudio Code
+
+  ![Logotipo completo de Visual Studio Code PNG transparente - StickPNG](https://assets.stickpng.com/images/62a79050e42d729d928b1756.png)
+
+- Thunder Client: Extención de visual estudio code
+
+![image-20230727092917413](./assets/img/README/thunder.png)
+
+
+
+### Pasos a tener en cuenta para generar el token:
+
+1. Hacer una peticion a la URL proporcionada por el servidor, agregar el `/token/:id` , donde **:id** será cualquier valor numérico que le asignemos.
+
+   Ejemplo:
+
+   ```url
+   http://localhost:3000/token/456
+   ```
+
+2. Una vez hecho esto, se generará un token:
+
+   - Copiar el **token**
+
+     ![image-20230727093302175](./assets/img/README/token.png)
+
+3. Acceso:
+
+   1. Crear un nuevo parámetro el cual será un **Header** cuyo nombre **extrictamente** y para el funcionamiento de la api será **Authorization** 
+
+   2. Agregar como valor el token generado **(SIN COMMILLAS)**
+
+   3. Hacer una peticion por metodo **GET** a la url que desea acceder, por ejemplo**/talonarios**
+
+   4. Darle en send
+
+      ![image-20230727093431933](./assets/img/README/parámetros.png)
+
+      Listo, con esto ya tendrás tu **token** y sabrás usarlo :wink:
+
+      
+
+
 ## ROUTES 🔍🛣️
 
-Aquí encontrar
-
-ás las rutas de acceso a diferentes secciones:
+Aquí encontrarás las rutas de acceso a diferentes secciones:
 
 - Factura: http://localhost:3000/home/factura
 - Libros: http://localhost:3000/home/libros

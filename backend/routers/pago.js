@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_metodo_pago from '../middleware/proxy_pago.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Pago.use((req,res,next)=>{
     next();
 })
 
-router_Pago.get("/", proxy_metodo_pago ,(req,res)=>{
+router_Pago.get("/",validateToken, proxy_metodo_pago ,(req,res)=>{
     con.query(
         `SELECT 
         Pago.pago_id as id,

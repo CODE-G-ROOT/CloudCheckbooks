@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_facturas from '../middleware/proxy_factura.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Factura.use((req,res,next)=>{
     next();
 })
 
-router_Factura.get("/", proxy_facturas ,(req,res)=>{
+router_Factura.get("/", validateToken, proxy_facturas ,(req,res)=>{
     con.query(
         `SELECT 
         factura_id AS "N_Factura",

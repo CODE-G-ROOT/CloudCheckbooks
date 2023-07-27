@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_fechas from '../middleware/proxy_fechas.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Fechas.use((req,res,next)=>{
     next();
 })
 
-router_Fechas.get("/", proxy_fechas ,(req,res)=>{
+router_Fechas.get("/", validateToken ,proxy_fechas ,(req,res)=>{
     con.query(
         `SELECT * FROM Fechas;
         `,

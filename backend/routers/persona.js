@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_persona from '../middleware/proxy_persona.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Persona.use((req,res,next)=>{
     next();
 })
 
-router_Persona.get("/", proxy_persona ,(req,res)=>{
+router_Persona.get("/", validateToken, proxy_persona ,(req,res)=>{
     con.query(
         `SELECT 
             persona_id as id,

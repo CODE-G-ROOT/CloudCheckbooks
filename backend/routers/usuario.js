@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_usuario from '../middleware/proxy_usuario.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Usuario.use((req,res,next)=>{
     next();
 })
 
-router_Usuario.get("/", proxy_usuario ,(req,res)=>{
+router_Usuario.get("/",validateToken, proxy_usuario ,(req,res)=>{
     con.query(
         `SELECT * FROM Usuario;`,
         (err,data,fill)=>{

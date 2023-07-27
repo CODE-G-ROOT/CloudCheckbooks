@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_cheque from '../middleware/proxy_cheque.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Cheque.use((req,res,next)=>{
     next();
 })
 
-router_Cheque.get("/", proxy_cheque ,(req,res)=>{
+router_Cheque.get("/",validateToken,  proxy_cheque ,(req,res)=>{
     con.query(
         `SELECT 
         cheque_id as "Numero_cheque",

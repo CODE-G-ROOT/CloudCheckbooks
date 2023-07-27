@@ -2,6 +2,7 @@ import {Router} from 'express';
 import proxy_recibo_cajas from '../middleware/proxy_recibo_cajas.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
+import { validateToken } from '../middleware/proxy_JWT.js'
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ router_Recibo_caja.use((req,res,next)=>{
     next();
 })
 
-router_Recibo_caja.get("/", proxy_recibo_cajas ,(req,res)=>{
+router_Recibo_caja.get("/",validateToken, proxy_recibo_cajas ,(req,res)=>{
     con.query(
         `SELECT 
         Recibo_caja.recibo_caja_id as id,
