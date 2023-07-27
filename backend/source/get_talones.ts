@@ -2,31 +2,6 @@ import { Expose, Transform } from "class-transformer";
 
 export class get_talones{
     // ! ESTA VALIDACIÓN DEBE DESER TIPO DATE O FECHA, QUEDA PENDIENTE
-    @Expose  ({name : 'talon_fecha'})
-    @Transform (({value})=>{
-        if(value){
-            throw {
-                status: 400,
-                message: `El dato ingresado talonDATE no es valido. El valor solo puede ser string.`
-            }
-        }
-        return value;
-    },
-    {toClassOnly: true})
-    talonDATE: String;
-
-    @Expose  ({name : 'responsable_id'})
-    @Transform (({value})=>{
-        if(Math.floor(value) && value > 0){
-            throw {
-                status: 400,
-                message: `El dato ingresado responsableID no es valido. El valor solo puede ser de tipo number.`
-            }
-        }
-        return value;
-    },
-    {toClassOnly: true})
-    responsableID: Number;
 
     @Expose  ({name : 'descripcion'})
     @Transform (({value})=>{
@@ -107,9 +82,21 @@ export class get_talones{
     {toClassOnly: true})
     metodo_pagoID: Number;
 
-    constructor(talonDATE: String ,responsableID: Number,descripcion_: String,libroID: Number,personaID: Number,talonType: Number,ubicacionID: Number,metodo_pagoID: Number){
-        this.talonDATE = talonDATE;
-        this.responsableID = responsableID;
+    @Expose  ({name : 'id_fecha'})
+    @Transform (({value})=>{
+        if(value){
+            throw {
+                status: 400,
+                message: `El dato ingresado metodo_pagoID no es valido. El valor solo puede ser de tipo number.`
+            }
+        }
+        return value;
+    },
+    {toClassOnly: true})
+    fecha: Number;
+
+    constructor(fecha: Number ,responsableID: Number,descripcion_: String,libroID: Number,personaID: Number,talonType: Number,ubicacionID: Number,metodo_pagoID: Number){
+        this.fecha = fecha;
         this.descripcion_ = descripcion_;
         this.libroID = libroID;
         this.personaID = personaID;
