@@ -91,9 +91,9 @@ npm update
 npm run tsc
 ```
 
-Luego procedemos a dar de baja el servicio con CTRL + C.
+Luego procedemos a dar de baja el servicio con **CTRL + C.**
 
-5. Configura las variables de entorno.
+5. **Configura las variables de entorno.**
 
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
@@ -104,49 +104,54 @@ touch .env
 Dentro de ese archivo ingresar el siguiente script.
 
 ```json
-SERVER_CONFIG={"hostname": "localhost", "port": 4001}
+SERVER_CONFIG={"hostname": "localhost", "port": 3000}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
 
 Ingresar tu usuario de la base de datos en **"AQUÍ_VA_TU_USUARIO"** y tu constraseña en **"AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"**
 
+Ejemplo:
+
+```json
+SERVER_CONFIG={"hostname": "localhost", "port": 3000}
+DB_CONFIG={"host":"localhost","database":"Talonarios","user":"campus","password":"campus2023", "port": 3306}
+JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
+```
 
 
-6. 1. ## 🏃‍♂️ **Correr la base de datos** 🏃‍♀️
 
-      1. **Iniciar la base de datos**
-         1. Para ubicarte en la carpeta que almacena la base de datos correspondiente, ingresa el siguiente comando:
+## 🏃‍♂️ **Correr la base de datos** 🏃‍♀️
 
-      ```
-      cd ./DB
-      ```
+1. **Iniciar la base de datos**
 
-      Abre el archivo `db.sql` para configurar la conexión con la  base de datos desde Visual Studio Code. Asegúrate de tener instalada la  extensión MySQL para ello.
+   Ubicate en la carpeta que almacena la base de datos `DB`
 
-      
+   Abre el archivo `db.sql` para configurar la conexión con la  base de datos desde Visual Studio Code. Asegúrate de tener instalada la  extensión MySQL para ello.
 
-   2. Activar la coneccion por medio del visual estudio code. Para ello primero Instalar la extension MySQL
 
-      ![image-20230727114914347](./assets/img/README/mysql.png)
 
-   3. Habiendo hecho esto, nos aparecerá la opción de connección sobre nuestro código de la siguiente forma
+1. Activar la coneccion por medio del visual estudio code. Para ello primero Instalar la extension MySQL
 
-      ![image-20230727115023570](./assets/img/README/activar.png)
+   ![image-20230727114914347](./assets/img/README/mysql.png)
 
-   4. ​	Darle click en activar conexión y nos aparecerá una ventana similar a la siguiente: 
+2. Habiendo hecho esto, nos aparecerá la opción de connección sobre nuestro código de la siguiente forma
 
-      ![image-20230727115121384](./assets/img/README/activar2.png)
+   ![image-20230727115023570](./assets/img/README/activar.png)
 
-   5. Seleccionar la opción que te aparezca
+3. Darle click en activar conexión y nos aparecerá una ventana similar a la siguiente: 
 
-   6. Seleccionar en cualquier base de datos que tengas ya instalada o preinstalada
+   ![image-20230727115121384](./assets/img/README/activar2.png)
 
-      ![image-20230727115220532](./assets/img/README/seleccionar.png)
+4. Seleccionar la opción que te aparezca
 
-   7. ¡Listo! Ahora tu base de datos está configurada y lista para usar. 🚀🌟
+5. Seleccionar en cualquier base de datos que tengas ya instalada o preinstalada
 
-      
+   ![image-20230727115220532](./assets/img/README/seleccionar.png)
+
+6. ¡Listo! Ahora tu base de datos está configurada y lista para usar. 🚀🌟
+
+   
 
 ### Crear la base de datos
 
@@ -170,13 +175,15 @@ Teniendo ya creada nuesta base de datos, es hora de insertarle algunos "datos":
 
 1. Inicia el servidor backend y la validación de TypeScript para correr el backend.
 
-Dentro de la carpeta "backend", ejecuta el siguiente comando:
+Dentro de la carpeta "**backend**", ejecuta el siguiente comando:
 
 ```bash
 npm run dev
 ```
 
 Crea una nueva terminal y ejecuta este otro comando:
+
+Si te llega a salir error, asegúrate de estar en la carpeta **backend** 
 
 ```bash
 npm run tsc
@@ -230,9 +237,9 @@ Por motivos prácticos utilizaremos las siguientes herramientas
 
    2. Agregar como valor el token generado **(SIN COMMILLAS)**
 
-   3. Hacer una peticion por metodo **GET** a la url que desea acceder, por ejemplo**/talonarios**
+      1. Hacer una peticion por metodo **GET** a la url que desea acceder según las rutas especificadas, por ejemplo **/home/talonarios**
 
-   4. Darle en send
+   3. Darle en send
 
       ![image-20230727093431933](./assets/img/README/parámetros.png)
 
