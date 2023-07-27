@@ -15,15 +15,17 @@ route_home.use((req,res,next)=>{
 })
 
 let data = {
-    factura : "http://localhost:4001/factura",
-    libros : "http://localhost:4001/libros",
-    metodo_pago : "http://localhost:4001/metodo_pago",
-    pago : "http://localhost:4001/pago",
-    persona : "http://localhost:4001/persona",
-    recibo_caja : "http://localhost:4001/recibo_caja",
-    talonario : "http://localhost:4001/talonario",
-    ubicacion : "http://localhost:4001/ubicacion",
-    usuari : "http://localhost:4001/usuario"
+    factura : "http://localhost:4001/home/factura",
+    libros : "http://localhost:4001/home/libros",
+    metodo_pago : "http://localhost:4001/home/metodo_pago",
+    pago : "http://localhost:4001/home/pago",
+    persona : "http://localhost:4001/home/persona",
+    recibo_caja : "http://localhost:4001/home/recibo_caja",
+    talonario : "http://localhost:4001/home/talonario",
+    ubicacion : "http://localhost:4001/home/ubicacion",
+    usuario : "http://localhost:4001/home/usuario",
+    fecha : "http://localhost:4001/home/fecha",
+    banco : "http://localhost:4001/home/banco"
 }
 
 route_home.get("/" ,(req,res)=>{
