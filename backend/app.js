@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import home from './routes/home.js';
+// import home from './routes/home.js';
 import cheque from './routes/cheque.js';
 import factura from './routes/factura.js';
 import libros from './routes/libros.js';
