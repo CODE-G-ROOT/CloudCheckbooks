@@ -1,5 +1,5 @@
--- Active: 1689075950615@@localhost@3306@Talonarios
 USE Talonarios;
+
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña, libros_cantidad) VALUES
 (1, 'usuario1', 'usuario1@example.com', 'contraseña1', 5),
 (2, 'usuario2', 'usuario2@example.com', 'contraseña2', 3),
@@ -13,21 +13,6 @@ INSERT INTO Banco (id_banco, banco_name) VALUES
 (3, 'Banco C'),
 (4, 'Banco D'),
 (5, 'Banco E');
-
-INSERT INTO Metodo_pago (metodo_pago_id, mp_nombre) VALUES
-(1, 'Efectivo'),
-(2, 'Tarjeta de crédito'),
-(3, 'Transferencia bancaria'),
-(4, 'Cheque'),
-(5, 'PayPal');
-
-
-INSERT INTO Ubicacion (ubicacion_id, ubicacion_direccion, ubicacion_ciudad, ubicacion_estado, ubicacion_pais) VALUES
-(1, 'Calle 1, No. 123', 'Ciudad A', 'Estado X', 'País 1'),
-(2, 'Avenida 2, No. 456', 'Ciudad B', 'Estado Y', 'País 2'),
-(3, 'Carrera 3, No. 789', 'Ciudad C', 'Estado Z', 'País 3'),
-(4, 'Calle 4, No. 1011', 'Ciudad D', 'Estado W', 'País 4'),
-(5, 'Avenida 5, No. 1213', 'Ciudad E', 'Estado V', 'País 5');
 
 INSERT INTO Metodo_pago (mp_nombre) VALUES
 ('Efectivo'),
@@ -43,14 +28,12 @@ INSERT INTO Ubicacion (ubicacion_direccion, ubicacion_ciudad, ubicacion_estado, 
 ('Calle 4, No. 1011', 'Ciudad D', 'Estado W', 'País 4'),
 ('Avenida 5, No. 1213', 'Ciudad E', 'Estado V', 'País 5');
 
-
-INSERT INTO Libros (libro_id, libro_name, responsable_id, talon_cant) VALUES
-(1, 'Libro A', 1, 20),
-(2, 'Libro B', 2, 15),
-(3, 'Libro C', 3, 12),
-(4, 'Libro D', 4, 10),
-(5, 'Libro E', 5, 25);
-
+INSERT INTO Libros (libro_name, responsable_id, talon_cant) VALUES
+('Libro A', 1, 20),
+('Libro B', 2, 15),
+('Libro C', 3, 12),
+('Libro D', 4, 10),
+('Libro E', 5, 25);
 
 INSERT INTO Persona (persona_id, persona_nombre, persona_phone, persona_email, ubicacion_id) VALUES
 (10001, 'Persona 1', '3181234567', 'persona1@example.com', 1),
@@ -59,12 +42,12 @@ INSERT INTO Persona (persona_id, persona_nombre, persona_phone, persona_email, u
 (10004, 'Persona 4', '3151111111', 'persona4@example.com', 4),
 (10005, 'Persona 5', '3142222222', 'persona5@example.com', 5);
 
-INSERT INTO Pago (pago_id, monto_num, monto_palabras, valor_unitario, subtotal_por_item, total, metodo_pago_id) VALUES
-(1, 500, 'Quinientos pesos', 50, 250, 500, 1),
-(2, 1000, 'Mil pesos', 100, 200, 1000, 2),
-(3, 1500, 'Mil quinientos pesos', 200, 300, 1500, 3),
-(4, 2000, 'Dos mil pesos', 250, 250, 2000, 4),
-(5, 2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
+INSERT INTO Pago (monto_num, monto_palabras, valor_unitario, subtotal_por_item, total, metodo_pago_id) VALUES
+(500, 'Quinientos pesos', 50, 250, 500, 1),
+(1000, 'Mil pesos', 100, 200, 1000, 2),
+(1500, 'Mil quinientos pesos', 200, 300, 1500, 3),
+(2000, 'Dos mil pesos', 250, 250, 2000, 4),
+(2500, 'Dos mil quinientos pesos', 500, 1000, 2500, 5);
 
 INSERT INTO Fechas (id_fecha, fecha) VALUES
 (1, '2023-07-19'),
@@ -73,31 +56,30 @@ INSERT INTO Fechas (id_fecha, fecha) VALUES
 (4, '2023-07-22'),
 (5, '2023-07-23');
 
-INSERT INTO TALONARIO (talon_id, descripcion, libro_id, talon_tipo_id, metodo_pago_id, id_fecha) VALUES
-(1, 'Descripción 1', 1, 1, 1, 1),
-(2, 'Descripción 2', 2, 2, 2, 2),
-(3, 'Descripción 3', 3, 3, 3, 3),
-(4, 'Descripción 4', 4, 4, 4, 4),
-(5, 'Descripción 5', 5, 5, 5, 5);
+INSERT INTO TALONARIO (descripcion, libro_id, talon_tipo_id, metodo_pago_id, id_fecha) VALUES
+('Descripción 1', 1, 1, 1, 1),
+('Descripción 2', 2, 2, 2, 2),
+('Descripción 3', 3, 3, 3, 3),
+('Descripción 4', 4, 4, 4, 4),
+('Descripción 5', 5, 5, 5, 5);
 
-INSERT INTO Cheque (cheque_id, persona_id, pago_id, banco_emisor_id, banco_receptor_id) VALUES
-(1, 10001, 1, 1, 2),
-(2, 10002, 2, 3, 4),
-(3, 10003, 3, 2, 1),
-(4, 10004, 4, 4, 5),
-(5, 10005, 5, 5, 3);
+INSERT INTO Cheque (persona_id, pago_id, banco_emisor_id, banco_receptor_id) VALUES
+(10001, 1, 1, 2),
+(10002, 2, 3, 4),
+(10003, 3, 2, 1),
+(10004, 4, 4, 5),
+(10005, 5, 5, 3);
 
-INSERT INTO Cheque (Cheque_id, terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
-(1, 'Términos y condiciones 1', 123456789, 10001, 10002, 1, 1, 2),
-(2, 'Términos y condiciones 2', 987654321, 10003, 10004, 2, 2, 3),
-(3, 'Términos y condiciones 3', 135792468, 10005, 10001, 3, 3, 4),
-(4, 'Términos y condiciones 4', 246813579, 10002, 10003, 4, 4, 5),
-(5, 'Términos y condiciones 5', 987654321, 10004, 10005, 5, 5, 1);
+INSERT INTO Factura (terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
+('Términos y condiciones 1', 123456789, 10001, 10002, 1, 1, 2),
+('Términos y condiciones 2', 987654321, 10003, 10004, 2, 2, 3),
+('Términos y condiciones 3', 135792468, 10005, 10001, 3, 3, 4),
+('Términos y condiciones 4', 246813579, 10002, 10003, 4, 4, 5),
+('Términos y condiciones 5', 987654321, 10004, 10005, 5, 5, 1);
 
-INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
-(1, 10001, 1),
-(2, 10002, 2),
-(3, 10003, 3),
-(4, 10004, 4),
-(5, 10005, 5);
-
+INSERT INTO Recibo_caja (persona_id, pago_id) VALUES
+(10001, 1),
+(10002, 2),
+(10003, 3),
+(10004, 4),
+(10005, 5);

@@ -1,5 +1,4 @@
--- Active: 1689558179441@@localhost@3306@Talonarios
-DROP DATABASE Talonarios;
+
 CREATE DATABASE Talonarios;
 USE Talonarios;
 
@@ -119,4 +118,3 @@ CREATE TABLE Recibo_caja (
     CONSTRAINT fk_cash_talon FOREIGN KEY (recibo_caja_id) REFERENCES TALONARIO (talon_tipo_id),
     CONSTRAINT fk_cash_talon_tipo FOREIGN KEY (pago_id) REFERENCES Pago (pago_id)
 );
-

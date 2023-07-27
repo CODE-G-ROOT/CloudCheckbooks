@@ -111,9 +111,64 @@ JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 
 Ingresar tu usuario de la base de datos en **"AQUÍ_VA_TU_USUARIO"** y tu constraseña en **"AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"**
 
-Ahora puedes correr el servidor.
 
-6. Inicia el servidor backend y la validación de TypeScript para correr el backend.
+
+6. 1. ## 🏃‍♂️ **Correr la base de datos** 🏃‍♀️
+
+      1. **Iniciar la base de datos**
+         1. Para ubicarte en la carpeta que almacena la base de datos correspondiente, ingresa el siguiente comando:
+
+      ```
+      cd ./DB
+      ```
+
+      Abre el archivo `db.sql` para configurar la conexión con la  base de datos desde Visual Studio Code. Asegúrate de tener instalada la  extensión MySQL para ello.
+
+      
+
+   2. Activar la coneccion por medio del visual estudio code. Para ello primero Instalar la extension MySQL
+
+      ![image-20230727114914347](./assets/img/README/mysql.png)
+
+   3. Habiendo hecho esto, nos aparecerá la opción de connección sobre nuestro código de la siguiente forma
+
+      ![image-20230727115023570](./assets/img/README/activar.png)
+
+   4. ​	Darle click en activar conexión y nos aparecerá una ventana similar a la siguiente: 
+
+      ![image-20230727115121384](./assets/img/README/activar2.png)
+
+   5. Seleccionar la opción que te aparezca
+
+   6. Seleccionar en cualquier base de datos que tengas ya instalada o preinstalada
+
+      ![image-20230727115220532](./assets/img/README/seleccionar.png)
+
+   7. ¡Listo! Ahora tu base de datos está configurada y lista para usar. 🚀🌟
+
+      
+
+### Crear la base de datos
+
+Estando ubicados en el archivo `db.sql` seleccionaremos todo y ejecutarémos el código
+
+Para ejecutarlo daramemos click en la opción que aparece en la imagen
+
+![image-20230727115431805](./assets/img/README/correr_db.png)
+
+Teniendo ya creada nuesta base de datos, es hora de insertarle algunos "datos":
+
+1. Para ello vamos al archivo `insert.sql` como en el archivo anterior, también activaremos la connexión, sin embargo en esta ocación, seleccionaremos el nombre de nuesta base de datos, la cual es `Talonarios`
+
+   ![image-20230727115959416](./assets/img/README/select_talonario.png)
+
+2. Habiendo hecho esto, seleccionaremos todo y correremos el código.
+
+
+
+# Iniciar el servidor:
+
+1. Inicia el servidor backend y la validación de TypeScript para correr el backend.
 
 Dentro de la carpeta "backend", ejecuta el siguiente comando:
 
@@ -127,7 +182,7 @@ Crea una nueva terminal y ejecuta este otro comando:
 npm run tsc
 ```
 
-7. Accede a la ruta impresa en la terminal.
+2. Accede a la ruta impresa en la terminal.
 
 La aplicación estará disponible en `http://localhost:3000`.
 
@@ -232,4 +287,4 @@ git push origin mi-nueva-funcionalidad
 
 Este proyecto se encuentra bajo la Licencia MIT. Siéntete libre de utilizar, modificar y distribuir el código según tus necesidades.
 
-¡Gracias por contribuir al proyecto "CloudCheckbooks"! 🙌💰
+¡Gracias por contribuir al proyecto "CloudCheckbooks"! 🙌💰|
