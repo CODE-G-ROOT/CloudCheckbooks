@@ -15,7 +15,7 @@ router_Talones.use((req,res,next)=>{
     next();
 })
 
-router_Talones.get("/factura", proxy_talones ,(req,res)=>{
+router_Talones.get("/", proxy_talones ,(req,res)=>{
     con.query(
         `SELECT 
         TALONARIO.talon_id as id_talon,
@@ -77,11 +77,11 @@ router_Talones.get("/cheque",proxy_talones, (req,res)=>{
     SELECT 
     TALONARIO.talon_id as id_talon,
     Cheque.cheque_id as id_Cheque,
-    Fechas.fecha as date,
-    TALONARIO.descripcion as descripcion,
-    Libros.libro_name as Perteneciente,
     Pago.pago_id as pago_id,
-    Usuario.usu_id as Referente,
+    Usuario.usu_id as "Usuario Referente",
+    Fechas.fecha as date,
+    Libros.libro_name as "Libro",
+    TALONARIO.descripcion as descripcion,
     Persona.persona_nombre as Beneficiario,
     B_Emisor.banco_name as Banco_emisor,
     B_Receptor.banco_name as Banco_receptor
@@ -107,7 +107,7 @@ router_Talones.get("/cheque",proxy_talones, (req,res)=>{
     }
 })
 
-router_Talones.get("/recibo",proxy_talones, (req,res)=>{
+router_Talones.get("/talonario/recibo",proxy_talones, (req,res)=>{
     con.query(`
     SELECT 
     TALONARIO.talon_id as id_talon,

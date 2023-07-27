@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-// import home from './routes/home.js';
+import home from './routes/home.js';
 import cheque from './routes/cheque.js';
 import factura from './routes/factura.js';
 import libros from './routes/libros.js';
@@ -22,7 +22,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// app.use("/home", home);
+app.use("/home", home);
 app.use("/home/cheque", cheque);
 app.use("/home/factura", factura);
 app.use("/home/libros", libros);

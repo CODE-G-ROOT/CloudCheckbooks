@@ -17,7 +17,7 @@ router_Bancos.use((req,res,next)=>{
 
 router_Bancos.get("/", proxy_banco ,(req,res)=>{
     con.query(
-        `SELECT * FROM Bancos;
+        `SELECT * FROM Banco
         `,
         (err,data,fill)=>{
             if(err){
