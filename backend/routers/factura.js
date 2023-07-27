@@ -16,7 +16,7 @@ router_Factura.use((req,res,next)=>{
     next();
 })
 
-router_Factura.get("/", validateToken, proxy_facturas ,(req,res)=>{
+router_Factura.get("/factura", validateToken, proxy_facturas ,(req,res)=>{
     con.query(
         `SELECT 
         factura_id AS "N_Factura",

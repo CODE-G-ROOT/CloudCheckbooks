@@ -1,3 +1,4 @@
+-- Active: 1685727283040@@127.0.0.1@3306@Talonarios
 USE Talonarios;
 
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña, libros_cantidad) VALUES
@@ -83,3 +84,26 @@ INSERT INTO Recibo_caja (persona_id, pago_id) VALUES
 (10003, 3),
 (10004, 4),
 (10005, 5);
+
+
+SELECT 
+    TALONARIO.talon_id as id_talon,
+    Cheque.cheque_id as id_Cheque,
+    Pago.pago_id as pago_id,
+    Usuario.usu_id as "Usuario Referente",
+    Fechas.fecha as date,
+    Libros.libro_name as "Libro",
+    TALONARIO.descripcion as descripcion,
+    Persona.persona_nombre as Beneficiario,
+    B_Emisor.banco_name as Banco_emisor,
+    B_Receptor.banco_name as Banco_receptor
+    FROM TALONARIO
+    INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
+    INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id
+    INNER JOIN Cheque ON Cheque.cheque_id = TALONARIO.talon_id
+    INNER JOIN Pago ON Pago.pago_id = Cheque.pago_id
+    INNER JOIN Fechas ON Fechas.id_fecha = TALONARIO.id_fecha
+    INNER JOIN Persona ON Persona.persona_id = Cheque.persona_id
+    INNER JOIN Banco as B_Emisor ON B_Emisor.id_banco = Cheque.banco_emisor_id
+    INNER JOIN Banco as B_Receptor ON B_Receptor.id_banco = Cheque.banco_receptor_id
+    WHERE TALONARIO.talon_tipo_id = Cheque.Cheque_id;

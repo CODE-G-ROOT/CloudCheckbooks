@@ -16,7 +16,7 @@ router_Recibo_caja.use((req,res,next)=>{
     next();
 })
 
-router_Recibo_caja.get("/",validateToken, proxy_recibo_cajas ,(req,res)=>{
+router_Recibo_caja.get("/recibo",validateToken, proxy_recibo_cajas ,(req,res)=>{
     con.query(
         `SELECT 
         Recibo_caja.recibo_caja_id as id,
@@ -31,10 +31,10 @@ router_Recibo_caja.get("/",validateToken, proxy_recibo_cajas ,(req,res)=>{
         Pago.total as total,
         Metodo_pago.mp_nombre as metodo_pago
         FROM Recibo_caja
-        INNER JOIN Persona ON Persona.persona_id = Recibo_caja.persona_id
-        INNER JOIN Pago ON Pago.pago_id = Recibo_caja.pago_id
-        INNER JOIN Ubicacion ON Ubicacion.ubicacion_id = Persona.ubicacion_id
-        INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = Pago.metodo_pago_id;`,
+        LEFT JOIN Persona ON Persona.persona_id = Recibo_caja.persona_id
+        LEFT JOIN Pago ON Pago.pago_id = Recibo_caja.pago_id
+        LEFT JOIN Ubicacion ON Ubicacion.ubicacion_id = Persona.ubicacion_id
+        LEFT JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = Pago.metodo_pago_id;`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);

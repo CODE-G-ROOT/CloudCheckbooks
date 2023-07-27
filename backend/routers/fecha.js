@@ -16,7 +16,7 @@ router_Fechas.use((req,res,next)=>{
     next();
 })
 
-router_Fechas.get("/", validateToken ,proxy_fechas ,(req,res)=>{
+router_Fechas.get("/fechas", validateToken ,proxy_fechas ,(req,res)=>{
     con.query(
         `SELECT * FROM Fechas;
         `,

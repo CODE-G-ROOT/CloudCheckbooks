@@ -16,7 +16,7 @@ router_Ubicacion.use((req,res,next)=>{
     next();
 })
 
-router_Ubicacion.get("/",validateToken, proxy_ubicacion ,(req,res)=>{
+router_Ubicacion.get("/ubicacion",validateToken, proxy_ubicacion ,(req,res)=>{
     con.query(
         `SELECT * FROM Ubicacion;`,
         (err,data,fill)=>{

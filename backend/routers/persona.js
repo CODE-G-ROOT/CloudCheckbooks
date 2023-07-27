@@ -16,7 +16,7 @@ router_Persona.use((req,res,next)=>{
     next();
 })
 
-router_Persona.get("/", validateToken, proxy_persona ,(req,res)=>{
+router_Persona.get("/personas", validateToken, proxy_persona ,(req,res)=>{
     con.query(
         `SELECT 
             persona_id as id,

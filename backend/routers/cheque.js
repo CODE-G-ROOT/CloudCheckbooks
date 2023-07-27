@@ -16,7 +16,7 @@ router_Cheque.use((req,res,next)=>{
     next();
 })
 
-router_Cheque.get("/",validateToken,  proxy_cheque ,(req,res)=>{
+router_Cheque.get("/cheque",validateToken,  proxy_cheque ,(req,res)=>{
     con.query(
         `SELECT 
         cheque_id as "Numero_cheque",
@@ -46,7 +46,7 @@ router_Cheque.get("/",validateToken,  proxy_cheque ,(req,res)=>{
 })
 
 
-router_Cheque.post("/", proxy_cheque, (req, res)=>{
+router_Cheque.post("/cheque", proxy_cheque, (req, res)=>{
     con.query(
         `INSERT INTO Cheque SET ?`, 
         req.body,(err, data) => {

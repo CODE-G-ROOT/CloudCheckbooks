@@ -17,7 +17,7 @@ router_Libros.use((req,res,next)=>{
     next();
 })
 
-router_Libros.get("/",validateToken,  proxy_libros ,(req,res)=>{
+router_Libros.get("/libros",validateToken,  proxy_libros ,(req,res)=>{
     con.query(
         `SELECT 
         libro_id as id,

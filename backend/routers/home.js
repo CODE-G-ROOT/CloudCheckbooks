@@ -20,15 +20,15 @@ let a = JSON.parse(process.env.SERVER_CONFIG);
 let data = {
     factura : `http://${a.hostname}:${a.port}/home/factura`,
     libros : `http://${a.hostname}:${a.port}/home/libros`,
-    metodo_pago : `http://${a.hostname}:${a.port}/home/metodo_pago`,
+    metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay`,
     pago : `http://${a.hostname}:${a.port}/home/pago`,
-    persona : `http://${a.hostname}:${a.port}/home/persona`,
-    recibo_caja : `http://${a.hostname}:${a.port}/home/recibo_caja`,
-    talonario : `http://${a.hostname}:${a.port}/home/talonario`,
+    persona : `http://${a.hostname}:${a.port}/home/personas`,
+    recibo_caja : `http://${a.hostname}:${a.port}/home/recibo`,
+    talonario : `http://${a.hostname}:${a.port}/home/talonario:factura`,
     ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion`,
     usuario : `http://${a.hostname}:${a.port}/home/usuario`,
-    fecha : `http://${a.hostname}:${a.port}/home/fecha`,
-    banco : `http://${a.hostname}:${a.port}/home/banco`
+    fecha : `http://${a.hostname}:${a.port}/home/fechas`,
+    banco : `http://${a.hostname}:${a.port}/home/bancos`
 }
 
 route_home.get("/" ,(req,res)=>{

@@ -16,7 +16,7 @@ router_Pago.use((req,res,next)=>{
     next();
 })
 
-router_Pago.get("/",validateToken, proxy_metodo_pago ,(req,res)=>{
+router_Pago.get("/pago",validateToken, proxy_metodo_pago ,(req,res)=>{
     con.query(
         `SELECT 
         Pago.pago_id as id,

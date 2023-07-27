@@ -16,7 +16,7 @@ router_Metodo_pago.use((req,res,next)=>{
     next();
 })
 
-router_Metodo_pago.get("/",validateToken, proxy_metodo_pago ,(req,res)=>{
+router_Metodo_pago.get("/met_pay",validateToken, proxy_metodo_pago ,(req,res)=>{
     con.query(
         `SELECT * FROM Metodo_pago;`,
         (err,data,fill)=>{

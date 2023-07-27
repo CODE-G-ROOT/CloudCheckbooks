@@ -16,7 +16,7 @@ router_Usuario.use((req,res,next)=>{
     next();
 })
 
-router_Usuario.get("/",validateToken, proxy_usuario ,(req,res)=>{
+router_Usuario.get("/usuario",validateToken, proxy_usuario ,(req,res)=>{
     con.query(
         `SELECT * FROM Usuario;`,
         (err,data,fill)=>{

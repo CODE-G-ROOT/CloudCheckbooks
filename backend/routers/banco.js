@@ -16,7 +16,7 @@ router_Bancos.use((req,res,next)=>{
     next();
 })
 
-router_Bancos.get("/",validateToken, proxy_banco ,(req,res)=>{
+router_Bancos.get("/bancos",validateToken, proxy_banco ,(req,res)=>{
     con.query(
         `SELECT * FROM Banco
         `,
