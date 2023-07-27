@@ -1,6 +1,6 @@
 import {Expose, Transform} from 'class-transformer';
 
-export class get_fechas {
+export class get_bancos {
 
     @Expose ({name : 'banco_name'})
     @Transform (({value})=>{
