@@ -16,14 +16,14 @@ CREATE TABLE Banco (
     banco_name VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE Fechas (
+    id_fecha INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    fecha DATE NOT NULL
+);
+
 CREATE TABLE Metodo_pago (
     metodo_pago_id INT PRIMARY KEY NOT NULL,
     mp_nombre VARCHAR(50) NOT NULL UNIQUE
-);
-
-CREATE TABLE Fechas (
-    id_fecha INT PRIMARY KEY NOT NULL,
-    fecha DATE NOT NULL
 );
 
 CREATE TABLE Ubicacion (
