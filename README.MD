@@ -31,6 +31,19 @@ Este es un archivo README.md para proporcionar información adicional sobre la i
 - **Express.js**: Framework de Node.js para la creación de servidores web.
 - **MySQL**: Base de datos relacional para almacenar los documentos contables de forma estructurada. 🗃️
 
+## Dependencias utlizadas 📋🔍
+
+- class-transformer
+- class-validator
+- dotenv
+- express
+- jose
+- mysql2
+- nodemon
+- promise-mysql
+- reflect-metadata
+- typescript
+
 ## Proyección básica de la base de datos 📋🔍
 
 ![Diagrama de la base de datos](./assets/img/README/diagrama.png)
@@ -48,9 +61,9 @@ Definición de la construcción de la base de datos según la importancia de las
 | Metodo_pago | Define la forma de pago y según su validación                |
 | Pago        | Se define según la forma de pago                             |
 
-## Manual de uso 📖🚀 ( en construcción 🔧👷‍♀️ )
+## Manual de uso 📖🚀 
 
-### ⚠️ **ADVERTENCIA:** Para usar la API, primero debes obtener un token de verificación. 🔒🔑
+### ⚠️ **ADVERTENCIA:** Para usar la API, primero debes obtener un token de verificación. 🔒🔑 ( en construcción 🔧👷‍♀️ )
 
 Pasos a tener en cuenta para generar el token:
 
@@ -67,22 +80,6 @@ Pasos a tener en cuenta para generar el token:
    - Copiar el token
    - Hacer una petición con método POST
 
-## ROUTES 🔍🛣️
-
-Aquí encontrarás las rutas de acceso a diferentes secciones:
-
-- Factura: http://localhost:3000/home/factura
-- Libros: http://localhost:3000/home/libros
-- Metodo_pago: http://localhost:3000/home/metodo_pago
-- Pago: http://localhost:3000/home/pago
-- Persona: http://localhost:3000/home/persona
-- Recibo_caja: http://localhost:3000/home/recibo_caja
-- Talonario: http://localhost:3000/home/talonario
-- Ubicacion: http://localhost:3000/home/ubicacion
-- Usuario: http://localhost:3000/home/usuario
-- Fecha: http://localhost:3000/home/fecha
-- Banco: http://localhost:3000/home/banco
-
 ## Instalación y uso 🛠️🚀
 
 1. Clona este repositorio en tu computadora.
@@ -91,7 +88,7 @@ Aquí encontrarás las rutas de acceso a diferentes secciones:
 git clone https://github.com/JuanDavidAvilaRaveloCampus/CloudCheckbooks.git
 ```
 
-1. Instala las dependencias necesarias para el frontend y el backend.
+2. Instala las dependencias necesarias para el frontend y el backend.
 
 Para ello, primero debemos ubicarnos en la carpeta "backend" con el comando:
 
@@ -99,13 +96,13 @@ Para ello, primero debemos ubicarnos en la carpeta "backend" con el comando:
 cd ./backend
 ```
 
-2. Ahora, instalamos las dependencias:
+3. Ahora, instalamos las dependencias:
 
 ```bash
 npm update
 ```
 
-3. Crea el archivo controllers con el siguiente comando:
+4. Crea el archivo controllers con el siguiente comando:
 
 ```bash
 npm run tsc
@@ -113,7 +110,7 @@ npm run tsc
 
 Luego procedemos a dar de baja el servicio con CTRL + C.
 
-4. Configura las variables de entorno.
+5. Configura las variables de entorno.
 
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
@@ -124,18 +121,16 @@ touch .env
 Dentro de ese archivo ingresar el siguiente script.
 
 ```json
-SERVER_CONFIG={"hostname": "localhost", "port": 4001}
+SERVER_CONFIG={"hostname": "localhost", "port": 3000}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
 
 Ingresar tu usuario de la base de datos en "AQUÍ_VA_TU_USUARIO" y tu constraseña en "AQUÍ__VA_TU_CONTRASEÑA_DE_MYSQL"
 
-
-
 Ahora puedes correr el servidor.
 
-1. Inicia el servidor backend y la validación de TypeScript para correr el backend.
+6. Inicia el servidor backend y la validación de TypeScript para correr el backend.
 
 Dentro de la carpeta "backend", ejecuta el siguiente comando:
 
@@ -149,9 +144,32 @@ Crea una nueva terminal y ejecuta este otro comando:
 npm run tsc
 ```
 
-1. Accede a la ruta impresa en la terminal.
+7. Accede a la ruta impresa en la terminal.
 
-La aplicación estará disponible en `http://localhost:3000.
+La aplicación estará disponible en `http://localhost:3000`.
+
+Puedes acceder al directorio desde `http://localhost:3000/home`
+
+
+## ROUTES 🔍🛣️
+
+Aquí encontrar
+
+ás las rutas de acceso a diferentes secciones:
+
+- Factura: http://localhost:3000/home/factura
+- Libros: http://localhost:3000/home/libros
+- Metodo_pago: http://localhost:3000/home/metodo_pago
+- Pago: http://localhost:3000/home/pago
+- Persona: http://localhost:3000/home/persona
+- Recibo_caja: http://localhost:3000/home/recibo_caja
+- Talonario: http://localhost:3000/home/talonario
+- Ubicacion: http://localhost:3000/home/ubicacion
+- Usuario: http://localhost:3000/home/usuario
+- Fecha: http://localhost:3000/home/fecha
+- Banco: http://localhost:3000/home/banco
+
+
 
 ## Contribuciones y Licencia 📝📄
 
@@ -163,20 +181,21 @@ La aplicación estará disponible en `http://localhost:3000.
 git checkout -b mi-nueva-funcionalidad
 ```
 
-1. Realiza tus modificaciones y mejoras.
-2. Haz un "commit" de tus cambios.
+2. Realiza tus modificaciones y mejoras.
+
+3. Haz un "commit" de tus cambios.
 
 ```bash
 git commit -m "Agrego nueva funcionalidad"
 ```
 
-1. Envía tus cambios al repositorio remoto.
+4. Envía tus cambios al repositorio remoto.
 
 ```bash
 git push origin mi-nueva-funcionalidad
 ```
 
-1. Abre un "Pull Request" en GitHub para que revisemos tus cambios.
+5. Abre un "Pull Request" en GitHub para que revisemos tus cambios.
 
 Este proyecto se encuentra bajo la Licencia MIT. Siéntete libre de utilizar, modificar y distribuir el código según tus necesidades.
 
