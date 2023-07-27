@@ -22,7 +22,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// app.use("/home", home);
+app.use("/home", home);
 app.use("/home/cheque", cheque);
 app.use("/home/factura", factura);
 app.use("/home/libros", libros);
