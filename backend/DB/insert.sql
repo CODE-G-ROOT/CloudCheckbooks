@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@Talonarios
+-- Active: 1689075950615@@localhost@3306@Talonarios
 USE Talonarios;
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña, libros_cantidad) VALUES
 (1, 'usuario1', 'usuario1@example.com', 'contraseña1', 5),
@@ -87,7 +87,7 @@ INSERT INTO Cheque (cheque_id, persona_id, pago_id, banco_emisor_id, banco_recep
 (4, 10004, 4, 4, 5),
 (5, 10005, 5, 5, 3);
 
-INSERT INTO Factura (factura_id, terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
+INSERT INTO Cheque (Cheque_id, terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
 (1, 'Términos y condiciones 1', 123456789, 10001, 10002, 1, 1, 2),
 (2, 'Términos y condiciones 2', 987654321, 10003, 10004, 2, 2, 3),
 (3, 'Términos y condiciones 3', 135792468, 10005, 10001, 3, 3, 4),
@@ -100,5 +100,4 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (3, 10003, 3),
 (4, 10004, 4),
 (5, 10005, 5);
-
 

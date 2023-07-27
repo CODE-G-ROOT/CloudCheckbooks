@@ -19,11 +19,12 @@ router_Libros.get("/", proxy_libros ,(req,res)=>{
     con.query(
         `SELECT 
         libro_id as id,
-        libro_name as name,
-        usu_nickname as usu_name
+        Usuario.usu_id as id_usuario,
+        libro_name as libro,
+        usu_nickname as usuario,
+        Libros.talon_cant as libro_cant
         FROM Libros
-        INNER JOIN Usuario
-        ON Usuario.usu_id = Libros.responsable_id;
+        INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id;
         `,
         (err,data,fill)=>{
             if(err){
