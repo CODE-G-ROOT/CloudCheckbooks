@@ -99,13 +99,21 @@ Para ello, primero debemos ubicarnos en la carpeta "backend" con el comando:
 cd ./backend
 ```
 
-Ahora, instalamos las dependencias:
+2. Ahora, instalamos las dependencias:
 
 ```bash
 npm update
 ```
 
-1. Configura las variables de entorno.
+3. Crea el archivo controllers con el siguiente comando:
+
+```bash
+npm run tsc
+```
+
+Luego procedemos a dar de baja el servicio con CTRL + C.
+
+4. Configura las variables de entorno.
 
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
@@ -116,7 +124,7 @@ touch .env
 Dentro de ese archivo ingresar el siguiente script.
 
 ```json
-jsonCopy codeSERVER_CONFIG={"hostname": "localhost", "port": 4001}
+SERVER_CONFIG={"hostname": "localhost", "port": 4001}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
