@@ -33,7 +33,7 @@ Este es un archivo README.md para proporcionar información adicional sobre la i
 
 ## Proyección básica de la base de datos 📋🔍
 
-![Diagrama de la base de datos](https://chat.openai.com/c/assets/img/README/diagrama.png)
+![Diagrama de la base de datos](./assets/img/README/diagrama.png)
 
 Definición de la construcción de la base de datos según la importancia de las tablas y las relaciones que tenían entre sí.
 
