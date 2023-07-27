@@ -14,11 +14,16 @@ appExpress.use(express.json());
 appExpress.get('/:id/:nombre', router_cheque ,async(req,res)=>{
 
     //* Contiene la información importante
+    
 
     const encoder = new TextEncoder();
 
+    let json = {
+        id : req.params.id,
+        nombre : req.params.nombre
+    }
     //* Se instancia SignJWT que recibe el json
-    const jwtconstructor = new SignJWT({router_cheque});
+    const jwtconstructor = new SignJWT({json});
     const jwt = await jwtconstructor
 
     //*Headers que estan en la pagina
@@ -50,24 +55,10 @@ appExpress.post('/', async(req,res)=>{
 })
 
 
-//TODO   ESTA FUNCION Y CLOSE SERVER, SON PARA CERRAR EL SERVIDOR 
-//TODO   Y EL PUERTO A LA HORA DE CERRAR LA PÁGINA
-// process.on('SIGINT', () => {
-//     console.log('Cerrando el servidor...');
-//     server.close();
-    
-//     process.exit(0);
-// });
+// TODO   ESTA FUNCION Y CLOSE SERVER, SON PARA CERRAR EL SERVIDOR 
+// TODO   Y EL PUERTO A LA HORA DE CERRAR LA PÁGINA
 
-// const closeServer = () => {
-//     console.log('Cerrando el servidor...');
-//     server.close();
-    
-//     process.exit(0);
-// };
 
-// const tiempoEspera = 10 * 1000; // 10 minutos en milisegundos
-// setTimeout(closeServer, tiempoEspera);
 console.log(router_cheque);
 //* Configuración para el server
 const serverConfig = JSON.parse(process.env.SERVER_CONFIG);

@@ -4,6 +4,8 @@ import { SignJWT, jwtVerify } from 'jose'; //
 
 dotenv.config();
 
+console.clear();
+
 let appExpress = express();
 appExpress.use(express.json());
 appExpress.get('/:id/:nombre', async(req,res)=>{
@@ -48,6 +50,9 @@ appExpress.post('/', async(req,res)=>{
     }
 })
 let myConfig = JSON.parse(process.env.SERVER_CONFIG);
+
+console.log(process.env);
+
 appExpress.listen(myConfig, ()=>{
     console.log(`http://${myConfig.hostname}:${myConfig.port}`);
 })

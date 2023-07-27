@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "tsc": "tsc -w",
-    "dev": "nodemon --quiet ./src/app.js"
+    "dev": "nodemon --quiet ./src/app.js",
+    "jwt" : "nodemon --quiet ./src/JWT/JWT.js"
   },
   "keywords": [],
   "author": "",
