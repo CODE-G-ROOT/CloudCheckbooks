@@ -66,13 +66,41 @@ export class get_facturas {
     },
     {toClassOnly: true})
     NIT : Number;
+    
+    @Expose({name : 'id_fecha_emision'})
+    @Transform (({value})=>{
+        if(Math.floor(value) && value > 0){
+            throw {
+                status: 400,
+                message: `El identificador del NIT solo puede ser de tipo numérico.`
+            }
+        }
+        return value;
+    },
+    {toClassOnly: true})
+    emision : Number;
 
-    constructor  (terminosCondiciones : String, NIT: Number,  compradorID: Number, vendedorID : Number, pagoID : Number){
-        this.terminosCondiciones = terminosCondiciones,
-        this.NIT = NIT,
-        this.compradorID = compradorID,
-        this.vendedorID = vendedorID,
+    @Expose({name : 'id_fecha_recepcion'})
+    @Transform (({value})=>{
+        if(Math.floor(value) && value > 0){
+            throw {
+                status: 400,
+                message: `El identificador del NIT solo puede ser de tipo numérico.`
+            }
+        }
+        return value;
+    },
+    {toClassOnly: true})
+    recepcion : Number;
+
+    constructor  (terminosCondiciones : String, NIT: Number,  compradorID: Number, vendedorID : Number, pagoID : Number,emision : Number,recepcion : Number){
+        this.terminosCondiciones = terminosCondiciones
+        this.NIT = NIT
+        this.compradorID = compradorID
+        this.vendedorID = vendedorID
         this.pagoID = pagoID
+        this.emision = emision
+        this.recepcion = recepcion
     }
 }
 
