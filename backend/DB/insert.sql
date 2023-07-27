@@ -1,4 +1,4 @@
--- Active: 1689558179441@@localhost@3306@Talonarios
+-- Active: 1689075950615@@localhost@3306@Talonarios
 USE Talonarios;
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña, libros_cantidad) VALUES
 (1, 'usuario1', 'usuario1@example.com', 'contraseña1', 5),
@@ -87,7 +87,7 @@ INSERT INTO Cheque (cheque_id, persona_id, pago_id, banco_emisor_id, banco_recep
 (4, 10004, 4, 4, 5),
 (5, 10005, 5, 5, 3);
 
-INSERT INTO Factura (factura_id, terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
+INSERT INTO Cheque (Cheque_id, terminos_condiciones, N_I_T, comprador_id, vendedor_id, pago_id, id_fecha_emision, Id_fecha_vencimiento) VALUES
 (1, 'Términos y condiciones 1', 123456789, 10001, 10002, 1, 1, 2),
 (2, 'Términos y condiciones 2', 987654321, 10003, 10004, 2, 2, 3),
 (3, 'Términos y condiciones 3', 135792468, 10005, 10001, 3, 3, 4),
@@ -101,46 +101,3 @@ INSERT INTO Recibo_caja (recibo_caja_id, persona_id, pago_id) VALUES
 (4, 10004, 4),
 (5, 10005, 5);
 
-
-/*! VERIFICAR ESA TABLA YA QUE TOCA VALIDARLA */
-SELECT 
-    persona_id as id,
-    persona_nombre as name,
-    persona_phone as phone,
-    persona_email as email,
-    ubicacion_direccion as direction,
-    CASE 
-        WHEN persona_id IN (SELECT comprador_id FROM Factura) THEN 'Comprador'
-        WHEN persona_id IN (SELECT vendedor_id FROM Factura) THEN 'Vendedor'
-        WHEN persona_id IN (SELECT persona_id FROM Cheque) THEN 'Cheque'
-        WHEN persona_id IN (SELECT persona_id FROM Recibo_caja) THEN 'Recibo_caja'
-        ELSE 'sin usuarios'
-    END AS user_type
-FROM Persona
-LEFT JOIN Ubicacion ON Ubicacion.ubicacion_id = Persona.ubicacion_id;
-
-
-SELECT 
-        TALONARIO.talon_id as id_talon,
-        Cheque. as id_factura,
-        Fechas.fecha as date,
-        TALONARIO.descripcion as descripcion,
-        Libros.libro_name as Perteneciente,
-        Factura.N_I_T as NIT,
-        Usuario.usu_id as Id_responsable,
-        Usuario.usu_nickname as Responsable,
-        Pago.pago_id as pago_id,
-        Metodo_pago.mp_nombre as Metodo_pago,
-    FROM TALONARIO  
-    INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
-    INNER JOIN `Cheque` ON Cheque.cheque_id = TALONARIO.libro_id
-    INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id
-    INNER JOIN Factura ON Factura.factura_id = TALONARIO.talon_tipo_id
-    INNER JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
-    INNER JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id
-    INNER JOIN Ubicacion AS comprador_ubicacion ON comprador_ubicacion.ubicacion_id = comprador.ubicacion_id
-    INNER JOIN Ubicacion AS vendedor_ubicacion ON vendedor_ubicacion.ubicacion_id = vendedor.ubicacion_id
-    INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = TALONARIO.metodo_pago_id
-    INNER JOIN Pago ON Pago.pago_id = Factura.pago_id
-    INNER JOIN Fechas ON Fechas.id_fecha = TALONARIO.id_fecha
-    WHERE TALONARIO.talon_tipo_id = Factura.factura_id;

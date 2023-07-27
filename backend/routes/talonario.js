@@ -15,7 +15,7 @@ router_Talones.use((req,res,next)=>{
     next();
 })
 
-router_Talones.get("/talon:factura", proxy_talones ,(req,res)=>{
+router_Talones.get("/factura", proxy_talones ,(req,res)=>{
     con.query(
         `SELECT 
         TALONARIO.talon_id as id_talon,
@@ -72,10 +72,74 @@ router_Talones.get("/talon:factura", proxy_talones ,(req,res)=>{
     );
 })
 
-router_Talones.get("/talon:cheque",proxy_talones, (req,res)=>{
+router_Talones.get("/cheque",proxy_talones, (req,res)=>{
     con.query(`
-    
-    `)
+    SELECT 
+    TALONARIO.talon_id as id_talon,
+    Cheque.cheque_id as id_Cheque,
+    Fechas.fecha as date,
+    TALONARIO.descripcion as descripcion,
+    Libros.libro_name as Perteneciente,
+    Pago.pago_id as pago_id,
+    Usuario.usu_id as Referente,
+    Persona.persona_nombre as Beneficiario,
+    B_Emisor.banco_name as Banco_emisor,
+    B_Receptor.banco_name as Banco_receptor
+    FROM TALONARIO
+    INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
+    INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id
+    INNER JOIN Cheque ON Cheque.cheque_id = TALONARIO.talon_id
+    INNER JOIN Pago ON Pago.pago_id = Cheque.pago_id
+    INNER JOIN Fechas ON Fechas.id_fecha = TALONARIO.id_fecha
+    INNER JOIN Persona ON Persona.persona_id = Cheque.persona_id
+    INNER JOIN Banco as B_Emisor ON B_Emisor.id_banco = Cheque.banco_emisor_id
+    INNER JOIN Banco as B_Receptor ON B_Receptor.id_banco = Cheque.banco_receptor_id
+    WHERE TALONARIO.talon_tipo_id = Cheque.Cheque_id;
+    `),
+    (err,data,fill)=>{
+        if(err){
+            console.error('Error al obtener los datos: ', err.message);
+            res.sendStatus(500);
+            console.log(data);
+        } else {
+            res.send(data);
+        }
+    }
+})
+
+router_Talones.get("/recibo",proxy_talones, (req,res)=>{
+    con.query(`
+    SELECT 
+    TALONARIO.talon_id as id_talon,
+    Recibo_caja.recibo_caja_id as id_Recibo_caja,
+    Fechas.fecha as date,
+    TALONARIO.descripcion as descripcion,
+    Libros.libro_name as Perteneciente,
+    Pago.pago_id as pago_id,
+    Usuario.usu_id as Referente,
+    Persona.persona_nombre as Pagador,
+    SUM(COALESCE(Pago.monto_num, 0)) as monto,
+    SUM(COALESCE(Pago.total, 0)) as pago,
+    SUM(COALESCE(Pago.monto_num, 0) + COALESCE(Pago.total, 0)) as Total_a_pagar
+FROM TALONARIO
+INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
+INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id
+INNER JOIN Recibo_caja ON Recibo_caja.recibo_caja_id = TALONARIO.talon_id
+INNER JOIN Pago ON Pago.pago_id = Recibo_caja.pago_id
+INNER JOIN Fechas ON Fechas.id_fecha = TALONARIO.id_fecha
+INNER JOIN Persona ON Persona.persona_id = Recibo_caja.persona_id
+WHERE TALONARIO.talon_tipo_id = Recibo_caja.recibo_caja_id
+GROUP BY TALONARIO.talon_id, Recibo_caja.recibo_caja_id, Fechas.fecha, TALONARIO.descripcion, Libros.libro_name, Pago.pago_id, Usuario.usu_id, Persona.persona_nombre;
+    `),
+    (err,data,fill)=>{
+        if(err){
+            console.error('Error al obtener los datos: ', err.message);
+            res.sendStatus(500);
+            console.log(data);
+        } else {
+            res.send(data);
+        }
+    }
 })
 
 
