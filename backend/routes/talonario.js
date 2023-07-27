@@ -20,7 +20,7 @@ router_Talones.get("/talon:factura", proxy_talones ,(req,res)=>{
         `SELECT 
         TALONARIO.talon_id as id_talon,
         Factura.factura_id as id_factura,
-        TALONARIO.talon_fecha as date,
+        Fechas.fecha as date,
         TALONARIO.descripcion as descripcion,
         Libros.libro_name as Perteneciente,
         Factura.terminos_condiciones as Terminos,
@@ -38,21 +38,27 @@ router_Talones.get("/talon:factura", proxy_talones ,(req,res)=>{
         vendedor.persona_email as vendedor_email,
         vendedor_ubicacion.ubicacion_direccion as vendedor_domicilio,
         Pago.pago_id as pago_id,
-        Pago.valor_unitario as unidad,
-        Pago.subtotal_por_item as sub_item,
+        SUM(Pago.valor_unitario) as unidad_sum,
+        SUM(Pago.subtotal_por_item) as sub_item_sum,
         Metodo_pago.mp_nombre as Metodo_pago,
-        Pago.total
-        FROM TALONARIO
-        INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
-        INNER JOIN Usuario ON Usuario.usu_id = Libros.libro_id
-        INNER JOIN Factura ON Factura.factura_id = TALONARIO.talon_tipo_id
-        INNER JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
-        INNER JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id
-        INNER JOIN Ubicacion AS comprador_ubicacion ON comprador_ubicacion.ubicacion_id = comprador.ubicacion_id
-        INNER JOIN Ubicacion AS vendedor_ubicacion ON vendedor_ubicacion.ubicacion_id = vendedor.ubicacion_id
-        INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = TALONARIO.metodo_pago_id
-        INNER JOIN Pago ON Pago.pago_id = Factura.pago_id
-        WHERE TALONARIO.talon_tipo_id = Factura.factura_id;
+        SUM(Pago.valor_unitario) + SUM(Pago.subtotal_por_item) as total 
+    FROM TALONARIO
+    INNER JOIN Libros ON Libros.libro_id = TALONARIO.libro_id
+    INNER JOIN Usuario ON Usuario.usu_id = Libros.responsable_id
+    INNER JOIN Factura ON Factura.factura_id = TALONARIO.talon_tipo_id
+    INNER JOIN Persona AS comprador ON comprador.persona_id = Factura.comprador_id
+    INNER JOIN Persona AS vendedor ON vendedor.persona_id = Factura.vendedor_id
+    INNER JOIN Ubicacion AS comprador_ubicacion ON comprador_ubicacion.ubicacion_id = comprador.ubicacion_id
+    INNER JOIN Ubicacion AS vendedor_ubicacion ON vendedor_ubicacion.ubicacion_id = vendedor.ubicacion_id
+    INNER JOIN Metodo_pago ON Metodo_pago.metodo_pago_id = TALONARIO.metodo_pago_id
+    INNER JOIN Pago ON Pago.pago_id = Factura.pago_id
+    INNER JOIN Fechas ON Fechas.id_fecha = TALONARIO.id_fecha
+    WHERE TALONARIO.talon_tipo_id = Factura.factura_id
+    GROUP BY TALONARIO.talon_id, Factura.factura_id, Fechas.fecha, TALONARIO.descripcion, Libros.libro_name,
+        Factura.terminos_condiciones, Factura.N_I_T, Usuario.usu_id, Usuario.usu_nickname,
+        comprador.persona_id, comprador.persona_nombre, comprador.persona_phone, comprador.persona_email,
+        comprador_ubicacion.ubicacion_direccion, vendedor.persona_id, vendedor.persona_nombre,
+        vendedor.persona_phone, vendedor.persona_email, vendedor_ubicacion.ubicacion_direccion, Pago.pago_id, Metodo_pago.mp_nombre;
     `,
         (err,data,fill)=>{
             if(err){

@@ -22,7 +22,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use("/home", home);
+// app.use("/home", home);
 app.use("/home/cheque", cheque);
 app.use("/home/factura", factura);
 app.use("/home/libros", libros);
@@ -36,30 +36,12 @@ app.use("/home/usuario", usuario);
 app.use("/home/fecha", fecha);
 app.use("/home/banco", banco);
 
-// //* Esta función se encarga de controlar el cierre del puerto
-// //TODO   ESTA FUNCION Y CLOSE SERVER, SON PARA CERRAR EL SERVIDOR 
-// //TODO   Y EL PUERTO A LA HORA DE CERRAR LA PÁGINA
-// process.on('SIGINT', () => {
-//     console.log('Cerrando el servidor...');
-//     server.close();
-    
-//     process.exit(0);
-// });
-
-// const closeServer = () => {
-//     console.log('Cerrando el servidor...');
-//     server.close();
-    
-//     process.exit(0);
-// };
-
-// const tiempoEspera = 10 * 1000; // 10 minutos en milisegundos
-// setTimeout(closeServer, tiempoEspera);
-
-//* Configuración del servidor
 const serverConfig = JSON.parse(process.env.SERVER_CONFIG);
 
-app.listen(serverConfig.port, serverConfig.hostname, ()=>{
+
+app.listen(serverConfig.port, serverConfig.hostname, ()=>{     
     console.log(`http://${serverConfig.hostname}:${serverConfig.port}/home`
 )});
+
+export default serverConfig;;
 
