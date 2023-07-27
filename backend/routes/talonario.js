@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import proxy_talones from '../middleware/proxy_talones.js';
 import mysql from 'mysql2';
 import dotenv from "dotenv";
@@ -9,19 +9,16 @@ const router_Talones = Router();
 let con = undefined;
 
 //* Configuración para la base de datos
-router_Talones.use((req,res,next)=>{
+router_Talones.use((req, res, next) => {
     let myconfig = JSON.parse(process.env.DB_CONFIG);
     con = mysql.createPool(myconfig);
     next();
 })
 
-<<<<<<< HEAD
-router_Talones.get("/factura", proxy_talones ,(req,res)=>{
-=======
-router_Talones.get("/", proxy_talones ,(req,res)=>{
->>>>>>> golden
-    con.query(
-        `SELECT 
+router_Talones.get("/factura", proxy_talones, (req, res) => {
+    router_Talones.get("/", proxy_talones, (req, res) => {
+        con.query(
+            `SELECT 
         TALONARIO.talon_id as id_talon,
         Factura.factura_id as id_factura,
         Fechas.fecha as date,
@@ -64,24 +61,20 @@ router_Talones.get("/", proxy_talones ,(req,res)=>{
         comprador_ubicacion.ubicacion_direccion, vendedor.persona_id, vendedor.persona_nombre,
         vendedor.persona_phone, vendedor.persona_email, vendedor_ubicacion.ubicacion_direccion, Pago.pago_id, Metodo_pago.mp_nombre;
     `,
-        (err,data,fill)=>{
-            if(err){
-                console.error('Error al obtener los datos: ', err.message);
-                res.sendStatus(500);
-                console.log(data);
-            } else {
-                res.send(data);
+            (err, data, fill) => {
+                if (err) {
+                    console.error('Error al obtener los datos: ', err.message);
+                    res.sendStatus(500);
+                    console.log(data);
+                } else {
+                    res.send(data);
+                }
             }
-        }
-    );
-})
+        );
+    })
 
-router_Talones.get("/cheque",proxy_talones, (req,res)=>{
-    con.query(`
-<<<<<<< HEAD
-        
-    `)
-=======
+    router_Talones.get("/cheque", proxy_talones, (req, res) => {
+        con.query(` 
     SELECT 
     TALONARIO.talon_id as id_talon,
     Cheque.cheque_id as id_Cheque,
@@ -104,19 +97,19 @@ router_Talones.get("/cheque",proxy_talones, (req,res)=>{
     INNER JOIN Banco as B_Receptor ON B_Receptor.id_banco = Cheque.banco_receptor_id
     WHERE TALONARIO.talon_tipo_id = Cheque.Cheque_id;
     `),
-    (err,data,fill)=>{
-        if(err){
-            console.error('Error al obtener los datos: ', err.message);
-            res.sendStatus(500);
-            console.log(data);
-        } else {
-            res.send(data);
-        }
-    }
-})
+            (err, data, fill) => {
+                if (err) {
+                    console.error('Error al obtener los datos: ', err.message);
+                    res.sendStatus(500);
+                    console.log(data);
+                } else {
+                    res.send(data);
+                }
+            }
+    })
 
-router_Talones.get("/talonario/recibo",proxy_talones, (req,res)=>{
-    con.query(`
+    router_Talones.get("/talonario/recibo", proxy_talones, (req, res) => {
+        con.query(`
     SELECT 
     TALONARIO.talon_id as id_talon,
     Recibo_caja.recibo_caja_id as id_Recibo_caja,
@@ -139,30 +132,30 @@ INNER JOIN Persona ON Persona.persona_id = Recibo_caja.persona_id
 WHERE TALONARIO.talon_tipo_id = Recibo_caja.recibo_caja_id
 GROUP BY TALONARIO.talon_id, Recibo_caja.recibo_caja_id, Fechas.fecha, TALONARIO.descripcion, Libros.libro_name, Pago.pago_id, Usuario.usu_id, Persona.persona_nombre;
     `),
-    (err,data,fill)=>{
-        if(err){
-            console.error('Error al obtener los datos: ', err.message);
-            res.sendStatus(500);
-            console.log(data);
-        } else {
-            res.send(data);
-        }
-    }
->>>>>>> golden
-})
-
-
-router_Talones.post("/cheque", proxy_talones, (req, res)=>{
-    con.query(
-        `INSERT INTO TALONARIO SET ?`, 
-        req.body,(err, data) => {
-        if (err) {
-            console.error('Error al crear una Talones:', err.message);
-            res.sendStatus(500);
-        } else {
-            res.send(data);
-        }
+            (err, data, fill) => {
+                if (err) {
+                    console.error('Error al obtener los datos: ', err.message);
+                    res.sendStatus(500);
+                    console.log(data);
+                } else {
+                    res.send(data);
+                }
+            }
     })
-});
+
+
+    router_Talones.post("/cheque", proxy_talones, (req, res) => {
+        con.query(
+            `INSERT INTO TALONARIO SET ?`,
+            req.body, (err, data) => {
+                if (err) {
+                    console.error('Error al crear una Talones:', err.message);
+                    res.sendStatus(500);
+                } else {
+                    res.send(data);
+                }
+            })
+    });
+})
 
 export default router_Talones;
