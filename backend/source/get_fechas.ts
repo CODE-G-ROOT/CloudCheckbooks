@@ -2,7 +2,7 @@ import {Expose, Transform} from 'class-transformer';
 
 export class get_fechas {
 
-    @Expose ({name : 'id_fecha'})
+    @Expose ({name : 'fecha'})
     @Transform (({value})=>{
         if(value){
             throw {
