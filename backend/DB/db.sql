@@ -1,4 +1,4 @@
--- Active: 1689075950615@@localhost@3306@Talonarios
+-- Active: 1689192748746@@localhost@3306@Talonarios
 DROP DATABASE Talonarios;
 CREATE DATABASE Talonarios;
 USE Talonarios;
@@ -11,12 +11,19 @@ CREATE TABLE Usuario (
     libros_cantidad INT
 );
 
-CREATE TABLE Libros (
-    libro_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    libro_name VARCHAR(25) NOT NULL,
-    responsable_id INT NOT NULL,
-    talon_cant INT,
-    CONSTRAINT fk_libros_responsable_id FOREIGN KEY (responsable_id) REFERENCES Usuario (usu_id)
+CREATE TABLE Banco (
+    id_banco INT PRIMARY KEY NOT NULL,
+    banco_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Metodo_pago (
+    metodo_pago_id INT PRIMARY KEY NOT NULL,
+    mp_nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE Fechas (
+    id_fecha INT PRIMARY KEY NOT NULL,
+    fecha DATE NOT NULL
 );
 
 CREATE TABLE Ubicacion (
@@ -25,6 +32,14 @@ CREATE TABLE Ubicacion (
     ubicacion_ciudad VARCHAR(76) NOT NULL,
     ubicacion_estado VARCHAR(56) NOT NULL,
     ubicacion_pais VARCHAR(47) NOT NULL
+);
+
+CREATE TABLE Libros (
+    libro_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    libro_name VARCHAR(25) NOT NULL,
+    responsable_id INT NOT NULL,
+    talon_cant INT,
+    CONSTRAINT fk_libros_responsable_id FOREIGN KEY (responsable_id) REFERENCES Usuario (usu_id)
 );
 
 CREATE TABLE Persona (
@@ -36,10 +51,7 @@ CREATE TABLE Persona (
     CONSTRAINT fk_persona_ubicacion FOREIGN KEY (ubicacion_id) REFERENCES Ubicacion (ubicacion_id)
 );
 
-CREATE TABLE Metodo_pago (
-    metodo_pago_id INT PRIMARY KEY NOT NULL,
-    mp_nombre VARCHAR(50) NOT NULL UNIQUE
-);
+
 
 CREATE TABLE Pago(
     pago_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -65,14 +77,21 @@ CREATE TABLE TALONARIO (
 
 ALTER TABLE TALONARIO ADD INDEX idx_talon_tipo_id (talon_tipo_id);
 
+
+
 CREATE TABLE Cheque(
     cheque_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     persona_id INT NOT NULL,
     pago_id INT NOT NULL,
+    banco_emisor_id INT NOT NULL,
+    banco_receptor_id INT NOT NULL,
+    CONSTRAINT fk_cheque_banco_emisor FOREIGN KEY (banco_emisor_id) REFERENCES Banco (id_banco),
+    CONSTRAINT fk_cheque_banco_receptor FOREIGN KEY (banco_receptor_id) REFERENCES Banco (id_banco),
     CONSTRAINT fk_cheque_talon FOREIGN KEY (cheque_id) REFERENCES TALONARIO (talon_tipo_id),
     CONSTRAINT fk_cheque_persona FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),
     CONSTRAINT fk_cheque_pago FOREIGN KEY (pago_id) REFERENCES Pago (pago_id)
 );
+
 
 CREATE TABLE Factura (
     factura_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -81,6 +100,10 @@ CREATE TABLE Factura (
     comprador_id INT NOT NULL,
     vendedor_id INT NOT NULL,
     pago_id INT NOT NULL,
+    id_fecha_emision INT NOT NULL,
+    Id_fecha_vencimiento INT NOT NULL,
+    CONSTRAINT fk_bill_fecha_emision FOREIGN KEY (id_fecha_emision) REFERENCES Fechas (id_fecha),
+    CONSTRAINT fk_bill_fecha_vencimiento FOREIGN KEY (id_fecha_vencimiento) REFERENCES Fechas (id_fecha),
     CONSTRAINT fk_bill_persona_comprador FOREIGN KEY (comprador_id) REFERENCES Persona (persona_id),
     CONSTRAINT fk_bill_persona_vendedor FOREIGN KEY (vendedor_id) REFERENCES Persona (persona_id),
     CONSTRAINT fk_bill_talon FOREIGN KEY (factura_id) REFERENCES TALONARIO (talon_tipo_id),
@@ -91,6 +114,8 @@ CREATE TABLE Recibo_caja (
     recibo_caja_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     persona_id INT NOT NULL,
     pago_id INT NOT NULL,
+    fecha_id INT NOT NULL,
+    CONSTRAINT fk_cash_fecha FOREIGN KEY (fecha_id) REFERENCES Fechas (id_fecha),
     CONSTRAINT fk_cash_persona FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),
     CONSTRAINT fk_cash_talon FOREIGN KEY (recibo_caja_id) REFERENCES TALONARIO (talon_tipo_id),
     CONSTRAINT fk_cash_talon_tipo FOREIGN KEY (pago_id) REFERENCES Pago (pago_id)
