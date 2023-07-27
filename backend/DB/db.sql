@@ -66,11 +66,12 @@ CREATE TABLE Pago(
 
 CREATE TABLE TALONARIO (
     talon_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    talon_fecha DATETIME NOT NULL,
     descripcion VARCHAR(2000) NOT NULL,
     libro_id INT NOT NULL,
     talon_tipo_id INT NOT NULL,
     metodo_pago_id INT NOT NULL,
+    id_fecha INT NOT NULL,
+    CONSTRAINT fk_talon_fechas FOREIGN KEY (id_fecha) REFERENCES Fechas (id_fecha),
     CONSTRAINT fk_talon_libro_id FOREIGN KEY (libro_id) REFERENCES Libros (libro_id),
     CONSTRAINT fk_talon_metodo_id FOREIGN KEY (metodo_pago_id) REFERENCES Metodo_pago (metodo_pago_id)
 );
@@ -114,8 +115,6 @@ CREATE TABLE Recibo_caja (
     recibo_caja_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     persona_id INT NOT NULL,
     pago_id INT NOT NULL,
-    fecha_id INT NOT NULL,
-    CONSTRAINT fk_cash_fecha FOREIGN KEY (fecha_id) REFERENCES Fechas (id_fecha),
     CONSTRAINT fk_cash_persona FOREIGN KEY (persona_id) REFERENCES Persona (persona_id),
     CONSTRAINT fk_cash_talon FOREIGN KEY (recibo_caja_id) REFERENCES TALONARIO (talon_tipo_id),
     CONSTRAINT fk_cash_talon_tipo FOREIGN KEY (pago_id) REFERENCES Pago (pago_id)
