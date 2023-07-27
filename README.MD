@@ -33,7 +33,7 @@ Este es un archivo README.md para proporcionar información adicional sobre la i
 
 ## Proyección básica de la base de datos 📋🔍
 
-![Diagrama de la base de datos](./assets/img/README/diagrama.png)
+![Diagrama de la base de datos](https://chat.openai.com/c/assets/img/README/diagrama.png)
 
 Definición de la construcción de la base de datos según la importancia de las tablas y las relaciones que tenían entre sí.
 
@@ -55,6 +55,7 @@ Definición de la construcción de la base de datos según la importancia de las
 Pasos a tener en cuenta para generar el token:
 
 1. Hacer una petición a la URL proporcionada por el servidor, el método debe ser GET.
+
 2. Registro: En los parámetros de la URL, agregar el `/:id` y `/:nombre` como en el siguiente ejemplo:
 
    ```bash
@@ -68,39 +69,69 @@ Pasos a tener en cuenta para generar el token:
 
 ## ROUTES 🔍🛣️
 
-...
+Aquí encontrarás las rutas de acceso a diferentes secciones:
+
+- Factura: http://localhost:3000/home/factura
+- Libros: http://localhost:3000/home/libros
+- Metodo_pago: http://localhost:3000/home/metodo_pago
+- Pago: http://localhost:3000/home/pago
+- Persona: http://localhost:3000/home/persona
+- Recibo_caja: http://localhost:3000/home/recibo_caja
+- Talonario: http://localhost:3000/home/talonario
+- Ubicacion: http://localhost:3000/home/ubicacion
+- Usuario: http://localhost:3000/home/usuario
+- Fecha: http://localhost:3000/home/fecha
+- Banco: http://localhost:3000/home/banco
 
 ## Instalación y uso 🛠️🚀
 
 1. Clona este repositorio en tu computadora.
 
 ```bash
-
-
 git clone https://github.com/JuanDavidAvilaRaveloCampus/CloudCheckbooks.git
 ```
 
-2. Instala las dependencias necesarias para el frontend y el backend.
+1. Instala las dependencias necesarias para el frontend y el backend.
+
+Para ello, primero debemos ubicarnos en la carpeta "backend" con el comando:
 
 ```bash
-npm i -E -D class-transformer class-validator dotenv mysql2 nodemon reflect-metadata typescript express jose
+cd /backend
 ```
 
-3. Configura las variables de entorno.
+Ahora, instalamos las dependencias:
+
+```bash
+npm update
+```
+
+1. Configura las variables de entorno.
 
 Crea un archivo `.env` en la carpeta "backend" y agrega las siguientes variables de entorno:
 
-```json
-SERVER_CONFIG={"hostname": "localhost", "port": 4001}
+```
+jsonCopy codeSERVER_CONFIG={"hostname": "localhost", "port": 4001}
 DB_CONFIG={"host":"localhost","database":"Talonarios","user":"AQUÍ_VA_TU_USUARIO","password":"AQUÍ_VA_TU_CONTRASEÑA_DE_MYSQL", "port": 3306}
 JWT_PRIVATE_KEY = "Miguel, porfa, dejeme dormir hoy todo bien :')"
 ```
 
-4. Inicia el servidor backend (aún no implementado) y la aplicación frontend (aún no implementado).
+1. Inicia el servidor backend y la validación de TypeScript para correr el backend.
 
-5. Accede a la aplicación en tu navegador web.
+Dentro de la carpeta "backend", ejecuta el siguiente comando:
 
-La aplicación estará disponible en `http://localhost:3000`.
+```bash
+npm run dev
+```
+
+Crea una nueva terminal y ejecuta este otro comando:
+
+```bash
+npm run tsc
+```
+
+1. Accede a la aplicación en tu navegador web.
+
+La aplicación estará disponible en `http://localhost:3000/home`.
 
 ## Contribuciones y Licencia 📝📄
 
@@ -112,21 +143,22 @@ La aplicación estará disponible en `http://localhost:3000`.
 git checkout -b mi-nueva-funcionalidad
 ```
 
-2. Realiza tus modificaciones y mejoras.
+1. Realiza tus modificaciones y mejoras.
+2. Haz un "commit" de tus cambios.
 
-3. Haz un "commit" de tus cambios.
-
-```bash
+```
+bashCopy code
 git commit -m "Agrego nueva funcionalidad"
 ```
 
-4. Envía tus cambios al repositorio remoto.
+1. Envía tus cambios al repositorio remoto.
 
-```bash
+```
+bashCopy code
 git push origin mi-nueva-funcionalidad
 ```
 
-5. Abre un "Pull Request" en GitHub para que revisemos tus cambios.
+1. Abre un "Pull Request" en GitHub para que revisemos tus cambios.
 
 Este proyecto se encuentra bajo la Licencia MIT. Siéntete libre de utilizar, modificar y distribuir el código según tus necesidades.
 
