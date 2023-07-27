@@ -15,22 +15,24 @@ route_home.use((req,res,next)=>{
     next();
 })
 
+let a = JSON.parse(process.env.SERVER_CONFIG);
+
 let data = {
-    factura : "http://localhost:3000/home/factura",
-    libros : "http://localhost:3000/home/libros",
-    metodo_pago : "http://localhost:3000/home/metodo_pago",
-    pago : "http://localhost:3000/home/pago",
-    persona : "http://localhost:3000/home/persona",
-    recibo_caja : "http://localhost:3000/home/recibo_caja",
-    talonario : "http://localhost:3000/home/talonario",
-    ubicacion : "http://localhost:3000/home/ubicacion",
-    usuario : "http://localhost:3000/home/usuario",
-    fecha : "http://localhost:3000/home/fecha",
-    banco : "http://localhost:3000/home/banco"
+    factura : `http://${a.hostname}:${a.port}/home/factura`,
+    libros : `http://${a.hostname}:${a.port}/home/libros`,
+    metodo_pago : `http://${a.hostname}:${a.port}/home/metodo_pago`,
+    pago : `http://${a.hostname}:${a.port}/home/pago`,
+    persona : `http://${a.hostname}:${a.port}/home/persona`,
+    recibo_caja : `http://${a.hostname}:${a.port}/home/recibo_caja`,
+    talonario : `http://${a.hostname}:${a.port}/home/talonario`,
+    ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion`,
+    usuario : `http://${a.hostname}:${a.port}/home/usuario`,
+    fecha : `http://${a.hostname}:${a.port}/home/fecha`,
+    banco : `http://${a.hostname}:${a.port}/home/banco`
 }
 
 route_home.get("/" ,(req,res)=>{
     res.send(JSON.parse(JSON.stringify(data)))
-})
+}) 
 
 export default route_home;

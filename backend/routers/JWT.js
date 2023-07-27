@@ -7,9 +7,10 @@ let appJWT = express();
 
 appJWT.use(express.json());
 
-appJWT.get('/:id', async(req,res)=>{
+appJWT.get('/:id/:nombre', async(req,res)=>{
     let usuario = {
-        id: req.params.id
+        id: req.params.id,
+        nombre : req.params.nombre
     }
     const encoder = new TextEncoder();
     const jwtconstructor = new SignJWT({usuario});

@@ -13,16 +13,14 @@ import talonario from './routers/talonario.js';
 import ubicacion from './routers/ubicacion.js';
 import usuario from './routers/usuario.js';
 import fecha from './routers/fecha.js';
-import banco from './routers/banco.js';
+import banco from './routers/banco.js'; 
 import appJWT from "./routers/JWT.js";
-
-console.clear();
 
 dotenv.config();
 
 const app = express();
-app.use(express.json());
 
+app.use(express.json());
 app.use("/home", home);
 app.use("/home/cheque", cheque);
 app.use("/home/factura", factura);
@@ -35,18 +33,13 @@ app.use("/home/talonario", talonario);
 app.use("/home/ubicacion", ubicacion);
 app.use("/home/usuario", usuario);
 app.use("/home/fecha", fecha);
-app.use("/home/banco", banco);
-
-
-app.use(express.json());
-app.use('/token', appJWT);
+app.use("/home/banco", banco); 
+app.use('/validate', appJWT); 
 
 const serverConfig = JSON.parse(process.env.SERVER_CONFIG);
 
-
-app.listen(serverConfig.port, serverConfig.hostname, ()=>{     
+app.listen(serverConfig.port, serverConfig.hostname, ()=>{
     console.log(`http://${serverConfig.hostname}:${serverConfig.port}`
 )});
 
-export default serverConfig;;
-
+export default serverConfig;
