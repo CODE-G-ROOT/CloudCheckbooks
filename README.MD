@@ -205,9 +205,6 @@ Puedes acceder al directorio desde `http://localhost:3000/home`
 
 Por motivos prácticos utilizaremos las siguientes herramientas
 
-- Visual Estudio Code
-
-  ![Logotipo completo de Visual Studio Code PNG transparente - StickPNG](https://assets.stickpng.com/images/62a79050e42d729d928b1756.png)
 
 - Thunder Client: Extención de visual estudio code
 
