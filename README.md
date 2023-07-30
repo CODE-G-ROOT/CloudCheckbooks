@@ -10,7 +10,7 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 <hr>
 
-# Índice :books:
+# Menú:books:
 
 - [Manual de instalación 🛠️](#manual-de-instalación)
 - [Instalación de **MongoDB** :wrench:](#instalación-de-mongodb)
