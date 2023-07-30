@@ -12,9 +12,9 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 # Índice :books:
 
-- [MongoDB:leaves:](#MongoDB:leaves:)
-- [BJSON Y JSON :memo:](#BJSON-Y-JSON-:memo:)
-- [Manual de instalación 🛠️](#Manual de instalación 🛠️)
+- [MongoDB:leaves:](#mongodb:leaves:)
+- [BJSON Y JSON :memo:](#bjson-y-json-:memo:)
+  - [Manual de instalación 🛠️](#manual-de-instalación)
   - [Instalación de **MongoDB** :wrench:](#Instalación de **MongoDB** :wrench:)
   - [Correr **MongoDB** :herb:](#Correr **MongoDB** :herb:)
   - [Desinstalación de **MongoDB** 🗑️🚀](#Desinstalación de **MongoDB** 🗑️🚀)
@@ -28,7 +28,7 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 <hr>
 
-# Manual de instalación 🛠️
+# :hammer_and_wrench:Manual de instalación
 
 Herramientas a instalar:
 
