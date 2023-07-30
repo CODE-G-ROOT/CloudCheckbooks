@@ -1,7 +1,7 @@
 4. # MongoDB :leaves:
 
    MongoDB es un gestor de bases de datos no relacionales o **NoSQL** orientado a documentos, utilizado para almacenar volúmenes masivos de datos. A diferencia de las bases de datos tradicionales basadas en SQL, MongoDB no se basa en tablas y columnas. 📚🌐
-
+ 
    
 
    
