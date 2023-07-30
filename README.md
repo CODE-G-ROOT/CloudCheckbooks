@@ -1,12 +1,32 @@
-# MongoDB 🍃
+# MongoDB:leaves:
 
 MongoDB es un gestor de bases de datos no relacionales o **NoSQL** orientado a documentos, utilizado para almacenar volúmenes masivos de datos. A diferencia de las bases de datos tradicionales basadas en SQL, MongoDB no se basa en tablas y columnas. 📚🌐
 
-## BJSON Y JSON
+## BJSON Y JSON :memo:
 
 BJSON (Binary JSON) es una extensión binaria de los archivos JSON. BSON también es una notación de objetos con estructura similar de pares clave-valor. Sin embargo, representa los datos en una forma binaria, lo que lo hace más eficiente para su almacenamiento y transferencia. BSON es ampliamente utilizado en bases de datos NoSQL, como MongoDB, para almacenar y recuperar datos de forma rápida y eficiente. A diferencia de JSON, BSON es binario y no legible por humanos, pero esto lo hace más adecuado para aplicaciones que requieren un alto rendimiento y un menor uso de recursos.
 
-En resumen, JSON es una representación de datos legible por humanos y ampliamente utilizado en aplicaciones web y API's, mientras BSON es una extensión binaria de JSON utilizada principalmente en bases de datos NoSQL para un almacenamiento eficiente.
+En resumen, JSON es una representación de datos legible por humanos y ampliamente utilizado en aplicaciones web y API's, mientras que BSON es una extensión binaria de JSON utilizada principalmente en bases de datos NoSQL para un almacenamiento eficiente.
+
+<hr>
+
+# Índice :books:
+
+- [MongoDB:leaves:](#MongoDB:leaves:)
+- [BJSON Y JSON :memo:](#BJSON-Y-JSON-:memo:)
+- [Manual de instalación 🛠️](#Manual de instalación 🛠️)
+  - [Instalación de **MongoDB** :wrench:](#Instalación de **MongoDB** :wrench:)
+  - [Correr **MongoDB** :herb:](#Correr **MongoDB** :herb:)
+  - [Desinstalación de **MongoDB** 🗑️🚀](#Desinstalación de **MongoDB** 🗑️🚀)
+  - [Instalación de **MongoDB Compass** 🔩](#Instalación de **MongoDB Compass** 🔩)
+  - [Corrección de error de conexión con MongoDB Compass :bug:🔧](#Corrección de error de conexión con MongoDB Compass :bug:🔧)
+- [Atlas 💡](#Atlas 💡)
+- [Creación de cuenta en Atlas :star::rocket:](#Creación de cuenta en Atlas :star::rocket:)
+- [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#Conexión de tu cuenta Atlas con MongoDB Compass 🧭)
+
+
+
+<hr>
 
 # Manual de instalación 🛠️
 
@@ -15,7 +35,7 @@ Herramientas a instalar:
 - MongoDB Shell
 - MongoDB Compass
 
-### Instalación de MongoDB
+### Instalación de MongoDB :wrench:
 
 1. **Descargar MongoDB:** Ve al sitio web oficial de [MongoDB](https://www.mongodb.com/docs/manual/installation/) y descarga la versión adecuada para tu sistema operativo. 📥💻. Ten en cuenta que las versiones oficiales (**Enterprise Edition**) son versiones que tienen soporte técnico proporcionado por el equipo de MongoDB y otras características, sin embargo, es de pago. La otra opción es la versión de la comunidad (**Community Edition**), que son versiones de código abierto con características y funcionalidades básicas, pero no ofrecen un soporte oficial por parte de MongoDB, aunque la comunidad puede brindar ayuda.
 
@@ -76,7 +96,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    echo "mongodb-org-tools hold" | sudo dpkg --set-selections
    ```
 
-#### Correr la Community Edition MongoDB
+#### Correr MongoDB :herb:
 
 1. **Iniciar MongoDB**
 
@@ -107,16 +127,18 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 4. **Recargar MongoDB**
 
    ```bash
-   sudo systemctl restart mongod
-   ```
+   sudo
+
+ systemctl restart mongod
+```
 
 5. **Empezar a usar MongoDB**
 
    ```bash
    mongosh
-   ```
+```
 
-### Desinstalar MongoDB Community Edition
+### Desinstalación de MongoDB 🗑️🚀
 
 1. **Detener MongoDB**
 
@@ -137,7 +159,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    sudo rm -r /var/lib/mongodb
    ```
 
-## Ahora instalaremos **MongoDB Compass** 
+## Instalación de **MongoDB Compass** 🔩
 
 1. Accede al siguiente enlace: [MongoDB Compass](https://www.mongodb.com/products/compass)
 
@@ -152,14 +174,12 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 6. En la terminal, ingresa el siguiente comando (**esto solo aplica para Ubuntu, para otros sistemas operativos consulta la documentación oficial**):
 
    ```bash
-   sudo dpkg -i 
+   sudo dpkg -i <nombre_del_archivo.deb>
    ```
 
    Debe verse de la siguiente forma:
 
-   ![ruta](./assets/read
-
-me/ruta.png)
+   ![ruta](./assets/readme/ruta.png)
 
 7. Si el comando anterior muestra un error, ejecuta los siguientes comandos en orden:
 
@@ -173,7 +193,7 @@ me/ruta.png)
 
 ¡Listo! Ahora has instalado **MongoDB Compass**.
 
-#### **Corrección de error de conexión con MongoDB Compass**
+### Corrección de error de conexión con MongoDB Compass :bug:🔧
 
 Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la conexión es rechazada, sigue estos pasos:
 
@@ -193,11 +213,11 @@ Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la 
 
 <hr>
 
-# Atlas 🌐
+# Atlas 💡
 
 Atlas es un servicio de base de datos en la nube. Permite alojar y administrar bases de datos sin la necesidad de configurar y mantener la infraestructura de servidores.
 
-### **Características**
+### Características ✨🌱
 
 - Facilidad de uso
 - Escalabilidad
@@ -208,7 +228,7 @@ Atlas es un servicio de base de datos en la nube. Permite alojar y administrar b
 - Automatización
 - Tarificación flexible
 
-## Creación de cuenta en Atlas
+## Creación de cuenta en Atlas :star::rocket:
 
 Pasos a seguir:
 
@@ -231,7 +251,7 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 ¡Felicidades! Ya tienes tu cuenta de MongoDB, ahora puedes acceder a ella desde el navegador o desde tu aplicación MongoDB Compass. 🌐💻
 
-### Conexión de tu cuenta Atlas con MongoDB Compass
+### Conexión de tu cuenta Atlas con MongoDB Compass 🧭
 
 1. En tu navegador, inicia sesión con tu cuenta Atlas en la página oficial de MongoDB.
 
@@ -245,7 +265,7 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 5. Copia el punto 2 de la siguiente imagen:
 
-![form](./assets/readme/form.png)
+   ![form](./assets/readme/form.png)
 
 6. Pega el punto 3 en la aplicación de **MongoDB Compass**. ![db_conexion](./assets/readme/password.png)
 7. Cambia **<password>** por tu contraseña.
