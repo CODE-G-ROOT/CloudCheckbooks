@@ -2,7 +2,7 @@
 
 MongoDB es un gestor de bases de datos no relacionales o **NoSQL** orientado a documentos, utilizado para almacenar volúmenes masivos de datos. A diferencia de las bases de datos tradicionales basadas en SQL, MongoDB no se basa en tablas y columnas. 📚🌐
 
-## BJSON Y JSON :memo:
+## BJSON Y JSON  :memo:
 
 BJSON (Binary JSON) es una extensión binaria de los archivos JSON. BSON también es una notación de objetos con estructura similar de pares clave-valor. Sin embargo, representa los datos en una forma binaria, lo que lo hace más eficiente para su almacenamiento y transferencia. BSON es ampliamente utilizado en bases de datos NoSQL, como MongoDB, para almacenar y recuperar datos de forma rápida y eficiente. A diferencia de JSON, BSON es binario y no legible por humanos, pero esto lo hace más adecuado para aplicaciones que requieren un alto rendimiento y un menor uso de recursos.
 
@@ -10,32 +10,31 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 <hr>
 
-# Índice :books:
+# Menú:books:
 
-- [MongoDB:leaves:](#mongodb:leaves:)
-- [BJSON Y JSON :memo:](#bjson-y-json-:memo:)
-  - [Manual de instalación 🛠️](#manual-de-instalación)
-  - [Instalación de **MongoDB** :wrench:](#Instalación de **MongoDB** :wrench:)
-  - [Correr **MongoDB** :herb:](#Correr **MongoDB** :herb:)
-  - [Desinstalación de **MongoDB** 🗑️🚀](#Desinstalación de **MongoDB** 🗑️🚀)
-  - [Instalación de **MongoDB Compass** 🔩](#Instalación de **MongoDB Compass** 🔩)
-  - [Corrección de error de conexión con MongoDB Compass :bug:🔧](#Corrección de error de conexión con MongoDB Compass :bug:🔧)
-- [Atlas 💡](#Atlas 💡)
-- [Creación de cuenta en Atlas :star::rocket:](#Creación de cuenta en Atlas :star::rocket:)
-- [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#Conexión de tu cuenta Atlas con MongoDB Compass 🧭)
+- [Manual de instalación 🛠️](#manual-de-instalación)
+- [Instalación de **MongoDB** :wrench:](#instalación-de-mongodb)
+- [Correr **MongoDB** :herb:](#correr-mongodb)
+- [Desinstalación de **MongoDB** 🗑️🚀](#desinstalación-de-mongodb)
+- [Instalación de **MongoDB Compass** 🔩](#instalación-de-mongodb-compass)
+- [Corrección de error de conexión con MongoDB Compass :bug:🔧](#corrección-de-error-de-conexión-con-mongodb-compass)
+
+- [Atlas 💡](#atlas)
+- [Creación de cuenta en Atlas :star::rocket:](#creación-de-cuenta-en-atlas)
+- [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
 
 
 
 <hr>
 
-# :hammer_and_wrench:Manual de instalación
+# Manual de instalación
 
 Herramientas a instalar:
 
 - MongoDB Shell
 - MongoDB Compass
 
-### Instalación de MongoDB :wrench:
+### Instalación de MongoDB
 
 1. **Descargar MongoDB:** Ve al sitio web oficial de [MongoDB](https://www.mongodb.com/docs/manual/installation/) y descarga la versión adecuada para tu sistema operativo. 📥💻. Ten en cuenta que las versiones oficiales (**Enterprise Edition**) son versiones que tienen soporte técnico proporcionado por el equipo de MongoDB y otras características, sin embargo, es de pago. La otra opción es la versión de la comunidad (**Community Edition**), que son versiones de código abierto con características y funcionalidades básicas, pero no ofrecen un soporte oficial por parte de MongoDB, aunque la comunidad puede brindar ayuda.
 
@@ -96,7 +95,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    echo "mongodb-org-tools hold" | sudo dpkg --set-selections
    ```
 
-#### Correr MongoDB :herb:
+#### Correr MongoDB
 
 1. **Iniciar MongoDB**
 
@@ -138,7 +137,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    mongosh
 ```
 
-### Desinstalación de MongoDB 🗑️🚀
+### Desinstalación de MongoDB
 
 1. **Detener MongoDB**
 
@@ -159,7 +158,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    sudo rm -r /var/lib/mongodb
    ```
 
-## Instalación de **MongoDB Compass** 🔩
+## Instalación de **MongoDB Compass**
 
 1. Accede al siguiente enlace: [MongoDB Compass](https://www.mongodb.com/products/compass)
 
@@ -193,7 +192,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 
 ¡Listo! Ahora has instalado **MongoDB Compass**.
 
-### Corrección de error de conexión con MongoDB Compass :bug:🔧
+### Corrección de error de conexión con MongoDB Compass 
 
 Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la conexión es rechazada, sigue estos pasos:
 
@@ -213,7 +212,7 @@ Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la 
 
 <hr>
 
-# Atlas 💡
+# Atlas
 
 Atlas es un servicio de base de datos en la nube. Permite alojar y administrar bases de datos sin la necesidad de configurar y mantener la infraestructura de servidores.
 
@@ -228,7 +227,7 @@ Atlas es un servicio de base de datos en la nube. Permite alojar y administrar b
 - Automatización
 - Tarificación flexible
 
-## Creación de cuenta en Atlas :star::rocket:
+## Creación de cuenta en Atlas
 
 Pasos a seguir:
 
@@ -251,7 +250,7 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 ¡Felicidades! Ya tienes tu cuenta de MongoDB, ahora puedes acceder a ella desde el navegador o desde tu aplicación MongoDB Compass. 🌐💻
 
-### Conexión de tu cuenta Atlas con MongoDB Compass 🧭
+### Conexión de tu cuenta Atlas con MongoDB Compass
 
 1. En tu navegador, inicia sesión con tu cuenta Atlas en la página oficial de MongoDB.
 
