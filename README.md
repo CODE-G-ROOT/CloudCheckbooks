@@ -60,9 +60,7 @@ Herramientas a instalar 	:wrench:
 <br>
 
 
-### Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal:<br>
-
-**:clipboard: Nota:** Los siguientes comandos solo aplican para el sistema operativo Ubuntu 22.04 LTS : :clipboard:
+### Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal: **:clipboard: Nota:** Los siguientes comandos solo aplican para el sistema operativo Ubuntu 22.04 LTS : :clipboard: <br>
 
 1. **Importar la clave pública utilizada por el sistema de gestión de paquetes**.
 
