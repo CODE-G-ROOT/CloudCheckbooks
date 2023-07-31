@@ -17,13 +17,10 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
   - [Instalación de **MongoDB** :wrench:](#instalación-de-mongodb)
   - [Correr **MongoDB** :herb:](#correr-mongodb)
   - [Desinstalación de **MongoDB** 🗑️🚀](#desinstalación-de-mongodb)
-
 - [Instalación de **MongoDB Compass** 🔩](#instalación-de-mongodb-compass)
   - [Corrección de error de conexión con MongoDB Compass :bug:🔧](#corrección-de-error-de-conexión-con-mongodb-compass)
-
 - [Atlas 💡](#atlas)
   - [Creación de cuenta en Atlas :star::rocket:](#creación-de-cuenta-en-atlas)
-
 - [Creación de la base de la base de datos](#creación-de-la-base-de-la-base-de-datos)
 - [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
 - [Comándos MongoDB Shell](#comándos-mongodb-shell)
@@ -33,33 +30,36 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
   - [Update](#update)
   - [Delete](#delete)
 
-<hr>
-
+<br>
+<br>
 
 # Manual de instalación
 
 Herramientas a instalar 	:wrench:
 
 - MongoDB Shell
+
 - MongoDB Compass
+
+  
 
 ### Instalación de MongoDB
 
-1. **Descargar MongoDB:** Ve al sitio web oficial de [MongoDB](https://www.mongodb.com/docs/manual/installation/) y descarga la versión adecuada para tu sistema operativo. 📥💻. Ten en cuenta que las versiones oficiales (**Enterprise Edition**) son versiones que tienen soporte técnico proporcionado por el equipo de MongoDB y otras características, sin embargo, es de pago. La otra opción es la versión de la comunidad (**Community Edition**), que son versiones de código abierto con características y funcionalidades básicas, pero no ofrecen un soporte oficial por parte de MongoDB, aunque la comunidad puede brindar ayuda.
+1. **Descargar MongoDB:** Ve al sitio web oficial de [MongoDB](https://www.mongodb.com/docs/manual/installation/) y descarga la versión adecuada para tu sistema operativo. 📥💻. Ten en cuenta que las versiones oficiales (**Enterprise Edition**) son versiones que tienen soporte técnico proporcionado por el equipo de MongoDB y otras características, sin embargo, es de pago. La otra opción es la versión de la comunidad (**Community Edition**), que son versiones de código abierto con características y funcionalidades básicas, pero no ofrecen un soporte oficial por parte de MongoDB, aunque la comunidad puede brindar ayuda.<br>
 
-2. **Instalar MongoDB:** Sigue las instrucciones de instalación proporcionadas en el sitio web para instalar MongoDB en tu sistema. 🔧🚀
+2. **Instalar MongoDB:** Sigue las instrucciones de instalación proporcionadas en el sitio web para instalar MongoDB en tu sistema. 🔧🚀<br>
 
-3. **Configurar MongoDB:** Una vez instalado, es posible que debas configurar ciertos parámetros, como la ruta de almacenamiento de datos o el puerto de escucha. Puedes encontrar información detallada sobre la configuración en la documentación oficial de MongoDB. 📄⚙️
+3. **Configurar MongoDB:** Una vez instalado, es posible que debas configurar ciertos parámetros, como la ruta de almacenamiento de datos o el puerto de escucha. Puedes encontrar información detallada sobre la configuración en la documentación oficial de MongoDB. 📄⚙️<br>
 
-4. **Iniciar el servidor:** Para iniciar el servidor de MongoDB, abre una terminal o línea de comandos y ejecuta el comando adecuado para tu sistema operativo. Por lo general, el comando es **"mongod"** o **"mongod.exe"**. 🚀🖥️
+4. **Iniciar el servidor:** Para iniciar el servidor de MongoDB, abre una terminal o línea de comandos y ejecuta el comando adecuado para tu sistema operativo. Por lo general, el comando es **"mongod"** o **"mongod.exe"**. 🚀🖥️<br>
 
 5. **Interactuar con MongoDB:** Una vez que el servidor esté en funcionamiento, puedes interactuar con MongoDB a través de la línea de comandos o mediante herramientas de interfaz gráfica como **MongoDB Compass**. 💻🔍
 
 ¡Listo! Ahora tienes MongoDB instalado y listo para ser utilizado en tu sistema. 🎉🚀
 
-Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal:
+Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal:<br>
 
-**Nota:** Los siguientes comandos solo aplican para el sistema operativo Ubuntu 22.04 LTS
+**:clipboard: Nota:** Los siguientes comandos solo aplican para el sistema operativo Ubuntu 22.04 LTS : :clipboard:
 
 1. **Importar la clave pública utilizada por el sistema de gestión de paquetes**.
 
@@ -103,10 +103,12 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
    echo "mongodb-org-tools hold" | sudo dpkg --set-selections
    ```
+   
+   <br>
 
-#### Correr MongoDB
+## Correr MongoDB
 
-1. **Iniciar MongoDB**
+1. **Iniciar MongoDB**<br>
 
    ```bash
    sudo systemctl start mongod
@@ -116,7 +118,7 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    sudo systemctl daemon-reload
    ```
 
-2. **Verificar que MongoDB fue correctamente instalado.**
+2. **Verificar que MongoDB fue correctamente instalado.<br>**
 
    ```bash
    sudo systemctl status mongod
@@ -126,47 +128,48 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
    sudo systemctl enable mongod
    ```
 
-3. **Detener MongoDB**
+3. **Detener MongoDB<br>**
 
    ```bash
    sudo systemctl enable mongod
    ```
 
-4. **Recargar MongoDB**
+4. **Recargar MongoDB**<br>
 
    ```bash
-   sudo
+   sudo systemctl restart mongod
    ```
 
- systemctl restart mongod
-
-```
-5. **Empezar a usar MongoDB**
+5. **Empezar a usar MongoDB<br>**
 
    ```bash
    mongosh
-```
+   ```
 
-### Desinstalación de MongoDB
+   <br><br>
 
-1. **Detener MongoDB**
+## Desinstalación de MongoDB
+
+1. **Detener MongoDB<br>**
 
    ```bash
    sudo service mongod stop
    ```
 
-2. **Remover Paquetes**
+2. **Remover Paquetes<br>**
 
    ```bash
    sudo apt-get purge mongodb-org*
    ```
 
-3. **Remover los directorios de datos**
+3. **Remover los directorios de datos**<br>
 
    ```bash
    sudo rm -r /var/log/mongodb
    sudo rm -r /var/lib/mongodb
    ```
+   
+   <br><br>
 
 ## Instalación de **MongoDB Compass**
 
@@ -200,11 +203,11 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 
    Luego, repite el paso 6.
 
-¡Listo! Ahora has instalado **MongoDB Compass**. :tada:
+¡Listo! Ahora has instalado **MongoDB Compass**. :tada:<br><br>
 
-### Corrección de error de conexión con MongoDB Compass 
+## Corrección de error de conexión con MongoDB Compass 
 
-Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la conexión es rechazada, sigue estos pasos:
+Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la conexión es rechazada, sigue estos pasos:<br>
 
 1. **Verifica la conexión**  :mag:
 
@@ -212,16 +215,16 @@ Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la 
    service mongod status
    ```
 
-2. **Activa la conexión**	:key:
+2. **Activa la conexión**	:key:<br>
 
    ```bash
    sudo systemctl start mongod
    ```
 
-3. **Vuelve al paso 1**. Si la conexión funciona, ¡felicidades! Si no, busca en la [documentación oficial de MongoDB](https://docs.mongodb.com/) o en la comunidad para obtener más ayuda. 🛠️🚀
+3. **Vuelve al paso 1**. Si la conexión funciona, ¡felicidades! Si no, busca en la [documentación oficial de MongoDB](https://docs.mongodb.com/) o en la comunidad para obtener más ayuda. 🛠️🚀<br>
 
-<hr>
-
+<br>
+<br>
 
 # Atlas
 
@@ -245,7 +248,7 @@ Atlas es un servicio de base de datos en la nube. Permite alojar y administrar b
 
 - Tarificación flexible
 
-  
+  <br>
 
 ## Creación de cuenta en Atlas
 
@@ -270,10 +273,10 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 ¡Felicidades! Ya tienes tu cuenta de MongoDB, ahora puedes acceder a ella desde el navegador o desde tu aplicación MongoDB Compass. 🌐💻
 
-<hr>
 
+<br>
 
-
+<br>
 
 # Creación de la base de la base de datos
 
@@ -283,7 +286,7 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 3. Click en el logo de atlas
 
-   ![](file:///home/dev/Escritorio/MongoDB/assets/readme/logo_atlas.png)
+   ![](./assets/readme/logo_atlas.png)
 
 4. Click en **New Proyect**
 
@@ -313,7 +316,9 @@ Listo tu Base de datos fué instalada correctamente
 
 Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [Connexión](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
 
+<br>
 
+<br>
 
 ## Conexión de tu cuenta Atlas con MongoDB Compass
 
@@ -339,7 +344,9 @@ Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [C
 
 9. Activa la conexión dándole click en **Connect**.
 
+   <br>
 
+   <br>
 
 ###  Llegado el caso de que ocurra algún error de conexión realizar los siguientes pasos  	:heavy_exclamation_mark: 
 
@@ -354,10 +361,10 @@ Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [C
 4. Click en **ADD CURRENT IIP ADDRESS*
 
    Listo, ahora te podrás conectar desde cualquier lugar del mundo solo con tu cuenta de **Atlas**
-
-
-
-
+   
+   <br>
+   
+   <br>
 
 # Comándos MongoDB Shell
 
@@ -387,9 +394,9 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
 
 - `db.<collection>.deleteMany()`  : Elimina todos los documentos de una colección  [Ejemplo](#eliminar-todos-los-documentos-de-una-colección)
 
+  <br>
   
-
-
+  <br>
 
 # Método CRUD
 
@@ -414,6 +421,7 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
     }
   )
   ```
+
 
 - #### Inserción múltiple de documentos.
 
@@ -463,6 +471,7 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   SELECT * FROM movies
   ```
 
+
 - #### Lectura de datos por condición de igualdad
 
   Retorna todas las `movies`cuando `title`sega igual a `Titanic`
@@ -478,6 +487,7 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   ```sql
   SELECT * FROM movies WHERE title = "Titanic"
   ```
+
 
 ### UPDATE:
 
@@ -500,7 +510,6 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   - Usamos el operador `$set` para actualizar el valor del campo `plot` para la pelicula `Twilight`
   - Usamos el operador `$currentDate` para actulizar el valor del campo `lastUpdated` para la fecha actual. Si el campo `lastUpdated` no existe. `$currentDate` creará el campo.
 
-  
 
 - #### Actualizar múltiples documentos
 
@@ -518,8 +527,6 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   ```
 
   El operador `$set` actualiza el valor del campo `security_deposit`  a `100` y el valor del campo `minimun_nights` a `1`. 
-
-  
 
 - #### Remplazar un documento
 
@@ -539,7 +546,6 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   ```
 
 
-
 ### DELETE:
 
 - #### Eliminar todos los documentos de una colección
@@ -552,6 +558,7 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   db.movies.deleteMany({})
   ```
 
+
 - #### Eliminar todos los documentos que cumplan con la condición
 
   Para eliminar todos los documentos de la colección cuando `title`  sea igual a `"Titanic"` 
@@ -561,6 +568,7 @@ Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Com
   
   db.movies.deleteMany( { title: "Titanic" } )
   ```
+
 
 - #### Eliminar solo un documentos que cumpla con la condición
 
