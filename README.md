@@ -13,14 +13,17 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 # Menú:books:
 
 - [Manual de instalación 🛠️](#manual-de-instalación)
-- [Instalación de **MongoDB** :wrench:](#instalación-de-mongodb)
-- [Correr **MongoDB** :herb:](#correr-mongodb)
-- [Desinstalación de **MongoDB** 🗑️🚀](#desinstalación-de-mongodb)
+  - [Instalación de **MongoDB** :wrench:](#instalación-de-mongodb)
+  - [Correr **MongoDB** :herb:](#correr-mongodb)
+  - [Desinstalación de **MongoDB** 🗑️🚀](#desinstalación-de-mongodb)
+
 - [Instalación de **MongoDB Compass** 🔩](#instalación-de-mongodb-compass)
-- [Corrección de error de conexión con MongoDB Compass :bug:🔧](#corrección-de-error-de-conexión-con-mongodb-compass)
+  - [Corrección de error de conexión con MongoDB Compass :bug:🔧](#corrección-de-error-de-conexión-con-mongodb-compass)
 
 - [Atlas 💡](#atlas)
-- [Creación de cuenta en Atlas :star::rocket:](#creación-de-cuenta-en-atlas)
+  - [Creación de cuenta en Atlas :star::rocket:](#creación-de-cuenta-en-atlas)
+
+- [Creación de la base de la base de datos](#creación-de-la-base-de-la-base-de-datos)
 - [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
 
 
@@ -219,13 +222,22 @@ Atlas es un servicio de base de datos en la nube. Permite alojar y administrar b
 ### Características ✨🌱
 
 - Facilidad de uso
+
 - Escalabilidad
+
 - Alta disponibilidad 
+
 - Seguridad
+
 - Localizaciones globales
+
 - Integraciones
+
 - Automatización
+
 - Tarificación flexible
+
+  
 
 ## Creación de cuenta en Atlas
 
@@ -250,7 +262,51 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 ¡Felicidades! Ya tienes tu cuenta de MongoDB, ahora puedes acceder a ella desde el navegador o desde tu aplicación MongoDB Compass. 🌐💻
 
-### Conexión de tu cuenta Atlas con MongoDB Compass
+<hr>
+
+
+
+# Creación de la base de la base de datos
+
+1. Ir a la página oficial
+
+2. Iniciar seción con **Atlas**
+
+3. Click en el logo de atlas
+
+   ![](file:///home/dev/Escritorio/MongoDB/assets/readme/logo_atlas.png)
+
+4. Click en **New Proyect**
+
+5. Asignamos el nombre del proyecto y damos click en **next**
+
+6. Es opcionar agregar permisos para miembros, pero para este ejemplo, nos saltaremos ese paso dandole click en **Create Proyect**
+
+7. Click en **Build a Database**
+
+8. Seleccionamos el proveedor y la región a gusto
+
+9. Nombramos nuestro **Cluster**. 
+
+   **NOTA:** No se puee cambiar el nombre del grupo luego de ser creado
+
+10. Click en **Create**
+
+11. Asignamos un nombre y contraseña
+
+12. Click en **Create User**
+
+13. Click en **Finish and Close**
+
+14. Click en **Go to DataBases**
+
+Listo tu Base de datos fué instalada correctamente
+
+Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [Connexión](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
+
+
+
+## Conexión de tu cuenta Atlas con MongoDB Compass
 
 1. En tu navegador, inicia sesión con tu cuenta Atlas en la página oficial de MongoDB.
 
@@ -268,11 +324,24 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 6. Pega el punto 3 en la aplicación de **MongoDB Compass**. ![db_conexion](./assets/readme/password.png)
 7. Cambia **<password>** por tu contraseña.
-8. Activa la conexión dándole click en **Connect**.
+8. **Opcional:** Darle click en **FAVORITE** y asignarle un color
+9. Activa la conexión dándole click en **Connect**.
+
+
 
 ### Llegado el caso de que ocurra algún error de conexión realizar los siguientes pasos: 
 
 1. Ubícate en el navbar lateral e ve a las opciones de seguridad (**Security**).
+
 2. Click en **Network Access**.
-3. Click en **EDIT**. ![edit](./assets/readme/edit.png)
+
+3. Click en **EDIT**.: El obejtivo de este paso es darle permiso a todas la ip para que tengan acceso a la base de datos siempre
+
+    ![edit](./assets/readme/edit.png)
+
 4. Click en **ADD CURRENT IIP ADDRESS** 😄
+
+
+
+
+
