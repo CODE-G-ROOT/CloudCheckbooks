@@ -10,6 +10,7 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 <hr>
 
+
 # Menú:books:
 
 - [Manual de instalación 🛠️](#manual-de-instalación)
@@ -25,14 +26,19 @@ En resumen, JSON es una representación de datos legible por humanos y ampliamen
 
 - [Creación de la base de la base de datos](#creación-de-la-base-de-la-base-de-datos)
 - [Conexión de tu cuenta Atlas con MongoDB Compass 🧭](#conexión-de-tu-cuenta-atlas-con-mongodb-compass)
-
-
+- [Comándos MongoDB Shell](#comándos-mongodb-shell)
+- [Método CRUD y ejemplos](#método-crud)
+  - [Create](#create)
+  - [Read](#read)
+  - [Update](#update)
+  - [Delete](#delete)
 
 <hr>
 
+
 # Manual de instalación
 
-Herramientas a instalar:
+Herramientas a instalar 	:wrench:
 
 - MongoDB Shell
 - MongoDB Compass
@@ -130,10 +136,11 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 
    ```bash
    sudo
+   ```
 
  systemctl restart mongod
-```
 
+```
 5. **Empezar a usar MongoDB**
 
    ```bash
@@ -193,19 +200,19 @@ Si quieres saltarte toda la documentación, copia y pega los siguientes comandos
 
    Luego, repite el paso 6.
 
-¡Listo! Ahora has instalado **MongoDB Compass**.
+¡Listo! Ahora has instalado **MongoDB Compass**. :tada:
 
 ### Corrección de error de conexión con MongoDB Compass 
 
 Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la conexión es rechazada, sigue estos pasos:
 
-1. **Verifica la conexión**:
+1. **Verifica la conexión**  :mag:
 
    ```bash
    service mongod status
    ```
 
-2. **Activa la conexión**:
+2. **Activa la conexión**	:key:
 
    ```bash
    sudo systemctl start mongod
@@ -214,6 +221,7 @@ Si llegado el caso ocurre el siguiente error al darle click en **Connect** y la 
 3. **Vuelve al paso 1**. Si la conexión funciona, ¡felicidades! Si no, busca en la [documentación oficial de MongoDB](https://docs.mongodb.com/) o en la comunidad para obtener más ayuda. 🛠️🚀
 
 <hr>
+
 
 # Atlas
 
@@ -266,9 +274,10 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 
 
+
 # Creación de la base de la base de datos
 
-1. Ir a la página oficial
+1. Ir a la [página oficial](https://www.mongodb.com)
 
 2. Iniciar seción con **Atlas**
 
@@ -288,7 +297,7 @@ Ten en cuenta que al asignar el nombre del grupo **"Cluster"** no se podrá camb
 
 9. Nombramos nuestro **Cluster**. 
 
-   **NOTA:** No se puee cambiar el nombre del grupo luego de ser creado
+   	:mega: **NOTA:** No se puee cambiar el nombre del grupo luego de ser creado
 
 10. Click en **Create**
 
@@ -323,13 +332,16 @@ Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [C
    ![form](./assets/readme/form.png)
 
 6. Pega el punto 3 en la aplicación de **MongoDB Compass**. ![db_conexion](./assets/readme/password.png)
+
 7. Cambia **<password>** por tu contraseña.
+
 8. **Opcional:** Darle click en **FAVORITE** y asignarle un color
+
 9. Activa la conexión dándole click en **Connect**.
 
 
 
-### Llegado el caso de que ocurra algún error de conexión realizar los siguientes pasos: 
+###  Llegado el caso de que ocurra algún error de conexión realizar los siguientes pasos  	:heavy_exclamation_mark: 
 
 1. Ubícate en el navbar lateral e ve a las opciones de seguridad (**Security**).
 
@@ -337,11 +349,227 @@ Para conectarte desde tu **MongoDB Compass** realizaremos de nuevo el paso de [C
 
 3. Click en **EDIT**.: El obejtivo de este paso es darle permiso a todas la ip para que tengan acceso a la base de datos siempre
 
-    ![edit](./assets/readme/edit.png)
+   ![edit](./assets/readme/edit.png)
 
-4. Click en **ADD CURRENT IIP ADDRESS** 😄
+4. Click en **ADD CURRENT IIP ADDRESS*
+
+   Listo, ahora te podrás conectar desde cualquier lugar del mundo solo con tu cuenta de **Atlas**
 
 
 
 
 
+# Comándos MongoDB Shell
+
+Los siguientes comandos aplican tanto para la terminal como para **MongoDB** Compass
+
+- `db` : Muestra la base de datos que estás usando
+
+- `show databases`  o  `show dbs`: Muestra todas las bases de datos que tengan mínimo una colección dentro, si no hay, no la muestra. 
+
+- `use <database>`: Accede a la base de datos especificada y si no existe la crea
+
+- `db.<collection>.insertOne()`: Inserción simple de documentos. [Ejemplo](#inserción-simple-de-documentos)
+
+- `db.<collection>.insertMany()` : Inserción de multiples documentos. [Ejemplo](#inserción-múltiple-de-documentos)
+
+- `db.<collection>.find()` : Retorna todos los documentos de la colección especificada. [Ejemplo](#lectura-de-todos-los-documentos-de-una-colección)
+
+- `db.<collection>.find( { "field": "value" } )` : Selecciona todos los documentos siempre y cuando `field` sea igual a `value` . [Ejemplo](#lectura-de-datos-por-condición-de-igualdad)
+
+- `db.<collection>.updateOne()` : Actualiza un documento simple. [Ejemplo](#actualizar-un-documento-simple)
+
+- `db.<collection>.updateMany()`  : Actualiza multiples documentos [Ejemplo](#actualizar-múltiples-documentos)
+
+- `db.<collection>.replaceOne()` : Remplaza un documento [Ejemplo](#remplazar-un-documento)
+
+- `db.<collection>.deleteOne()` : Elimina un documento [Ejemplo](#eliminar-solo-un-documentos que-coincida-con-la-condición)
+
+- `db.<collection>.deleteMany()`  : Elimina todos los documentos de una colección  [Ejemplo](#eliminar-todos-los-documentos-de-una-colección)
+
+  
+
+
+
+# Método CRUD
+
+### CREATE
+
+- #### **Inserción simple de documentos.**
+
+  Inserta documentos simples en una colección. Si el documento no especifica un camapo `_id` , mongo crea uno que haga referencia a ese documento.
+
+  ```bash
+  use sample_mflix           
+  db.movies.insertOne(
+    {
+      title: "The Favourite",
+      genres: [ "Drama", "History" ],
+      runtime: 121,
+      rated: "R",
+      year: 2018,
+      directors: [ "Yorgos Lanthimos" ],
+      cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
+      type: "movie"
+    }
+  )
+  ```
+
+- #### Inserción múltiple de documentos.
+
+  Inserta multiples documentos dentro de una colección contenidos por un array y separados por comas. Al igual que la inserción simple, si no se especifíca un campo `_id`, MongoDB  lo agrega.
+
+  ```bash
+  use sample_mflix
+  
+  db.movies.insertMany([
+     {
+        title: "Jurassic World: Fallen Kingdom",
+        genres: [ "Action", "Sci-Fi" ],
+        runtime: 130,
+        rated: "PG-13",
+        year: 2018,
+        directors: [ "J. A. Bayona" ],
+        cast: [ "Chris Pratt", "Bryce Dallas Howard", "Rafe Spall" ],
+        type: "movie"
+      },
+      {
+        title: "Tag",
+        genres: [ "Comedy", "Action" ],
+        runtime: 105,
+        rated: "R",
+        year: 2018,
+        directors: [ "Jeff Tomsic" ],
+        cast: [ "Annabelle Wallis", "Jeremy Renner", "Jon Hamm" ],
+        type: "movie"
+      }
+  ])
+  ```
+
+### READ:
+
+- #### **Lectura de todos los documentos de una colección**
+
+  Retorna todos los documentos de la colección especificada. en este caso `db.movies`
+
+  ```shell
+  use sample_mflix
+  db.movies.find()
+  ```
+
+  Esta operación es igual en SQL a: 
+
+  ```sql
+  SELECT * FROM movies
+  ```
+
+- #### Lectura de datos por condición de igualdad
+
+  Retorna todas las `movies`cuando `title`sega igual a `Titanic`
+
+  ```shell
+  use sample_mflix
+  
+  db.movies.find( { "title": "Titanic" } )
+  ```
+
+  Equivalente en SQL a:
+
+  ```sql
+  SELECT * FROM movies WHERE title = "Titanic"
+  ```
+
+### UPDATE:
+
+- #### Actualizar un documento simple
+
+  Actualiza el primer documento encontrado en la colleción cuando `title` es igual a `Twiligth`
+
+  ```bash
+  use sample_mflix
+  
+  db.movies.updateOne( { title: "Twilight" },
+  {
+    $set: {
+      plot: "A teenage girl risks everything–including her life–when she falls in love with a vampire."
+    },
+    $currentDate: { lastUpdated: true }
+  })
+  ```
+
+  - Usamos el operador `$set` para actualizar el valor del campo `plot` para la pelicula `Twilight`
+  - Usamos el operador `$currentDate` para actulizar el valor del campo `lastUpdated` para la fecha actual. Si el campo `lastUpdated` no existe. `$currentDate` creará el campo.
+
+  
+
+- #### Actualizar múltiples documentos
+
+  Actualiza todos los documentos de la colección cuando `security_deposit` es menor a `100`
+
+  ```bash
+  use sample_airbnb
+  
+  db.listingsAndReviews.updateMany(
+    { security_deposit: { $lt: 100 } },
+    {
+      $set: { security_deposit: 100, minimum_nights: 1 }
+    }
+  )
+  ```
+
+  El operador `$set` actualiza el valor del campo `security_deposit`  a `100` y el valor del campo `minimun_nights` a `1`. 
+
+  
+
+- #### Remplazar un documento
+
+  Remplaza el primer documento de la colección cuando `account_id: 371138` 
+
+  ```bash
+  db.accounts.replaceOne(
+    { account_id: 371138 },
+    { account_id: 893421, limit: 5000, products: [ "Investment", "Brokerage" ] }
+  )
+  ```
+
+  Para leerlo puedes utilizar `findOne` como en el ejemplo:
+
+  ```bash
+  db.accounts.findOne( { account_id: 893421 } )
+  ```
+
+
+
+### DELETE:
+
+- #### Eliminar todos los documentos de una colección
+
+  Para eliminar todos los documentos de una colección, basta con pasar el parámetro de `deleteMany()`  vacío.
+
+  ```bash
+  use sample_mflix
+  
+  db.movies.deleteMany({})
+  ```
+
+- #### Eliminar todos los documentos que cumplan con la condición
+
+  Para eliminar todos los documentos de la colección cuando `title`  sea igual a `"Titanic"` 
+
+  ```bash
+  use sample_mflix
+  
+  db.movies.deleteMany( { title: "Titanic" } )
+  ```
+
+- #### Eliminar solo un documentos que cumpla con la condición
+
+  Elimina el primer documento que coincida con la condición
+
+  ```bash
+  use sample_mflix
+  
+  db.movies.deleteOne( { cast: "Brad Pitt" } )
+  ```
+
+  
