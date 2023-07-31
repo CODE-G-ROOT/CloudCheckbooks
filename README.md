@@ -57,7 +57,10 @@ Herramientas a instalar 	:wrench:
 
 ¡Listo! Ahora tienes MongoDB instalado y listo para ser utilizado en tu sistema. 🎉🚀
 
-Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal:<br>
+<br>
+
+
+### Si quieres saltarte toda la documentación, copia y pega los siguientes comandos en la terminal:<br>
 
 **:clipboard: Nota:** Los siguientes comandos solo aplican para el sistema operativo Ubuntu 22.04 LTS : :clipboard:
 
