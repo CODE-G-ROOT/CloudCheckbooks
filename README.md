@@ -327,13 +327,15 @@ Para ello seguir los siguientes pasos:
 1. Iniciar seción en MongoDB Atlas
 2. Dar click en el menú izquierdo en el apartado de seguridad, específicamente donde dice **Database Access**: 
 
-![image-20230731070912061](/home/spukM01-069/.config/Typora/typora-user-images/image-20230731070912061.png)
+![access](./assets/readme/access.png)
 
 3. Click en **EDIT**
 
-   ![edit_user](/home/spukM01-069/Desktop/glosarioMongoDB/assets/readme/edit_user.png)
+   ![edit_user](./assets/readme/edit_user.png)
 
-4. Nos ubicamos en **Build and Role**![build_role](/home/spukM01-069/Pictures/Screenshots/build_role.png)
+4. Nos ubicamos en **Build and Role**
+
+   ![build_role](./assets/readme/build_role.png)
 
 5. Click en **Atlas Admin**
 
