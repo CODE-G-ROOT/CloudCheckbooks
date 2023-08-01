@@ -360,7 +360,7 @@ Por motivos prácticos utilizaremos las siguientes herramientas
 
 ## ROUTES
 
-Aquí encontrarás las rutas de acceso a diferentes secciones:
+Aquí encontrarás las rutas de acceso a diferentes secciones y cruds:
 
 - Factura: http://localhost:3000/home
 

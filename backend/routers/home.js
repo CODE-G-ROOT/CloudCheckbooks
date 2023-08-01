@@ -32,13 +32,43 @@ let data = {
         banco : `http://${a.hostname}:${a.port}/home/bancos`
     },
     POST : {
-
+        factura : `http://${a.hostname}:${a.port}/home/factura`,
+        libros : `http://${a.hostname}:${a.port}/home/libros`,
+        metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay`,
+        pago : `http://${a.hostname}:${a.port}/home/pago`,
+        persona : `http://${a.hostname}:${a.port}/home/personas`,
+        recibo_caja : `http://${a.hostname}:${a.port}/home/recibo`,
+        talonario : `http://${a.hostname}:${a.port}/home/talonario:factura`,
+        ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion`,
+        usuario : `http://${a.hostname}:${a.port}/home/usuario`,
+        fecha : `http://${a.hostname}:${a.port}/home/fechas`,
+        banco : `http://${a.hostname}:${a.port}/home/bancos`
     },
     PUT : {
-
+        factura : `http://${a.hostname}:${a.port}/home/factura/:id`,
+        libros : `http://${a.hostname}:${a.port}/home/libros/:id`,
+        metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay/:id`,
+        pago : `http://${a.hostname}:${a.port}/home/pago/:id`,
+        persona : `http://${a.hostname}:${a.port}/home/personas/:id`,
+        recibo_caja : `http://${a.hostname}:${a.port}/home/recibo/:id`,
+        talonario : `http://${a.hostname}:${a.port}/home/talonario:factura/:id`,
+        ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion/:id`,
+        usuario : `http://${a.hostname}:${a.port}/home/usuario/:id`,
+        fecha : `http://${a.hostname}:${a.port}/home/fechas/:id`,
+        banco : `http://${a.hostname}:${a.port}/home/bancos/:id`
     }, 
     DELETE : {
-
+        factura : `http://${a.hostname}:${a.port}/home/factura/:id`,
+        libros : `http://${a.hostname}:${a.port}/home/libros/:id`,
+        metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay/:id`,
+        pago : `http://${a.hostname}:${a.port}/home/pago/:id`,
+        persona : `http://${a.hostname}:${a.port}/home/personas/:id`,
+        recibo_caja : `http://${a.hostname}:${a.port}/home/recibo/:id`,
+        talonario : `http://${a.hostname}:${a.port}/home/talonario:factura/:id`,
+        ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion/:id`,
+        usuario : `http://${a.hostname}:${a.port}/home/usuario/:id`,
+        fecha : `http://${a.hostname}:${a.port}/home/fechas/:id`,
+        banco : `http://${a.hostname}:${a.port}/home/bancos/:id`
     }
 }
 
