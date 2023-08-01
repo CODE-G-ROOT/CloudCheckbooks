@@ -1,4 +1,4 @@
--- Active: 1689192748746@@localhost@3306@DB_prueba_BackEnd
+-- Active: 1690092600382@@localhost@3306@Talonarios
 CREATE DATABASE Talonarios;
 USE Talonarios;
 

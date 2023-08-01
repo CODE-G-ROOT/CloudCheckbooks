@@ -50,7 +50,7 @@ router_Bancos.put("/bancos/:id", proxy_banco, (req, res) => {
     const id = req.params.id;
     const data = req.body;
     con.query(
-        "UPDATE Bancos SET ? WHERE id_banco = ?",
+        `UPDATE Bancos SET ? WHERE id_banco = ?`,
         [data, id],
         (err, data) => {
             if (err) {

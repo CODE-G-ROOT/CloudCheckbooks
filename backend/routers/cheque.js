@@ -18,21 +18,7 @@ router_Cheque.use((req,res,next)=>{
 
 router_Cheque.get("/cheque",validateToken,  proxy_cheque ,(req,res)=>{
     con.query(
-        `SELECT 
-        cheque_id as "Numero_cheque",
-        persona_nombre as name,
-        ubicacion_direccion as direccion,
-        Pago.pago_id as "Referencia_pago",
-        monto_num AS monto,
-        monto_palabras AS monto_letra,
-        banco_emisor.banco_name as banco_emisor,
-        banco_receptor.banco_name as banco_receptor
-    FROM Cheque
-    INNER JOIN Persona ON Persona.persona_id = Cheque.persona_id
-    INNER JOIN Ubicacion ON Ubicacion.ubicacion_id = Persona.ubicacion_id
-    INNER JOIN Pago ON Pago.pago_id = Cheque.pago_id
-    INNER JOIN Banco AS banco_emisor ON banco_emisor.id_banco = Cheque.banco_emisor_id
-    INNER JOIN Banco AS banco_receptor ON banco_receptor.id_banco = Cheque.banco_receptor_id;`,
+        `SELECT * FROM Cheque`,
         (err,data,fill)=>{
             if(err){
                 console.error('Error al obtener los datos: ', err.message);
@@ -48,7 +34,37 @@ router_Cheque.get("/cheque",validateToken,  proxy_cheque ,(req,res)=>{
 
 router_Cheque.post("/cheque", proxy_cheque, (req, res)=>{
     con.query(
-        `INSERT INTO Cheque SET ?`, 
+        `INSERT INTO Cheque SET ?`,
+        req.body,(err, data) => {
+        if (err) {
+            console.error('Error al crear un cheque:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
+
+router_Cheque.put("/cheque/:id", proxy_cheque, (req, res)=>{
+    const id = req.params.id;
+    const data = req.body;
+    con.query(
+        `UPDATE Cheque SET ? WHERE cheque_id = ?`,
+        [data, id],
+        (err, data) => {
+        if (err) {
+            console.error('Error al actualizar el cheque:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
+
+router_Cheque.delete("/cheque:id", proxy_cheque, (req, res)=>{
+    const id = req.params.id;
+    con.query(
+        `DELETE FROM Cheque WHERE cheque_id = ?`,
         req.body,(err, data) => {
         if (err) {
             console.error('Error al crear un cheque:', err.message);
