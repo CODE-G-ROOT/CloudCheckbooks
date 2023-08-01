@@ -51,7 +51,6 @@ CREATE TABLE Persona (
 );
 
 
-
 CREATE TABLE Pago(
     pago_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     monto_num INT NOT NULL,
@@ -76,7 +75,6 @@ CREATE TABLE TALONARIO (
 );
 
 ALTER TABLE TALONARIO ADD INDEX idx_talon_tipo_id (talon_tipo_id);
-
 
 
 CREATE TABLE Cheque(

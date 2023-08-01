@@ -1,22 +1,19 @@
-import {Expose, Transform} from 'class-transformer';
+import { Expose, Transform } from 'class-transformer';
 
 export class get_bancos {
-
-    @Expose ({name : 'banco_name'})
-    @Transform (({value})=>{
-        if(value){
+    @Expose({ name: 'banco_name' })
+    @Transform(({ value }) => {
+        if (typeof value !== 'string') {
             throw {
                 status: 400,
-                message: `Los terminos y condiciones solo pueden ser de tipo string.`
-            }
+                message: 'El valor solo puede ser de tipo string.'
+            };
         }
-        return value
-    },
-    {toClassOnly: true})
-    banco : String;
+        return value;
+    })
+    banco: string;
 
-    constructor  (banco : String){
+    constructor(banco: string) {
         this.banco = banco;
     }
 }
-

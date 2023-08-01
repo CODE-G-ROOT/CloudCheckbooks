@@ -219,7 +219,7 @@ Por motivos prácticos utilizaremos las siguientes herramientas
    Ejemplo:
 
    ```url
-   http://localhost:3000/token/456
+   http://localhost:3000/validate/777/Juan
    ```
 
 2. Una vez hecho esto, se generará un token:
