@@ -33,7 +33,7 @@ router_Bancos.get("/bancos",validateToken, proxy_banco ,(req,res)=>{
 })
 
 
-router_Bancos.post("/", proxy_banco, (req, res)=>{
+router_Bancos.post("/bancos", proxy_banco, (req, res)=>{
     con.query(
         `INSERT INTO Bancos SET ?`, 
         req.body,(err, data) => {
@@ -45,5 +45,7 @@ router_Bancos.post("/", proxy_banco, (req, res)=>{
         }
     })
 });
+
+
 
 export default router_Bancos;

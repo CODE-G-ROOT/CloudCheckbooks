@@ -18,17 +18,28 @@ route_home.use((req,res,next)=>{
 let a = JSON.parse(process.env.SERVER_CONFIG);
 
 let data = {
-    factura : `http://${a.hostname}:${a.port}/home/factura`,
-    libros : `http://${a.hostname}:${a.port}/home/libros`,
-    metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay`,
-    pago : `http://${a.hostname}:${a.port}/home/pago`,
-    persona : `http://${a.hostname}:${a.port}/home/personas`,
-    recibo_caja : `http://${a.hostname}:${a.port}/home/recibo`,
-    talonario : `http://${a.hostname}:${a.port}/home/talonario:factura`,
-    ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion`,
-    usuario : `http://${a.hostname}:${a.port}/home/usuario`,
-    fecha : `http://${a.hostname}:${a.port}/home/fechas`,
-    banco : `http://${a.hostname}:${a.port}/home/bancos`
+    GET : {
+        factura : `http://${a.hostname}:${a.port}/home/factura`,
+        libros : `http://${a.hostname}:${a.port}/home/libros`,
+        metodo_pago : `http://${a.hostname}:${a.port}/home/met_pay`,
+        pago : `http://${a.hostname}:${a.port}/home/pago`,
+        persona : `http://${a.hostname}:${a.port}/home/personas`,
+        recibo_caja : `http://${a.hostname}:${a.port}/home/recibo`,
+        talonario : `http://${a.hostname}:${a.port}/home/talonario:factura`,
+        ubicacion : `http://${a.hostname}:${a.port}/home/ubicacion`,
+        usuario : `http://${a.hostname}:${a.port}/home/usuario`,
+        fecha : `http://${a.hostname}:${a.port}/home/fechas`,
+        banco : `http://${a.hostname}:${a.port}/home/bancos`
+    },
+    POST : {
+
+    },
+    PUT : {
+
+    }, 
+    DELETE : {
+
+    }
 }
 
 route_home.get("/" ,(req,res)=>{

@@ -249,17 +249,7 @@ Por motivos prácticos utilizaremos las siguientes herramientas
 
 Aquí encontrarás las rutas de acceso a diferentes secciones:
 
-- Factura: http://localhost:3000/home/factura
-- Libros: http://localhost:3000/home/libros
-- Metodo_pago: http://localhost:3000/home/metodo_pago
-- Pago: http://localhost:3000/home/pago
-- Persona: http://localhost:3000/home/persona
-- Recibo_caja: http://localhost:3000/home/recibo_caja
-- Talonario: http://localhost:3000/home/talonario
-- Ubicacion: http://localhost:3000/home/ubicacion
-- Usuario: http://localhost:3000/home/usuario
-- Fecha: http://localhost:3000/home/fecha
-- Banco: http://localhost:3000/home/banco
+- Factura: http://localhost:3000/home
 
 
 

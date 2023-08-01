@@ -39,7 +39,8 @@ app.use('/validate', appJWT);
 const serverConfig = JSON.parse(process.env.SERVER_CONFIG);
 
 app.listen(serverConfig.port, serverConfig.hostname, ()=>{
-    console.log(`http://${serverConfig.hostname}:${serverConfig.port}`
+    console.clear();
+    console.log(`http://${serverConfig.hostname}:${serverConfig.port}/home`
 )});
 
 export default serverConfig;

@@ -1,4 +1,3 @@
--- Active: 1685727283040@@127.0.0.1@3306@Talonarios
 USE Talonarios;
 
 INSERT INTO Usuario (usu_id, usu_nickname, usu_email, contraseña, libros_cantidad) VALUES
