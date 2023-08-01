@@ -19,7 +19,7 @@ router_Bancos.use((req, res, next) => {
 
 router_Bancos.get("/bancos", validateToken, proxy_banco, (req, res) => {
     con.query(
-        `SELECT * FROM Banco
+        `SELECT * FROM Banco;
         `,
         (err, data, fill) => {
             if (err) {
@@ -46,36 +46,36 @@ router_Bancos.post("/bancos", proxy_banco, (req, res) => {
         })
 });
 
-router_Bancos.put("/bancos/:id", proxy_banco, (req, res) => {
-    const id = req.params.id;
-    const data = req.body;
-    con.query(
-        `UPDATE Bancos SET ? WHERE id_banco = ?`,
-        [data, id],
-        (err, data) => {
-            if (err) {
-                console.error("Error al actualizar el banco:", err.message);
-                res.sendStatus(500);
-            } else {
-                res.send(data);
-            }
-        }
-    );
-});
+// router_Bancos.put("/bancos/:id", proxy_banco, (req, res) => {
+//     const id = req.params.id;
+//     const data = req.body;
+//     con.query(
+//         `UPDATE Bancos SET ? WHERE id_banco = ?`,
+//         [data, id],
+//         (err, data) => {
+//             if (err) {
+//                 console.error("Error al actualizar el banco:", err.message);
+//                 res.sendStatus(500);
+//             } else {
+//                 res.send(data);
+//             }
+//         }
+//     );
+// });
 
-router_Bancos.delete("/bancos/:id", proxy_banco, (req, res) => {
-    const id = req.params.id;
-    con.query(
-        `DELETE FROM Bancos WHERE id_banco = ?`,
-        req.body, (err, data) => {
-            if (err) {
-                console.error('Error al crear el libro:', err.message);
-                res.sendStatus(500);
-            } else {
-                res.send(data);
-            }
-        })
-});
+// router_Bancos.delete("/bancos/:id", proxy_banco, (req, res) => {
+//     const id = req.params.id;
+//     con.query(
+//         `DELETE FROM Bancos WHERE id_banco = ?`,
+//         req.body, (err, data) => {
+//             if (err) {
+//                 console.error('Error al crear el libro:', err.message);
+//                 res.sendStatus(500);
+//             } else {
+//                 res.send(data);
+//             }
+//         })
+// });
 
 
 
