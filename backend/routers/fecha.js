@@ -33,6 +33,32 @@ router_Fechas.get("/fechas", validateToken ,proxy_fechas ,(req,res)=>{
 })
 
 
+router_Fechas.post("/fechas", proxy_fechas, (req, res)=>{
+    con.query(
+        `INSERT INTO Fechas SET ?`, 
+        req.body,(err, data) => {
+        if (err) {
+            console.error('Error al crear el libro:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
+
+router_Fechas.put("/", proxy_fechas, (req, res)=>{
+    con.query(
+        `INSERT INTO Fechas SET ?`, 
+        req.body,(err, data) => {
+        if (err) {
+            console.error('Error al crear el libro:', err.message);
+            res.sendStatus(500);
+        } else {
+            res.send(data);
+        }
+    })
+});
+
 router_Fechas.post("/", proxy_fechas, (req, res)=>{
     con.query(
         `INSERT INTO Fechas SET ?`, 
@@ -45,5 +71,6 @@ router_Fechas.post("/", proxy_fechas, (req, res)=>{
         }
     })
 });
+
 
 export default router_Fechas;
