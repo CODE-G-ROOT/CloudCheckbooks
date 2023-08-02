@@ -49,17 +49,51 @@ router_Factura.get("/factura", validateToken, proxy_facturas ,(req,res)=>{
 })
 
 
-router_Factura.post("/", proxy_facturas, (req, res)=>{
+router_Factura.post("/factura", proxy_facturas, (req, res)=>{
     con.query(
         `INSERT INTO Factura SET ?`, 
         req.body,(err, data) => {
         if (err) {
-            console.error('Error al crear la factura:', err.message);
+            console.error('Error al publicar una factura:', err.message);
             res.sendStatus(500);
         } else {
             res.send(data);
         }
     })
+});
+
+router_Factura.put("/factura/:id", proxy_facturas, (req, res)=>{
+    const id = req.params.id;
+    const data = req.body;
+    con.query(
+        `UPDATE Factura SET ? WHERE factura_id = ?`, 
+        [data, id],
+        (err, data) => {
+            if (err) {
+                console.error('Error al actualizar la factura:', err.message);
+                res.sendStatus(500);
+            } else {
+                res.send(data);
+            }
+        }
+    );
+});
+
+router_Factura.delete("/factura/:id", proxy_facturas, (req, res)=>{
+    const id = req.params.id;
+    const data = req.body;
+    con.query(
+        `DELETE FROM Factura WHERE factura_id = ?`, 
+        [data, id],
+        (err, data) => {
+            if (err) {
+                console.error('Error al eliminar la factura:', err.message);
+                res.sendStatus(500);
+            } else {
+                res.send(data);
+            }
+        }
+    );
 });
 
 export default router_Factura;
